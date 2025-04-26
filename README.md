@@ -37,7 +37,7 @@ There are the three reasons:
 
 ## Diary of tries: the first and second steps together
 
-### 1) NEXTSPACE (by Sergii Stoian, Trunkmaster at Github)
+### 1) [NEXTSPACE](https://github.com/trunkmaster/nextspace) (by Sergii Stoian, Trunkmaster at Github)
 
 - Sergii Stoian is a very implicated and reactive developer, historic member of the GNUstep community. He decided to develop all the needed master pieces like the Workspace, and to modify accordingly the window manager (renewed code from Window Maker). But some persistent issues related to the pi 400 prevent me until now to adopt its project for a daily use:
 
@@ -46,7 +46,7 @@ There are the three reasons:
 
 - Although I can't yet adopt it for the above reasons, I was also able to build many GNUstep apps to add on it.: see the repo <https://github.com/pcardona34/apps-within-nextspace>.
 
-### 2) GS-Desktop (by Ondrej Florian, Onflapp at Github)
+### 2) [GS-Desktop](https://github.com/onflapp/gs-desktop) (by Ondrej Florian, Onflapp at Github)
    
 - Onflapp uses more classic pieces of software like GWorkspace and the classic Window Maker, and he added many useful little apps and services which provide a smart experience. 
 - I was also able to build many other GNUstep apps: see the repo <https://github.com/pcardona34/apps-within-gsde>.
