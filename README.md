@@ -3,9 +3,9 @@ About setting a compliant OPENSTEP Desktop on a RPI Pi 400
 
 ## Abstract
 
-Now I have more personal time, I consider to accomplish an old dream: setting and using a NEXTSTEP like operating system on a recent and silent (fanless) computer. My hardware choice is now a Raspberry Pi 400 and my project is a kind of Pi-STEP initiative to develop and to share a bootable SD card image of that OS to the communities concerned: GNUstep developers and also young learners within the Pi Foundation project. It could be a showcase like is already the [LiveStep project](https://github.com/probonopd/LIVEstep) for the FreeBSD.
+Now I have more personal time, I consider to accomplish an old dream: setting and using a OPENSTEP like operating system: see History of NeXT and OPENSTEP: [French readers](https://www.levenez.com/NeXTSTEP/Historique.html) or there: [OPENSTEP](https://next.fandom.com/wiki/OpenStep) - on a recent and silent (fanless) computer. My hardware choice is now a [Raspberry Pi 400](https://www.raspberrypi.com/products/raspberry-pi-400/specifications/) and my project is a kind of Pi-STEP initiative to develop and to share a bootable SD card image of that OS with Desktop to the communities concerned: GNUstep developers and also young learners within the [Raspberry Pi Foundation](https://www.raspberrypi.org/) project. It could be a showcase like is already the [LiveStep project](https://github.com/probonopd/LIVEstep) for the FreeBSD.
 
-For several month, I tried some great projects of integrated Desktop purposes like NEXTSPACE (by Sergii Stoian) and GS-Desktop (by Ondrej Florian) about those projects I have a great respect because of the work they accomplished.
+For several month, I tried some great projects of integrated Desktop purposes like [NEXTSPACE (by Sergii Stoian)](https://github.com/trunkmaster/nextspace) and [GS-Desktop (by Ondrej Florian)](https://github.com/onflapp/gs-desktop) about those projects I have a great respect because of the work they accomplished.
 
 But until now, I am not satisfied...
 
@@ -13,15 +13,15 @@ But until now, I am not satisfied...
 
 ## The Goal
 
-So a Pi-STEP initiative or how to build a NEXTSTEP (1) like Desktop and a Learning GNUstep/Cocoa (2) environment on an affordable (3) material.
+So a Pi-STEP initiative or how to build an OPENSTEP (1) like Desktop and a Learning GNUstep (2) environment on an affordable (3) material.
 
 There are the three reasons:
 
-1) NEXTSTEP, then OPENSTEP are simply the root of MacOS. If You read a tutorial for the NEXTSTEP programming, i.e. the famous 'Currency Converter' using NeXT tools like Project Manager and Interface Builder, You will discover that the same way is still available and efficient to build an app with Apple's XCode or with the GNUstep equivalent legacy tools: ProjectCenter and Gorm.
+1) NEXTSTEP, then OPENSTEP are simply the root of MacOS. If You read a tutorial for the NEXTSTEP programming, i.e. the famous 'Currency Converter' ([see Discovering OPENSTEP.pdf, begining from page 17](https://github.com/userLevel/next/blob/main/Discovering%20OPENSTEP.pdf)) using NEXTSTEP/OPENSTEP tools like 'Project Builder' and 'Interface Builder', You will discover that the same way is still available and efficient to build an app with Apple's XCode or with the GNUstep equivalent legacy tools: ProjectCenter and Gorm.
 
-2) GNUstep is a set of libraries and tools compliant with OPENSTEP/Cocoa frameworks and specifications which allow a developer to create efficiently portable software to Microsoft Windows, Apple MacOS and to the UNICES operating systems like GNU/Linux and BSD like.
+2) [GNUstep](https://gnustep.github.io/) is a set of libraries, frameworks and tools compliant with OPENSTEP/Cocoa frameworks and specifications which allow a developer to create efficiently portable software to Microsoft Windows, Apple MacOS and to the UNICES operating systems like GNU/Linux and BSD like.
 
-3) To manage the Future, we should thing the way to enlarge the GNUstep community. Young developers may not have the money to buy an Apple MacBook, but they could buy a more affordable material like a Raspberry pi 400 or a pi 500. And there is yet a great community around the Raspberry Foundation, with Teachers and Learners. Another great reason is because the pi 400 provide a simple way to change the operating system and to test a new one: simply change the SD card and boot with another system, that is so simple.
+3) To manage the Future, we should thing the way to enlarge the GNUstep community. Young developers may not have the money to buy yet an Apple MacBook, but they could buy a more affordable material like a Raspberry pi 400 or a pi 500. And there is yet a great community around the Raspberry Foundation, with Teachers and Learners. Another great reason is because the pi 400 provide a simple way to change the operating system and to test a new one: simply change the SD card and boot with another system, that is so simple.
 
 ---
 
@@ -29,7 +29,7 @@ There are the three reasons:
 
 1) Building a consistent OS/Desktop compliant with the OPENSTEP specifications and pi 400 hardware: the average user should find there some familiar commodities like a software updater, etc.
 
-2) Adding significative apps for the user experience and tools for the Developper: this is a Showcase and a Workshop.
+2) Adding significative apps for the user experience and tools for the Developper: this is together a Showcase and a Workshop.
 
 3) Providing a finalized SD card image to copy and to boot on.
 
