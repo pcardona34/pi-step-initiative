@@ -17,7 +17,7 @@ So a Pi-STEP initiative or how to build an OPENSTEP (1) like Desktop and a Learn
 
 There are the three reasons:
 
-1) NEXTSTEP, then OPENSTEP are simply the root of MacOS. If You read a tutorial for the NEXTSTEP programming, i.e. the famous 'Currency Converter' ([see Discovering OPENSTEP.pdf, begining from page 17](https://github.com/userLevel/next/blob/main/Discovering%20OPENSTEP.pdf)) using NEXTSTEP/OPENSTEP tools like 'Project Builder' and 'Interface Builder', You will discover that the same way is still available and efficient to build an app with Apple's XCode or with the GNUstep equivalent legacy tools: ProjectCenter and Gorm.
+1) NEXTSTEP, then OPENSTEP are simply the root of MacOS. If You read a tutorial for the OPENSTEP programming, i.e. the famous 'Currency Converter' ([see Discovering OPENSTEP.pdf, begining from page 17](https://github.com/userLevel/next/blob/main/Discovering%20OPENSTEP.pdf)) using NEXTSTEP/OPENSTEP tools like 'Project Builder' and 'Interface Builder', You will discover that the same way is still available and efficient to build an app with Apple's XCode or with the GNUstep equivalent legacy tools: ProjectCenter and Gorm.
 
 2) [GNUstep](https://gnustep.github.io/) is a set of libraries, frameworks and tools compliant with OPENSTEP/Cocoa frameworks and specifications which allow a developer to create efficiently portable software to Microsoft Windows, Apple MacOS and to the UNICES operating systems like GNU/Linux and BSD like.
 
