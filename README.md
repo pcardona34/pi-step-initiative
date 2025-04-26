@@ -29,7 +29,7 @@ There are the three reasons:
 
 1) Building a consistent OS/Desktop compliant with the OPENSTEP specifications and pi 400 hardware: the average user should find there some familiar commodities like a software updater, etc.
 
-2) Adding significative apps for the user experience and tools for the Developper: this is together a Showcase and a Workshop.
+2) Adding significative apps for the user experience and tools for the Developper: there are together a Showcase and a Workshop.
 
 3) Providing a finalized SD card image to copy and to boot on.
 
