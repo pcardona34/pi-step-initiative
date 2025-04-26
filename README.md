@@ -13,7 +13,7 @@ But until now, I am not satisfied...
 
 ## The Goal
 
-So a Pi-STEP initiative or how to build an OPENSTEP (1) like Desktop and a Learning GNUstep (2) environment on an affordable (3) material.
+So a Pi-STEP initiative or how to build an OPENSTEP (1) like Desktop and a Learning GNUstep (2) environment on an affordable (3) hardware.
 
 There are the three reasons:
 
