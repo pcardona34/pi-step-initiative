@@ -41,8 +41,8 @@ There are the three reasons:
 
 - Sergii Stoian is a very implicated and reactive developer, historic member of the GNUstep community. He decided to develop all the needed master pieces like the Workspace, and to modify accordingly the window manager (renewed code from Window Maker). But some persistent issues related to the pi 400 prevent me until now to adopt its project for a daily use:
 
-  a) Lost keyboard input within the non GNUstep native X11 applications (like chromium browser, xedit, etc.) when you change the keyboard layout: default layout is English qwerty, mine is French azerty, with oss variant.
-  b) Flickering display when you select the HD mode (1080p is unfortunately turned to 1080i: interlaced) : so you must downgrade to a lower resolution.
+  - a) Lost keyboard input within the non GNUstep native X11 applications (like chromium browser, xedit, etc.) when you change the keyboard layout: default layout is English qwerty, mine is French azerty, with oss variant.
+  - b) Flickering display when you select the HD mode (1080p is unfortunately turned to 1080i: interlaced) : so you must downgrade to a lower resolution.
 
 - Although I can't yet adopt it for the above reasons, I was also able to build many GNUstep apps to add on it.: see the repo <https://github.com/pcardona34/apps-within-nextspace>.
 
