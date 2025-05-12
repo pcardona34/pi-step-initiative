@@ -39,12 +39,13 @@ There are the three reasons:
 
 ### 1) [NEXTSPACE](https://github.com/trunkmaster/nextspace) (by Sergii Stoian, Trunkmaster at Github)
 
-- Sergii Stoian is a very implicated and reactive developer, historic member of the GNUstep community. He decided to develop all the needed master pieces like the Workspace, and to modify accordingly the window manager (renewed code from Window Maker). But some persistent issues related to the pi 400 prevent me until now to adopt its project for a daily use:
+- Sergii Stoian is a very implicated and reactive developer, historic member of the GNUstep community. He decided to develop all the needed master pieces like the Workspace, and to modify accordingly the window manager (renewed code from Window Maker).
+- <s>But some persistent issues related to the pi 400 prevent me until now to adopt its project for a daily use</s>:
 
-  - a) Lost keyboard input within the non GNUstep native X11 applications (like chromium browser, xedit, etc.) when you change the keyboard layout: default layout is English qwerty, mine is French azerty, with oss variant.
-  - b) Flickering display when you select the HD mode (1080p is unfortunately turned to 1080i: interlaced) : so you must downgrade to a lower resolution.
+  - a) <s>Lost keyboard input within the non GNUstep native X11 applications (like chromium browser, xedit, etc.) when you change the keyboard layout: default layout is English qwerty, mine is French azerty, with oss variant.</s> ==> This issue is about to be fixed soon, thanks to the clue done by FuyOusFrank.
+  - b) Flickering display when you select the HD mode (1080p is unfortunately turned to 1080i: interlaced) : so you must downgrade to a lower resolution: well You can use 1680x1050 that is enough for a Desktop use.
 
-- Although I can't yet adopt it for the above reasons, I was also able to build many GNUstep apps to add on it.: see the repo <https://github.com/pcardona34/apps-within-nextspace>.
+- <s>Although I can't yet adopt it for the above reasons</s>, I was also able to build many GNUstep apps to add on it.: see the repo <https://github.com/pcardona34/apps-within-nextspace>.
 
 ### 2) [GS-Desktop](https://github.com/onflapp/gs-desktop) (by Ondrej Florian, Onflapp at Github)
    
@@ -52,6 +53,7 @@ There are the three reasons:
 - I was also able to build many other GNUstep apps: see the repo <https://github.com/pcardona34/apps-within-gsde>.
 
 - But it seems the way GNUstep was built is not up to date: no arc nor clang. So I am guessing about this choice to provide a modern GNUstep environment.
+- I also noted no reactive response to the issues submited...
 
 ---
 
