@@ -7,7 +7,7 @@ Now I have more personal time, I consider to accomplish an old dream: setting an
 
 For several month, I tried some great projects of integrated Desktop purposes like [NEXTSPACE (by Sergii Stoian)](https://github.com/trunkmaster/nextspace) and [GS-Desktop (by Ondrej Florian)](https://github.com/onflapp/gs-desktop) about those projects I have a great respect because of the work they accomplished.
 
-But until now, I am not satisfied...
+<s>But until now, I am not satisfied...</s>
 
 ---
 
@@ -42,7 +42,7 @@ There are the three reasons:
 - Sergii Stoian is a very implicated and reactive developer, historic member of the GNUstep community. He decided to develop all the needed master pieces like the Workspace, and to modify accordingly the window manager (renewed code from Window Maker).
 - <s>But some persistent issues related to the pi 400 prevent me until now to adopt its project for a daily use</s>:
 
-  - a) <s>Lost keyboard input within the non GNUstep native X11 applications (like chromium browser, xedit, etc.) when you change the keyboard layout: default layout is English qwerty, mine is French azerty, with oss variant.</s> ==> This issue is about to be fixed soon, thanks to the clue done by FuyOusFrank.
+  - a) <s>Lost keyboard input within the non GNUstep native X11 applications (like chromium browser, xedit, etc.) when you change the keyboard layout: default layout is English qwerty, mine is French azerty, with oss variant.</s> ==> This issue is about to be fixed soon, thanks to the clue done by FuryOusFrank.
   - b) Flickering display when you select the HD mode (1080p is unfortunately turned to 1080i: interlaced) : so you must downgrade to a lower resolution: well You can use 1680x1050 that is enough for a Desktop use.
 
 - <s>Although I can't yet adopt it for the above reasons</s>, I was also able to build many GNUstep apps to add on it.: see the repo <https://github.com/pcardona34/apps-within-nextspace>.
