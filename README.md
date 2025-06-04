@@ -47,6 +47,8 @@ There are the three reasons:
 
 - <s>Although I can't yet adopt it for the above reasons</s>, I was also able to build many GNUstep apps to add on it.: see the repo <https://github.com/pcardona34/apps-within-nextspace>.
 
+- But, it happened, while talking about a clean, modern and consistent GNUstep environment in the GNUstep Discuss list that some choices of the NEXTSPACE project were controversed: like the ART backend VS the Cairo one, because the last is the default on Debian.
+
 ### 2) [GS-Desktop](https://github.com/onflapp/gs-desktop) (by Ondrej Florian, Onflapp at Github)
    
 - Onflapp uses more classic pieces of software like GWorkspace and the classic Window Maker, and he added many useful little apps and services which provide a smart experience. 
@@ -54,6 +56,11 @@ There are the three reasons:
 
 - But it seems the way GNUstep was built is not up to date: no arc nor clang. So I am guessing about this choice to provide a modern GNUstep environment.
 - I also noted no reactive response to the issues submited...
+
+### 3) The third way: a PiSiOS try ?
+
+- So I tried to build a clean, modern and consistent GNUstep environment from the latest sources on the Debian Raspberry OS Lite. PiSiOS means: Pi (Raspberry Pi) S(tep) i(nitiative) OS. This try is still an Alpha stage...
+- See the scripts and logs in this repo...
 
 ---
 
