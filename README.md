@@ -1,5 +1,5 @@
 # A Pi-STEP initiative
-About setting an OPENSTEP like Desktop on a Raspberry Pi 400
+About setting a GNUstep compliant Desktop on a Raspberry Pi 400
 
 ## Abstract
 
