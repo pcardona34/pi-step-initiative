@@ -163,11 +163,11 @@ A strategic choice is the WebBrowser, because it must be well integrated witihin
 
 ### What it seems
 
-- Look at the folder named 'SCREENSHOTS' to get some views.
+- Look at the folder named [Screenshots](./Screenshots) to get some views.
 
 ## How to install
 
-Read 'INSTALL' file.
+Read the [INSTALL](./INSTALL) guide.
 
 ## Launch the Desktop and enjoy
 
