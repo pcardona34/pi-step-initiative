@@ -18,7 +18,7 @@ It could be a showcase like is already the [LiveStep project](https://github.com
 
 ---
 
-(1) See History of NeXT and OPENSTEP: 
+See History of NeXT and OPENSTEP: 
 
 - [French readers](https://www.levenez.com/NeXTSTEP/Historique.html)
 - [OPENSTEP](https://next.fandom.com/wiki/OpenStep) 
@@ -95,7 +95,7 @@ Developper: there are together a Showcase and a Workshop.
 
 ### Screenshots
 
-![Screenshot: release 0.1-alpha](./Screenshot/Screenshot_V01_mini.jpg)
+![Screenshot: release 0.1-alpha](./Screenshots/Screenshot_V01_mini.jpg)
 [Magnify](./Screenshots/Screenshot_V01.jpg)
 
 **On the screen** (above)
