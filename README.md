@@ -4,7 +4,7 @@ About setting a GNUstep compliant Desktop on a Raspberry Pi 400
 ## Abstract
 
 Now I have more personal time, I consider to accomplish an old dream: 
-setting and using a OPENSTEP(1) like operating system on a recent and silent
+setting and using a GNUstep compliant operating system on a recent and silent
 (fanless) computer. 
 
 My hardware choice is now a [Raspberry Pi 400](https://www.raspberrypi.com/products/raspberry-pi-400/specifications/) 
