@@ -1,2 +1,3 @@
 [x] /etc/skel set at the end of deskop install
-
+[ ] Finish the more apps and Games of the section install
+[ ] Allow individual install and removing
