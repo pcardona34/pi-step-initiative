@@ -1,0 +1,80 @@
+# PiStep Initiative Desktop (PISI)
+
+## How to install
+
+### Base OS and Locale
+
+1) Create an SD card with the Raspberry Pi OS Lite (no desktop)   
+and then boot with this system.
+
+2) Update the Debian OS:
+
+	sudo apt update && sudo apt full-upgrade
+
+3) Enable and install your desired locale:
+
+- Uncomment your locale in '/etc/locale.gen':
+
+	sudo nano /etc/locale.gen
+
+- Generate your locale:
+
+	sudo locale-gen
+
+- Set your locale (adapt the command below to your locale):
+
+	sudo localectl set-locale fr_FR.UTF-8
+
+- Exit and Log in again to apply the new locale in your context.
+- Verify the locale is correctly set:
+
+	locale
+
+### Prerequisites
+
+- Install 'git':
+
+	sudo apt install git
+
+- Add a 'SOURCES' directory to build all is needed:
+
+	mkdir SOURCES && cd SOURCES
+
+- Clone this repository:
+
+	git clone https://github.com/pcardona34/pi-step-initiative.git
+	cd pi-step-initiative/pisi
+
+### Prepare the installation
+	
+(i) Tip: the point './' below means to search and execute the script in the current directory:
+
+	./1_prep.sh
+	
+### Start the main installation script
+
+	./2_install_PISI.sh
+
+This will show you an help message to select your OPTION installation.
+
+### Set the current user's environment
+
+	./3_user_settings.sh
+	
+N.B.: when you will regenerate your default user's setting, log out the Desktop and do that:
+	cd && rm -fR GNUstep
+	cd SOURCES/pi-step_initiative/pisi
+	./3_user_settings.sh
+	
+### Start the X server and PiSi Desktop
+	
+	cd
+	startx
+
+Enjoy!
+
+## CAUTION!
+
+/!\ Until now, there is no GNUstep Login Manager.
+!!! DO NOT install 'wdm' session manager, because the WINGS libs dependencies 
+would conflict with those already installed by PiSi Desktop.

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# $HOME/.xinitrc
+#
+# global xinitrc file, used by all X sessions started by xinit (startx)
+
+### Start Xserver & Window Manager:
+wmaker --no-clip --static &
+### Keep the PID of the WM
+PID_WM=$!
+
+### Start the Workspace as the leader session
+exec openapp GWorkspace
+
+### This will be executed when the Workspace will be closed (logout menu)
+sudo kill -9 ${PID_WM}
+
+
+############ INFO ###############################################
+### DMPS and blanking issues on RPI machine
+### are fixed (xset) within
+### $HOME/GNUstep/Library/WindowMaker/autostart
+### Not here!
+#################################################################
+### Setting GNUstep environment
+### This is done with .profile, not here.
+#################################################################
+### Starting Apps within wmaker is done
+### with session management.... Not here.
+#################################################################
