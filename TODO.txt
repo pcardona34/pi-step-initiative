@@ -1,2 +1,2 @@
-/etc/skel set at the end of deskop install !!! maybe a third stage before user_setting...
+[x] /etc/skel set at the end of deskop install
 
