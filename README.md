@@ -1,3 +1,9 @@
+### !!!WARNING!!! This is an Alpha Stage...
+
+So not yet ready nor yet intended to be used.
+So do not try nor post issues unless this warning will be deleted.
+See TODO.md to understand all the work to be done before...
+
 # A Pi-STEP initiative
 About setting a GNUstep compliant Desktop on a Raspberry Pi 400
 

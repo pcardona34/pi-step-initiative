@@ -9,9 +9,9 @@
 ### Read License in the root directory.
 ####################################################
 
-################################
-### Functions for PiSi Desktop Base
-################################
+####################################################
+### Functions for PiSi Desktop Base - GNUstep apps
+####################################################
 
 . SCRIPTS/check_app.sh
 
@@ -1022,13 +1022,18 @@ check "$APPNAME"
 ### 3.10
 ######################################
 
+function install_netsurf
 {
+
 APPNAME=Netsurf
 RELEASE="3.10"
 
 title "$APPNAME $RELEASE" | tee -a $LOG
 
 cd ../build || exit 1
+
+
+
 
 printf "Fetching...\n"
 if [ -d netsurf-gnustep ];then
@@ -1038,9 +1043,6 @@ else
         git clone https://github.com/anthonyc-r/netsurf-gnustep.git &>/dev/null
         cd netsurf-gnustep
 fi
-
-cd $_PWD
-exit
 
 printf "Building...\n"
 make &>>$LOG &
@@ -1062,138 +1064,7 @@ cd $_PWD
 printf "\nChecking...\n"
 check "$APPNAME"
 }
-
-#####################################
-## Window Maker
-### Repo: windowmaker.org
-### Release: see below
-#####################################
-
-function install_wmaker()
-{
-
-REPO="https://www.windowmaker.org/pub/source/release/"
-APP="WindowMaker"
-APPNAME="$APP"
-
-############ CHOICE OF THE RELEASE #################
-# Install the latest release of WMaker: 0.96.0
-RELEASE="0.96.0"
-# Install previous stable release
-#RELEASE="0.95.9"
-#####################################################
-
-CONFIG_ARGS="--disable-xinerama --disable-magick"
-EXT=".tar.gz"
-DIR="${APP}-${RELEASE}"
-ARCHIVE="${DIR}${EXT}"
-LINGUAS="fr uk"
-
-title "$APPNAME $RELEASE" | tee -a $LOG
-
-cd ../build || exit 1
-
-printf "Fetching...\n"
-if [ -d $DIR ];then
-	cd $DIR
-else
-	wget --quiet "${REPO}${ARCHIVE}"
-	gunzip --force ${ARCHIVE}
-	tar -xf ${DIR}.tar
-	cd $DIR || exit 1
-fi
-
-printf "Configuring...\n"
-./autogen.sh ${CONFIG_ARGS} &>>$LOG
-./configure ${CONFIG_ARGS} &>>$LOG &
-PID=$!
-spinner
-
-printf "\rBuilding...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-sudo ldconfig
-
-### Cleaning
-make clean &>/dev/null
-
-cd $_PWD
-
-ok "\rDone"
-
-### Checking
-VER=`wmaker --version`
-if [ $? == 0 ];then
-	info "$VER has been successfully installed."
-else
-	alert "Window Maker was not successfully installed. This is a major issue. Read $LOG.\nAnd report this issue to:\nhttps://github.com/pcardona34/pi-step-initiative/issues"
-fi
-}
-### End of Wmaker
-######################################
-
-######################################
-## WMClock
-### Repo/Release: dockapps.net: 1.0.16
-######################################
-
-function install_wmclock
-{
-
-APPNAME=WMClock
-RELEASE="1.0.16"
-CONFIG_ARGS="--with-lang=french"
-
-title "$APPNAME $RELEASE" | tee -a $LOG
-
-cd ../build || exit 1
-
-printf "Fetching...\n"
-if [ -d dockapps-daaf3aa ];then
-	cd dockapps-daaf3aa
-else
-	wget --quiet https://www.dockapps.net/download/wmclock-1.0.16.tar.gz
-	gunzip --force wmclock-1.0.16.tar.gz
-	tar -xf wmclock-1.0.16.tar
-	cd dockapps-daaf3aa
-fi
-
-printf "Configuring...\n"
-autoreconf -i &>>$LOG
-./configure ${CONFIG_ARGS} &>>$LOG &
-PID=$!
-spinner
-
-printf "\rBuilding...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-ok "\rDone"
-cd $_PWD
-
-### Checking
-WMC=`which wmclock`
-if [ $? -eq 0 ];then
-	info "The app binary has been found here:\n${WMC}"
-else
-	alert "The app binary was not found. Please, report this issue."
-fi
-
-}
-### End of WMClock
+### End of NetSurf
 ##############################################
 
 ##############################################

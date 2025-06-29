@@ -34,11 +34,12 @@ _PWD=`pwd`
 
 function install_base()
 {
+. SCRIPTS/inst_0_build_wmaker.sh
 . SCRIPTS/inst_1_build_libdispatch.sh
 . SCRIPTS/inst_2_build_libojc2.sh
 . SCRIPTS/inst_3_build_gnustep.sh
 . SCRIPTS/inst_4_build_frameworks.sh
-. SCRIPTS/inst_5_build_desktop.sh
+. SCRIPTS/inst_5_build_gnustep_apps.sh
 }
 ### End of base
 ####################################################
@@ -47,7 +48,7 @@ function install_base()
 ### Install the extra apps and games
 function install_extra()
 {
-. SCRIPTS/inst_6_build_more_apps.sh
+. SCRIPTS/inst_6_build_extra_apps.sh
 . SCRIPTS/inst_7_build_games.sh
 }
 ### end of extra
