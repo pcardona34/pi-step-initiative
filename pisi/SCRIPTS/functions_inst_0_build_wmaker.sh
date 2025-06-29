@@ -11,6 +11,7 @@
 
 ####################################################
 ### Functions for PiSi Desktop Base - WMaker
+### And some DockApps
 ####################################################
 
 ####################################################
@@ -91,7 +92,7 @@ VER=`wmaker --version`
 if [ $? == 0 ];then
 	info "$VER has been successfully installed."
 else
-	alert "Window Maker was not successfully installed. This is a major issue. Read $LOG.\nAnd report this issue to:\nhttps://github.com/pcardona34/pi-step-initiative/issues"
+	alert "Window Maker was not successfully installed. This is a major issue. Read $LOG.\nAnd report this issue to:\nhttps://github.com/pcardona34/pi-step-initiative/issues" && exit 1
 fi
 }
 ### End of Wmaker
@@ -147,7 +148,7 @@ WMC=`which wmclock`
 if [ $? -eq 0 ];then
 	info "The app binary has been found here:\n${WMC}"
 else
-	alert "The app binary was not found. Please, report this issue."
+	alert "The app binary was not found. Please, report this issue." && exit 1
 fi
 
 }

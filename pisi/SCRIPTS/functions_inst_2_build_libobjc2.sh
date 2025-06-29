@@ -18,8 +18,7 @@
 function install_libobjc2()
 {
 
-title "Lib OBJC2"
-echo "LIBOBJC2" >> $LOG
+title "Lib OBJC2" | tee -a $LOG
 
 printf "Fetching...\n"
 if [ -d libobjc2 ];then

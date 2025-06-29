@@ -55,6 +55,6 @@ install_dbuskit
 make_services &>>$LOG
 sudo ldconfig
 
-info "All is done in $0." | tee -a $LOG
+info "All is done for the Frameworks." | tee -a $LOG
 sleep 2
 

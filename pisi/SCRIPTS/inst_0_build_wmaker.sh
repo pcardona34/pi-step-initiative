@@ -14,6 +14,7 @@
 ################################
 
 ### Install Window Maker
+### And some DockApps...
 
 ################################
 ### ENV
@@ -53,12 +54,10 @@ echo "$0" >$LOG
 
 ### The DockApps must be built after wmaker and Wings libs.
 
-#install_wmaker
-#install_wmclock
+install_wmaker
+install_wmclock
 install_alsamixer_dot_app
 
 sudo ldconfig
 
 ###############
-
-

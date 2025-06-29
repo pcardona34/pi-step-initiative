@@ -21,6 +21,10 @@ __PWD=`pwd`
 GNUSTEP_APPS_DIR=/usr/local/lib/GNUstep/Applications
 ISSUES=https://github.com/pcardona34/pi-step-initiative/issues
 
+if ! [ -d $GNUSTEP_APPS_DIR ];then
+	sudo mkdir -p $GNUSTEP_APPS_DIR
+fi
+
 if [ -n "$1" ];then
 	APP="$1"
 else
@@ -37,6 +41,8 @@ else
 	alert "ERROR! The application ${APP} was not found in ${GNUSTEP_APPS_DIR}.\nPlease, report this issue at:\n${ISSUES}"
 	exit 1
 fi
+
+cd $__PWD
 }
 
 ### Test

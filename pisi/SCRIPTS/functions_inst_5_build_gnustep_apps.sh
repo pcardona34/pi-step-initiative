@@ -288,7 +288,7 @@ check "$APPNAME"
 function install_easydiff()
 {
 
-APPNAME=Easydiif
+APPNAME=EasyDiff
 RELEASE="0.4.1"
 
 title "$APPNAME $RELEASE" | tee -a $LOG
@@ -311,7 +311,7 @@ PID=$!
 spinner
 
 printf "\rInstalling...\n"
-sudo make install &>>$LOG &
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
@@ -1016,57 +1016,11 @@ cd $_PWD
 printf "\nChecking...\n"
 check "$APPNAME"
 }
-
-######################################
-## NetSurf-GNUstep
-### 3.10
-######################################
-
-function install_netsurf
-{
-
-APPNAME=Netsurf
-RELEASE="3.10"
-
-title "$APPNAME $RELEASE" | tee -a $LOG
-
-cd ../build || exit 1
-
-
-
-
-printf "Fetching...\n"
-if [ -d netsurf-gnustep ];then
-        cd netsurf-gnustep
-        git pull origin master &>/dev/null
-else
-        git clone https://github.com/anthonyc-r/netsurf-gnustep.git &>/dev/null
-        cd netsurf-gnustep
-fi
-
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-}
-### End of NetSurf
+### End of Innerspace
 ##############################################
 
+
+##############################################
 ##############################################
 ### /etc/skel: copy ressources
 
@@ -1087,9 +1041,8 @@ sudo chmod --recursive 0755 /etc/skel
 cd $_PWD
 ok "Done"
 }
-### End of copy ressources to /etc/skel
+### End of copy of ressources to /etc/skel
 ##############################################
-
 
 ### End of functions
 ##############################################

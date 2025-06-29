@@ -10,17 +10,18 @@
 ####################################################
 
 #####################################
-### PiSi Desktop Base: GNUstep-apps
+### PiSi Desktop : DRAFT
+### This is not yet available
+### for daily use
 #####################################
 
-### Install Applications: Preferences, GWorkspace, etc
-### See RELEASE for a complete list
-### Install Developer apps
+### Install Applications: 
+### New, broken...
 
 ################################
 ### ENV
 
-LOG="$HOME/PISI_BUILD_BASE.log"
+LOG="$HOME/PISI_BUILD_DRAFT.log"
 _PWD=`pwd`
 SPIN='/-\|'
 . SCRIPTS/environ.sh
@@ -34,7 +35,7 @@ SPIN='/-\|'
 
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
-. SCRIPTS/functions_inst_5_build_gnustep_apps.sh
+. SCRIPTS/functions_inst_DRAFT_gnustep_apps.sh
 
 ### End of Include functions
 ################################
@@ -53,32 +54,12 @@ echo "$0" >$LOG
 ## save and run...
 ##############################################
 
-#install_systempreferences
-#install_gworkspace
-#install_terminal
-#install_gorm
-#install_PC
-install_easydiff
-install_affiche
-install_addressmanager
-install_gspdf
-install_timemon
-install_cynthiune
-install_textedit
-install_imageviewer
-install_agenda
-install_gnumail
-install_openup
-install_scanimage
-install_screenshot
-install_player
-install_innerspace
+#install_netsurf
+
+##############################################
 
 make_services
 sudo ldconfig
 
 ###############
 
-### User Template
-
-cp_to_skel

@@ -5,19 +5,21 @@
 ### Install Scripts
 
 - [x] /etc/skel/GNUstep to be set as a User Template at the end of the desktop install
-- [ ] Update and test /etc/skel/GNUstep template with new apps docked
-- [-] A well integrated WebBrowser: see repo 'netsurf-gnustep' (by Anthonyc-r at Github) which embeds Netsurf 3.10: a build issue has been posted on the repo's owner.
+- [x] Move Wmaker and Dockapps build before all GNUstep stuff.
+- [-] A well integrated WebBrowser: see repo 'netsurf-gnustep' (by Anthonyc-r at Github) which embeds Netsurf 3.10: a build issue has been posted on the repo's owner. Moved to DRAFT. See there.
 - [ ] A dockapp/docked app to: Exit cleanly the Xsession; => update /etc/skel/GNUstep then (see wmshutdown-1.6.tar.gz)
 - [ ] Move HelpViewer from Extra to the base install
+- [ ] Update and test /etc/skel/GNUstep template with new apps docked
+
+- [x] Complete tests of all scripts together for the three major stages: 1_prep, 2_install_PISI (only base option) and 3_user_settings.
 - [ ] Extra: stable apps and Games: review and test relevant scripts
-- [ ] Complete tests of all scripts together for the three major stages
-- [ ] Dependencies: list with commentaries managed by the install script
-- [ ] Frameworks: to add/test: libs-steptalk; maybe libs-webservices for the WebApps?
-- [ ] Complete install on a new SD card
-- [ ] better xinitrc/xsession? See plugins-sessions-windowmaker at GNUstep repo (Github) - What about DBus?
+- [ ] Dependencies: list with commentaries managed by the install script; see and add what is about CUPS (cups-filters, cups-filters-core-drivers,printer-drivers-cups, hplip?)
+- [ ] Frameworks: to add/test: libs-steptalk (and then test again gs-webbrowser); maybe libs-webservices for the WebApps?
+- [ ] better xinitrc/xsession? See plugins-sessions-windowmaker at GNUstep repo (Github) - What about DBus? Until now, the new .xinitrc seems ok.
+- [x] Save .xinitrc to RESOURCES/_xinitrc
+- [ ] Test on a new fresh clean SD card
 
 ### Testing some features / PiSi DEMO
-
 
 - [ ] Alarms within SimpleAgenda
 - [ ] Syncing subdirs within StepSync
@@ -101,9 +103,11 @@
 - [ ] Chromium? Depends on NetSurf success...
 - [ ] FocusWriter? Depends on OpenOutliner
 
-### Failed to build/Run... retry
+### DRAFTS: Failed to build/Run... retry
 
 - [ ] Grr (High priority)
+- [ ] NetSurf (wait for issue answer: https://github.com/anthonyc-r/netsurf-gnustep/issues/2)
+- [ ] gs-webbrowser: maybe it depends on steptalk (see libs/frameworks)
 - [ ] NeXTGo
 - [ ] GShisen
 - [ ] OpenOutliner
