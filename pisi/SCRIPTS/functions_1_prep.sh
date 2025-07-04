@@ -63,9 +63,14 @@ function install_deps()
 {
 title "Installation of the Dependencies"
 sleep 1
+prefix="#"
 
 while read DEP
 do
+if [ "$DEP" == "$prefix"* ] || [ -z "$DEP" ];then
+	# This line is commented or it is an empty line...
+	continue
+else
 	printf "${DEP}... "
 	sudo apt install "$DEP" --yes &>>$LOG
 	if [ $? -ne 0 ];then
@@ -74,6 +79,7 @@ do
 	else
 		ok " Done"
 	fi
+fi
 done < RESOURCES/debian12_deps.txt
 
 if [ $STATUS -ne 0 ];then

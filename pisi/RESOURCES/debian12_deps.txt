@@ -1,93 +1,155 @@
-aspell
+####################################################
+### P i S i Desktop - by Patrick Cardona
+### pcardona34 @ Github
+###
+### Thanks for the GNUstep Developers Community
+### This is Free and Open Source software.
+### Read License in the root directory.
+####################################################
+
+#################################
+### PISI Desktop dependencies ###
+### on Debian 12 (Bookworm)   ###
+#################################
+
+### Build tools - Fetching sources
+# Autoconf >= 2.69: it is 2.71
 autoconf
+# Automake >= 1.12: it is 1.16
 automake
-chromium
 clang-19
 cmake
+#cvs
+gdb
+git
+# Libtool >= 1.4.2: it is 2.4.7
+libtool
+subversion
+
+#########################################
+### WMaker
+#########################################
+# Below is glibc on Debian
+fontconfig
+# GNU gettext: is 0.21 --- the latest on FSF site is 0.25...
+gettext
+libbsd0
+libbsd-dev
+libc6-dev
+libfontconfig
+libfontconfig-dev
+libfreetype6
+libfreetype6-dev
+libfreetype-dev
+# libgif >= 2.3
+libgif7
+libgif-dev
+# libjpeg >= 6.0.1
+libjpeg-dev
+libjpeg-tools
+libjpeg62-turbo
+# libmagickwand
+libmagickwand-dev
+libmagickwand-6.q16-6
+# libpng >= 0.96: pkg-config --modeversion libpng says: 1.6.39
+libpng16-16
+libpng-dev
+# libtiff >= 3.4 
+libtiff6
+libtiff-dev
+# libwebp >= 0.4.1
+libwebp7
+libwebp-dev
+libxft2
+libxft-dev
+# libxpm >= 4.7: debian 12 too old?
+libxmp4
+libxpm-dev
+# For Inotify
+linux-libc-dev
+xorg-dev
+
+### Printer
 cups
-cvs
+
+#########################################
+### Applications
+# Spelling
+aspell
+libaspell-dev
+
+# Web
+chromium
+#firefox
+
+# Dictionary
 dict
 dict-freedict-eng-fra
 dict-jargon
 dict-wn
+
+# Audio and Video
 ffmpeg
-firefox
-fontconfig
-fonts-freefont-ttf
-gdb
-gettext
-ghostscript 
-git
+
+###########################################
+### Games
+
+# Chess
 gnuchess
+
+###########################################
+### not yet sorted
+
+fonts-freefont-ttf
+ghostscript 
+
 gnugo
 gnutls-bin
 gsfonts
 htop
 libasound2
 libasound2-dev
-libaspell-dev
+
 libaudiofile1
 libaudiofile-dev
 libavahi-client-dev
 libavahi-compat-libdnssd-dev
-libbsd-dev
 libcurl4-gnutls-dev
 libcurl4-openssl-dev
 libdbus-1-dev
 libexif-dev
 libffi8
 libffi-dev
-libfontconfig
-libfontconfig-dev
-libfreetype6
-libfreetype6-dev
-libfreetype-dev
-libgif7
-libgif-dev
 libgnutls28-dev
 libical3
 libical-dev
 libicu-dev
 libid3tag0
 libid3tag0-dev
-libjpeg-dev
-libjpeg-tools
 libmad0
 libmad0-dev
-libmagickwand-dev
 libmusicbrainz5-2
 libmusicbrainz5-dev
 libogg0
 libogg-dev
-libpng16-16
-libpng-dev
 libsqlite3-dev
 libssl-dev
 libtag1-dev 
 libtag1v5
 libtagc0
 libtagc0-dev
-libtiff-dev
-libtiff-tools
-libtool
 libuuid1
 libvorbis0a
 libvorbis-dev
-libwebp7
-libwebp-dev
 libx11-6
 libx11-dev
 libxext6
 libxext-dev
-libxft2
-libxft-dev
 libxinerama-dev
 libxml2
 libxml2-dev
-libxmp4
 libxmu6
 libxmu-dev
-libxpm-dev
 libxslt1-dev
 lld
 make
@@ -98,7 +160,6 @@ recollcmd
 sane-utils
 scrot
 sqlite3
-subversion
 tzdata
 uuid-dev 
 vlc-bin

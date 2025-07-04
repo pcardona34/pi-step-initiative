@@ -5,16 +5,7 @@
 # global xinitrc file, used by all X sessions started by xinit (startx)
 
 ### Start Xserver & Window Manager:
-wmaker --no-clip --static &
-### Keep the PID of the WM
-PID_WM=$!
-
-### Start the Workspace as the leader session
-exec openapp GWorkspace
-
-### This will be executed when the Workspace will be closed (logout menu)
-sudo kill -9 ${PID_WM}
-
+exec wmaker
 
 ############ INFO ###############################################
 ### DMPS and blanking issues on RPI machine
@@ -26,5 +17,7 @@ sudo kill -9 ${PID_WM}
 ### This is done with .profile, not here.
 #################################################################
 ### Starting Apps within wmaker is done
-### with session management.... Not here.
+### with session management...
+### and thensaved in WMState ans WMWindowAttributes
+### Not here.
 #################################################################

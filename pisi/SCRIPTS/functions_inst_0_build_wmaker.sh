@@ -211,6 +211,65 @@ check "$APPNAME"
 ### End of AlsaMixer.app
 ##############################################
 
+#################################################
+### WMifs: dockapp for monitoring network if
+#################################################
+
+function install_wmifs()
+{
+APPNAME="wmifs"
+REL="1.9"
+
+echo "$APPNAME $REL" >> $LOG
+title "$APPNAME $REL"
+
+cd ../build || exit 1
+
+printf "Fetching...\n"
+if [ -d ${APPNAME}-${REL} ];then
+	cd ${APPNAME}-${REL}
+else
+	wget --quiet https://www.dockapps.net/download/${APPNAME}-${REL}.tar.gz
+	gunzip --force ${APPNAME}-${REL}.tar.gz
+	tar -xf ${APPNAME}-${REL}.tar
+	cd ${APPNAME}-${REL}
+fi
+
+printf "Configuring...\n"
+./configure &>>$LOG &
+PID=$!
+spinner
+
+printf "\rBuilding...\n"
+make &>>$LOG &
+PID=$!
+spinner
+
+printf "\rInstalling...\n"
+sudo -E make install &>>$LOG &
+PID=$!
+spinner
+
+### Cleaning
+make clean &>/dev/null
+
+ok "\rDone"
+cd $_PWD
+
+### Checking
+VER_WMIFS=$(wmifs -version) &2>1 >/dev/null
+if [ $? -eq 0 ];then
+	info "WMifs has been installed and checked."
+	printf "Release: ${VER_WMIFS}"
+else
+	alert "Error: WMifs installation failed. Aborting!"
+	exit 1
+fi
+
+}
+### End of WMifs
+#################################################
+
 ### End of functions
 ##############################################
 

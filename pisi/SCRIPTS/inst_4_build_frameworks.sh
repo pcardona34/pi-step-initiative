@@ -51,6 +51,7 @@ install_renaissance
 install_performance
 install_webservices
 install_dbuskit
+install_steptalk
 
 make_services &>>$LOG
 sudo ldconfig

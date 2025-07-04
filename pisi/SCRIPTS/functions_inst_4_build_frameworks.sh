@@ -549,5 +549,52 @@ make clean &>/dev/null
 ok "\rDone"
 cd $_PWD
 }
-
+### End of DbusKit
 ###############################
+
+##############################################
+### libs-steptalk
+function install_steptalk()
+{
+
+FWNAME="libs-steptalk"
+title "$FWNAME" | tee -a $LOG
+
+cd ../build || exit 1
+
+printf "Fetching...\n"
+if [ -d libs-steptalk ];then
+	cd libs-steptalk
+	git pull origin master &>/dev/null
+else
+	git clone https://github.com/gnustep/libs-steptalk &>/dev/null
+	cd libs-steptalk
+fi
+
+printf "Building...\n"
+make &>>$LOG &
+PID=$!
+spinner
+
+printf "\rInstalling...\n"
+sudo make install &>>$LOG &
+PID=$!
+spinner
+
+### Cleaning
+make clean &>/dev/null
+
+cd $_PWD
+ok "\rDone."
+
+
+printf "Checking...\n"
+if [ -d /usr/local/lib/GNUstep/StepTalk ];then
+	info "StepTalk folder has been found."
+else
+	alert "Error: StepTalk Folder could not be found.\nPlease, report this issue."
+fi
+
+}
+### End of StepTalk
+###############################################

@@ -57,6 +57,7 @@ echo "$0" >$LOG
 install_wmaker
 install_wmclock
 install_alsamixer_dot_app
+install_wmifs
 
 sudo ldconfig
 

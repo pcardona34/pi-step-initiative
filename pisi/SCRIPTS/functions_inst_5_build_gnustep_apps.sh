@@ -13,7 +13,6 @@
 ### Functions for PiSi Desktop Base - GNUstep apps
 ####################################################
 
-. SCRIPTS/check_app.sh
 
 #######################################
 ## SystemPreferences
@@ -25,7 +24,8 @@ function install_systempreferences()
 APPNAME="SystemPreferences"
 RELEASE="1.2.0"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >> $LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -38,26 +38,7 @@ else
 	cd apps-systempreferences
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ########################################
@@ -72,7 +53,8 @@ APPNAME=GWorkspace
 RELEASE="1.1.0"
 CONFIG_ARGS="--with-inotify --enable-gwmetadata"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >> $LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -111,36 +93,10 @@ cd ..
 
 info "Back to the main app"
 
-printf "Configuring...\n"
-./configure ${CONFIG_ARGS} &>>$LOG &
-PID=$!
-spinner
+_build
 
-printf "\rBuilding...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
 check "Recycler"
 check "MDFinder"
-
 }
 
 #############################################
@@ -154,7 +110,8 @@ function install_terminal()
 APPNAME=Terminal
 RELEASE="0.9.8"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -169,26 +126,7 @@ else
 	cd system-apps/Terminal
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ########################################
@@ -202,7 +140,8 @@ function install_gorm()
 APPNAME=Gorm
 RELEASE="1.5.0"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -215,26 +154,7 @@ else
         cd apps-gorm
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ########################################
@@ -248,7 +168,8 @@ function install_PC()
 APPNAME=ProjectCenter
 RELEASE="0.7.0"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -261,23 +182,7 @@ else
         cd apps-projectcenter
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ########################################
@@ -291,7 +196,8 @@ function install_easydiff()
 APPNAME=EasyDiff
 RELEASE="0.4.1"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -305,26 +211,7 @@ else
         cd apps-easydiff
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ###################################################
@@ -337,9 +224,9 @@ function install_affiche()
 
 APPNAME=Affiche
 RELEASE="0.6.0"
-GNUSTEP_APPS_DIR=/usr/local/lib/GNUstep/Applications
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -354,26 +241,7 @@ fi
 
 cd Applications/Affiche
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 #######################################
@@ -386,7 +254,10 @@ function install_addressmanager()
 
 APPNAME=AddressManager
 RELEASE="0.5.0"
+# A better Icon from gs-desktop project
+ICON_APP=$_PWD/RESOURCES/ICONES_PISI/AddressManager.tiff
 
+echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
@@ -403,25 +274,11 @@ else
 	cd AddressManager
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
+if [ -f $ICON_APP ];then
+	cp $ICON_APP ./
+fi
 
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ##########################################
@@ -434,7 +291,8 @@ function install_gspdf()
 APPNAME=GSPdf
 RELEASE="0.5"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -449,26 +307,7 @@ fi
 
 cd user-apps/GSPdf
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ##########################################
@@ -481,7 +320,8 @@ function install_timemon()
 APPNAME=TimeMon
 RELEASE="4.1"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 printf "Fetching...\n"
 cd ../build || exit 1
@@ -496,28 +336,7 @@ fi
 
 cd ported-apps/Util/TimeMon
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
-
-#sudo cp --recursive TimeMon.app ${UTILITIES}/
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 ###############################################
@@ -579,7 +398,6 @@ cd $_PWD
 
 printf "\nChecking...\n"
 check "$APPNAME"
-
 }
 
 ###################################################
@@ -592,7 +410,8 @@ function install_textedit()
 APPNAME=TextEdit
 RELEASE="4.0"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -605,25 +424,7 @@ else
 	cd gs-textedit
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
+_build
 }
 
 ##################################################
@@ -636,7 +437,8 @@ function install_imageviewer()
 APPNAME=ImageViewer
 RELEASE="0.1"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -651,25 +453,7 @@ fi
 
 cd Applications/ImageViewer
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
+_build
 }
 
 ##########################################
@@ -682,7 +466,8 @@ function install_agenda()
 APPNAME=SimpleAgenda
 RELEASE="0.4.7"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -695,26 +480,7 @@ else
 	cd simpleagenda
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 #################################################
@@ -727,7 +493,8 @@ function install_gnumail()
 APPNAME=GNUMail
 RELEASE="1.4.0"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -741,26 +508,7 @@ else
 	cd GNUMail-1.4.0
 fi
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
-
+_build
 }
 
 #####################################################
@@ -773,7 +521,8 @@ function install_openup()
 APPNAME=OpenUp
 RELEASE="0.1"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -788,25 +537,7 @@ fi
 
 cd Applications/OpenUp
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
+_build
 }
 
 #################################################
@@ -819,7 +550,8 @@ function install_scanimage()
 APPNAME=ScanImage
 RELEASE="0.1"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -834,25 +566,7 @@ fi
 
 cd Applications/ScanImage
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
+_build
 }
 
 ##################################################
@@ -865,7 +579,8 @@ function install_screenshot()
 APPNAME=ScreenShot
 RELEASE="0.1"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -880,25 +595,7 @@ fi
 
 cd Applications/ScreenShot
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
+_build
 }
 
 ###################################################
@@ -911,7 +608,8 @@ function install_player()
 APPNAME=Player
 RELEASE="0.1"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
 
 cd ../build || exit 1
 
@@ -926,25 +624,7 @@ fi
 
 cd Applications/Player
 
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-printf "\nChecking...\n"
-check "$APPNAME"
+_build
 }
 
 ###################################################
@@ -959,7 +639,8 @@ RELEASE="0.1"
 PATCH="spordefs.patch"
 TARGET="spordefs.m"
 PROJ="SporView.bproj"
-
+PATCH2="InnerSpace_GNUMakefile.patch"
+TARGET2="GNUMakefile"
 title "$APPNAME $RELEASE" | tee -a $LOG
 
 cd ../build || exit 1
@@ -996,7 +677,14 @@ do
 	ok "\r\tDone"
 done
 
-printf "Building InnerSpace...\n"
+printf "Building Main InnerSpace...\n"
+### PATCH
+cp $_PWD/RESOURCES/PATCHES/$PATCH2 ./
+printf "\tA patch must be applied...\n"
+patch --forward -u ${TARGET2} -i ${PATCH2} &>>$LOG
+ok "\tPatch applied"
+### New Icon
+cp $_PWD/RESOURCES/ICONES_PISI/InnerSpace.tiff ./
 make &>>$LOG &
 PID=$!
 spinner
@@ -1017,6 +705,43 @@ printf "\nChecking...\n"
 check "$APPNAME"
 }
 ### End of Innerspace
+##############################################
+
+#################################################
+## HelpViewer
+### Repo/Release: github/onflapp/gs-desktop: 0.4
+#################################################
+
+function install_helpviewer()
+{
+
+APPNAME="HelpViewer"
+REPO="gs-desktop"
+OWNER="onflapp"
+HUB="https://github.com"
+BRANCH="main"
+BUILD_DIR="Applications" # "system-apps" | "ported-apps"
+CONFIG_ARGS=""
+
+cd ../build || exit 1
+
+echo "$APPNAME $RELEASE" >> $LOG
+title "$APPNAME $RELEASE"
+
+printf "Fetching...\n"
+if [ -d $REPO ];then
+        cd $REPO
+        git pull origin $BRANCH &>/dev/null
+else
+	git clone ${HUB}/${OWNER}/${REPO}.git &>/dev/null
+	cd $REPO
+fi
+
+cd $BUILD_DIR/$APPNAME
+
+_build
+}
+### End of HelpViewer
 ##############################################
 
 
