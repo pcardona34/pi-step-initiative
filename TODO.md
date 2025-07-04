@@ -8,25 +8,29 @@
 - [x] Move Wmaker and Dockapps build before all GNUstep stuff.
 - [x] Move HelpViewer from Extra to the base install
 - [x] Complete tests of all scripts together for the three major stages: 1_prep, 2_install_PISI (only base option) and 3_user_settings.
+
+
+
 - [x] Extra: stable apps : review and test relevant scripts
-- [x] Games: review and test relevant scripts - Added Freecell; moved to DRAFT: NeXTGo and GShisen.
+- [x] Libs-webservices
 - [x] A dockapp to monitor network interface: wmifs (it is for a wired connection)
 - [x] Use clip for monitoring apps... => modify .xinitrc and _xinitrc template... WMState, etc.
 - [x] Frameworks: added libs-steptalk (not fixing gs-WebBrowser);
-- [x] Save .xinitrc to RESOURCES/_xinitrc
 
-- [ ] Dependencies: list with commentaries managed by the install script; see and add what is about CUPS (cups-filters, cups-filters-core-drivers,printer-drivers-cups, hplip?)
-- [ ] Maybe libs-webservices for the WebApps?
-- [ ] better xinitrc/xsession? See plugins-sessions-windowmaker at GNUstep repo (Github) - What about DBus? Until now, the new .xinitrc seems ok.
+- [-] Save .xinitrc to RESOURCES/_xinitrc and see plugins-sessions-windowmaker at GNUstep repo (Github)
+- [-] Save .bashrc to _bashrc and modify user_settings...
+- [-] Notifications: Alarms with SimpleAgenda, etc. => add dunst, libnotify-bin to deps.
+- [-] Dependencies: list with commentaries managed by the install script; see and add what is about CUPS (cups-filters, cups-filters-core-drivers,printer-drivers-cups, hplip?)
+- [-] Games: review and test relevant scripts - Added Freecell; To add: GShisen. Moved to DRAFT: NeXTGo(?)
 
+- [ ] Replace all sources from github/gnustep/gap by the respective on Savannah!!!
 - [ ] A dockapp/docked app to: Exit cleanly the Xsession; => update /etc/skel/GNUstep then (see wmshutdown: Hum! It only shuts down, does not perform the exit session as expected) No dockapp found. Need to create something... But issue with exit session out of WMaker
-- [ ] A WebBrowser? : Netsurf and gs-WebBrowser moved to DRAFTS... => Maybe, in the meanwhile, a simple AppWrapper for Chromium?
 - [ ] Update and test /etc/skel/GNUstep template with new apps docked
+- [ ] A WebBrowser? : Netsurf and gs-WebBrowser moved to DRAFTS... => Maybe, in the meanwhile, a simple AppWrapper for Chromium? See issues and work done by the respective developers. May change soon...
 - [ ] Test on a new fresh clean SD card
 
 ### Testing some features / PiSi DEMO
 
-- [ ] Alarms within SimpleAgenda
 - [ ] Syncing subdirs within StepSync
 - [ ] What are these GSMarkupBrowser and GSLocalizableStrings?
 - [ ] MDFinder is not Finder?
@@ -47,9 +51,9 @@
 
 ### Tools a Pi average user should look for
 
-- [-] a Mixer: must be AlsaMixer compliant, because it is the way the sound is managed under RPI Lite OS (no PulseAudio) --> so it is DockApp: AlsaMixer.app: ok. || wmmixer-alsa ?
-- [ ] Debian (RPI OS) Updater (notifying applet)
-- [ ] PiSi Updater: info about a new PiSi release or an app update
+- [-] a Mixer: must be AlsaMixer compliant, because it is the way the sound is managed under RPI Lite OS (no PulseAudio) --> so it is DockApp: AlsaMixer.app: ok. || wmmixer-alsa ? To be documented
+- [ ] Debian (RPI OS) Updater (notifying applet) -- via the notifications?
+- [ ] PiSi Updater: info about a new PiSi release or an app update. Idem.
 - [ ] Recommended Software (easy way to install/uninstall each extra app)
 - [ ] EPub reader to include within Librarian and document convert tools...
 - [ ] A Password Manager Web Browser free (see Pass, it's C or in the meanwhile, a dockapp like WMpasman)
@@ -57,6 +61,7 @@
 ### Misc apps for a French User
 
 - [ ] Lookup words from French Dictionaries like Littré, etc.
+- [ ] Localization for all the base...: to French
 
 ### Average User Documentation
 
@@ -78,11 +83,11 @@
 
 ### PiSi ART
 
-- [ ] Create a Folder to keep the original drafts for Icons and Wallpapers
+- [x] Create a Folder to keep the original drafts for Icons and Wallpapers
 - [ ] Create a Significative Wallpaper for the screenshots
 - [ ] Better icon for AddressManager
 - [ ] Icon for StepSync
-- [ ] Better icon for InnerSpace
+- [-] Better icon for InnerSpace
 - [ ] Theme: maybe a new theme for PiSi? (see WindowMakerandI and Loneleymachines.org/tag/windowmaker and GNUstep theming: Rik.theme and icons-rik?) and also: apps-thematic; apps-themepreview; plugins-themes? See also ergonomy with apps-dock, apps-topbar
 - [ ] Icon for PowerPaint
 
@@ -107,12 +112,13 @@
 
 ### Tests begun
 - [ ] Weather.app (by paulodelgado at Github) - Status: build ok. First test failed. To be continued.
-- [ ] WebApps: Youtube, Spotify... Maybe also, a FreeMusicArchive access?
+- [ ] WebApps: Youtube, Spotify... See issue about gs-webbrowser
+- [ ] Maybe also, a FreeMusicArchive access?
 
 ### Apps-Wrappers
 
-- [ ] Chromium? Depends on NetSurf success...
-- [ ] FocusWriter? Depends on OpenOutliner
+- [ ] Chromium? Depends on NetSurf/gs-webbrowser success...
+- [ ] FocusWriter? Depends on OpenOutliner achievement
 
 ---
 
@@ -122,10 +128,10 @@ There are the failed builds, the tests before choosing, etc.
 
 - [-] A well integrated WebBrowser (High priority) : see repo 'netsurf-gnustep' (by Anthonyc-r at Github) which embeds Netsurf 3.10: a build issue has been posted on the repo's owner. Moved to DRAFT. See there. || Alternative: gs-WebBrowser (by Onflapp at Github) embeds Chromium, it was successfully built, but the Web pages do not load... Something is missing, but not documented.
 - [ ] Grr (High priority)
-- [ ] NetSurf (wait for issue answer: https://github.com/anthonyc-r/netsurf-gnustep/issues/2)
-- [ ] gs-webbrowser: maybe it depends on steptalk (see libs/frameworks)
-- [ ] NeXTGo
-- [ ] GShisen
+- [ ] NetSurf (wait: issue has been addressed by Anthony RC... See https://github.com/anthonyc-r/netsurf-gnustep/issues/2
+- [ ] gs-webbrowser: idem, issue has been addressed by Onflapp
+- [-] NeXTGo
+- [x] GShisen: to be reverted into Games stable.
 - [ ] OpenOutliner
 
 ## Future releases
@@ -142,7 +148,7 @@ Maybe one day useful ?
 - Changing keyboard layout: wmkeys
 - App customized menu: wmmenu
 - Changing the theme of WM: wmthemech
-- I people does not have wired network, so Wifi is needed: wmwifi | wmwlmon
+- If people does not have wired network, so Wifi is needed: wmwifi | wmwlmon
 
 
 
