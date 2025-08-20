@@ -37,7 +37,7 @@ Until now, steps 1 to 3 are mostly done.
 
 ## The PiSi Desktop
 
-### Firt Screenshots of the current release
+### Screenshots of the current release
 
 ![With the Home Directory](./Screenshots/Screenshot_V01_Home_mini.jpg)
 [Magnify](./Screenshots/Screenshot_V01_Home.jpg)
@@ -51,7 +51,7 @@ Until now, steps 1 to 3 are mostly done.
 - The GNUstep environment is built from the latest sources of the Libraries, Tools and Apps: unlike some other great projects like NEXTSPACE and GS-Desktop, I am using legacy Window Maker and GWorkspace...
 - PiSi provides its original Themes: 'PISI.theme' for GNUstep and 'PISI.themed' for Window Maker. I tried to give a strong GNUstep identity (vertical menus and Dock) but with customized colors and modern icons. Most of these icons were adapted from the [Papirus Iconset project](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme). Several are my own work as the WallPaper too.
 - The Monitoring board on the Desktop is using [Conky](https://github.com/brndnmtthws/conky).
-- Read the [RELEASE](./pisi/RESOURCES/RELEASE] file to get the complete and detailed list of the components and Apps provided.
+- Read the [RELEASE](./pisi/RESOURCES/RELEASE) file to get the complete and detailed list of the components and Apps provided.
 
 ### How to install
 
