@@ -1,0 +1,164 @@
+# PiSi: TODO
+
+## Tasks to finish PiSi: Alpha to Beta release
+
+### Install Scripts
+
+- [x] WMaker theme: PISI.themed installed to ~/GNUstep/Library/Windowmaker/Themes/
+- [x] Compositing: Compton into dependencies; compton.conf: installed ~/.config/
+- [x] Conky: installed to ~/.config/pisi/conky.conf
+- [x] Window Maker autostart 
+- [x] Update 3_user_settings.
+- [x] Remove/Replace all the Dockapps.
+- [x] Move HelpViewer from Extra to the base apps install
+- [x] Make a separate stage: Desktop/theme (VS) base-apps - Complete tests of all scripts together for the three major stages: 1_prep, 2_install_PISI (only base option) and 3_user_settings.
+- [x] Remove NetSurf 3.11 (no JavaScript)
+- [x] Extra: stable apps : review and test relevant scripts
+- [x] Libs-webservices
+- [x] Do not use clip anymore for monitoring apps... => modify .xinitrc and _xinitrc template... WMState, etc. See Conky
+- [x] Frameworks: added libs-steptalk (not fixing gs-WebBrowser);
+- [x] Remove gs-webbrowser
+- [x] Save renewed .xinitrc to RESOURCES/_xinitrc
+- [x] Save renewed autostart
+- [x] Save conky.conf and comptonrc
+- [x] Verify/Save .bashrc to _bashrc and modify user_settings...
+- [x] Notifications: Alarms with SimpleAgenda, etc. => add dunst, libnotify-bin to deps. Issue created onto the Repo of PoRoussel. [Fixed]
+- [x] Dependencies: list with commentaries managed by the install script; see and add what is about CUPS (cups-filters, cups-filters-core-drivers,printer-drivers-cups, hplip?)
+- [x] Games: review and test relevant scripts - Added Freecell; GShisen. Moved to DRAFT: NeXTGo.
+- [x] Gap: review all with Savannah as prefered repo... Replace all sources from github/gnustep/gap by the respective on Savannah!!!
+- [x] Exit cleanly the Xsession
+- [x] Remove /etc/skel/GNUstep template
+- [x] A WebBrowser : Netsurf and gs-WebBrowser moved to DRAFTS...(See issues and work done by the respective developers. May change soon...) => In the meanwhile, a simple AppWrapper (see below): done.
+- [x] Add Chromium.app wrapper
+- [x] Add a function for the installation of the Wrappers in stage 2: added wrappers: Inkscape.app, EBookReader.app (FBReader), Focuswriter.app.
+- [ ] Create FocusWriter wrapper.
+- [ ] renew Screenshots
+- [ ] Update RELEASE info file
+- [ ] Backup data files from Documents
+- [ ] Push repo on Github
+- [ ] Test on a new fresh clean SD card
+
+### Testing some features / PiSi DEMO
+
+- [ ] Syncing subdirs within StepSync
+- [ ] What are these GSMarkupBrowser and GSLocalizableStrings?
+- [ ] MDFinder is not Finder?
+
+#### Testing within SAMPLES
+
+- [x] Create a SAMPLES Folder
+- [ ] Make Testing Units Log those below
+- [ ] To be extended
+
+### Misc Migrating Tools and procedures
+
+- [ ] Target: SimpleAgenda. A way to import TODO.txt with an .ics intermediate converter.
+- [ ] Target: AddressManager. A way to import a Birthday list with a .vcf intermediate converter
+- [ ] Target: a GSPass (frontend to create) with Pass. A way to import from a .csv (see export of the Password Manager of Chromium; and also from KeePassXC) passwords database.
+- [x] Target: AddressManager: import a .vcf directory from Abook. Test ok.
+- [ ] Documentation about each procedure.
+
+### Tools a Pi average user should look for
+
+- [x] a Mixer: must be AlsaMixer compliant, because it is the way the sound is managed under RPI Lite OS (no PulseAudio) --> VolumControl
+- [x] Debian (RPI OS) Updater (notifying applet) -- via the notifications (dunst). It is now in the TOOLS Folder: pisi_updater. Verity the installation is added to (user_settings?) - deps: dunst & libnotify-bin
+- [ ] PiSi Updater: info about a new PiSi release or an app update. Idem. Todo: extend pisi_updater to include this.
+- [ ] Recommended Software (easy way to install/uninstall each extra app)
+- [ ] EPub reader to include within Librarian and document convert tools... See in the meanwhile the wrapper EBookReader.app.
+- [ ] A Password Manager Web Browser free (see Pass, it's C or in the meanwhile, a dockapp like WMpasman) | in the meanwhile, use of Chromium password manager...
+
+### Misc apps for a French User
+
+- [ ] Lookup words from French Dictionaries like Littré, etc.
+- [ ] Localization for all the base...: to French
+
+### Average User Documentation
+
+- [ ] Help: should be within HelpViewer (.help/.xlp format)
+- [ ] How to Login / start Workspace / halt pi400
+- [ ] Customization: locales, timezone (launching and using SystemPreferences)
+- [ ] How to use GWorkspace (basic operations on Files); mount/unmount a removable device...
+- [x] Setting CUPS (printing)
+- [x] Setting/Fixing AlsaMixer
+- [ ] An Application Quick Tour
+
+### Developer Documentation
+
+- [ ] Maybe more in the Librarian app, because there are PDF tutos...
+- [ ] What is GNUstep? What it is not.
+- [ ] Making tools, scripting (StepTalk)
+- [ ] Making an app (tutorial) with PC and Gorm
+
+
+### PiSi ART
+
+- [x] Create a Folder to keep the original drafts for Icons and Wallpapers
+- [x] Create a Significative Wallpaper for the screenshots
+- [x] Icon for StepSync
+- [x] Better icon for InnerSpace
+- [x] Theme: a new theme for PiSi.
+- [x] Icon for PowerPaint
+
+## Setting the Beta release
+
+- [ ] Last whole installation from sources and testing
+- [ ] Add a binary release
+- [ ] Publish the binary release
+
+### Public release
+
+- [ ] Inform GNUstep community
+- [ ] Inform Raspberry Pi community
+
+## New candidates to Extra apps
+
+### Login app
+
+- [ ] Test auto-startx  after login...
+- [ ] Test Login.app provided by the Gap repo...
+- [ ] Xsession compliant with freedesktop.org specs (DBus)
+
+### Tests begun
+- [ ] Weather.app (by paulodelgado at Github) - Status: build ok. First test failed. To be continued.
+- [ ] WebApps: Youtube, Spotify... See issue about gs-webbrowser
+- [ ] Maybe also, a FreeMusicArchive access?
+
+### Apps-Wrappers
+
+- [x] Chromium
+- [ ] FocusWriter? Depends on OpenOutliner achievement. Created in the meanwhile.
+- [x] Inkscape
+- [x] EBookReader (FBReader)
+
+---
+
+### DRAFTS
+
+There are the failed builds, the tests before choosing, etc.
+
+- [-] A well integrated WebBrowser (High priority) : see repo 'netsurf-gnustep' (by Anthonyc-r at Github) which embeds Netsurf 3.10: a build issue has been posted on the repo's owner. Moved to DRAFT. See there. || Alternative: gs-WebBrowser (by Onflapp at Github) embeds Chromium, it was successfully built, but the Web pages do not load... Something is missing, but not documented.
+- [x] Grr (High priority): done
+- [x] NetSurf (wait: issue has been addressed by Anthony RC... See https://github.com/anthonyc-r/netsurf-gnustep/issues/2
+- [-] gs-webbrowser: idem, issue has been addressed by Onflapp
+- [-] NeXTGo
+- [x] GShisen: to be reverted into Games stable.
+- [-] OpenOutliner
+
+## Future releases
+
+- [ ] Test PiSi on Debian Trixie (13) / RPI OS Lite Flavour
+- [ ] List needed changes and evolutions for Debian 13
+- [ ] Test on a Pi 500 
+- [ ] List needed changes and evolutions for the Pi 500
+
+## Garage
+
+Maybe one day useful ?
+- Changing monitor resolution: wmressel
+- Changing keyboard layout: wmkeys
+- App customized menu: wmmenu
+- Changing the theme of WM: wmthemech
+- If people does not have wired network, so Wifi is needed: wmwifi | wmwlmon
+
+
+

@@ -31,7 +31,7 @@ REQUIRED_MODEL=`grep -e "MOD" $CONF | awk -F= '{print $2}'`
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
 . SCRIPTS/size.sh
-. SCRIPTS/functions_1_prep.sh
+. SCRIPTS/functions_prep.sh
 ### end of include functions
 ###############################################################
 

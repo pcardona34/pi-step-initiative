@@ -10,7 +10,7 @@
 ####################################################
 
 ####################################################
-### PISI Desktop installation main script
+### PISI Desktop Main installation Script
 ####################################################
 
 ####################################################
@@ -24,7 +24,7 @@ OPTION="$1"
 ####################################################
 ### Include functions
 
-. SCRIPTS/functions_2_install_PISI.sh
+. SCRIPTS/functions_install_PISI.sh
 . SCRIPTS/size.sh
 
 ### End of include functions
@@ -35,12 +35,16 @@ if [ -z "$1" ];then
 fi
 
 case "$OPTION" in
-	"Base" | "base" | "BASE")
-		install_base;;
-	"Extra" | "extra" | "EXTRA")
+	"DESKTOP" | "Desktop" | "desktop")
+		install_desktop;;
+	"APPS" | "Apps" | "apps")
+		install_apps;;
+	"DEVEL" | "Devel" | "devel")
+		install_devel;;
+	"EXTRA" | "Extra" | "extra")
 		install_extra;;
-	"Whole" | "whole" | "WHOLE")
-		install_whole;;
+	"GAMES" | "Games" | "games")
+		install_games;;
 	"help" | "*")
 		help;;
 esac

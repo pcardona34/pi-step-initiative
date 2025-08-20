@@ -70,12 +70,15 @@ echo "$0" > $LOG
 ##############################################
 
 ### Apps
-#install_netsurf
 #install_gs-webbrowser
+#install_grr
+install_Weather
 
 ### Games
-#install_nextgo ### Not building
-#install_gshisen ### Not building
+#install_nextgo
+
+#############################################
+### Frameworks
 
 
 ##############################################

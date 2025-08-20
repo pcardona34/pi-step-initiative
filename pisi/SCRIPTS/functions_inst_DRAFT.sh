@@ -13,60 +13,6 @@
 ### Functions for PiSi - DRAFT - GNUstep apps
 ####################################################
 
-######################################
-## NetSurf-GNUstep
-### 3.10
-######################################
-
-function install_netsurf
-{
-
-APPNAME=Netsurf
-RELEASE="3.10"
-
-title "$APPNAME $RELEASE" | tee -a $LOG
-
-cd ../build || exit 1
-
-#### TO BE DONE AGAIN... ####
-#### See the issue ####
-
-
-
-
-printf "Fetching...\n"
-if [ -d netsurf-gnustep ];then
-        cd netsurf-gnustep
-        git pull origin master &>/dev/null
-else
-        git clone https://github.com/anthonyc-r/netsurf-gnustep.git &>/dev/null
-        cd netsurf-gnustep
-fi
-
-printf "Building...\n"
-make &>>$LOG &
-PID=$!
-spinner
-
-printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-
-cd $_PWD
-
-check "$APPNAME"
-}
-### End of NetSurf
-##############################################
-
-
-
 ###############################################
 ### gs-webbrowser
 function install_gs-webbrowser()
@@ -127,45 +73,38 @@ title "$APPNAME $REL"
 cd ../build || exit 1
 
 printf "Fetching...\n"
-if [ -d gap ];then
-        cd gap
-        git pull origin master &>/dev/null
-else
-        git clone https://github.com/gnustep/gap.git &>/dev/null
-        cd gap
-fi
+svn co svn://svn.savannah.nongnu.org/gap/trunk/ported-apps/Games/NeXTGo
+cd NeXTGo || exit 1
+#make 
 
-cd ported-apps/Games/NeXTGo
+### Error with:
+### findnext.c:71:8: error: type specifier missing, defaults to 'int'; ISO C99 and later 
+### do not support implicit int [-Wimplicit-int]
 
-_build
+#sudo -E make install
+
+#_build
 }
 
-######################################
-## GShisen
-### Repo/Release: savannah/gap: 1.3.0
-######################################
+#############################################
+#############################################
 
-function install_gshisen(){
-
-APPNAME="GShisen"
-REL="1.3.0"
-
-echo "$APPNAME $REL" >>$LOG
-title "$APPNAME $REL"
-
-cd ../build || exit 1
-
-printf "Fetching...\n"
-if [ -d GShisen-1.3.0 ];then
-	cd GShisen-1.3.0
+function install_Weather()
+{
+cd $HOME/SOURCES/Draft || exit 1
+### Fetching
+if ! [ -d Weather.app ]; then
+	git clone https://github.com/paulodelgado/Weather.app.git
+	cd Weather.app
 else
-	wget --quiet http://mirror.netcologne.de/savannah/gap/GShisen-1.3.0.tar.gz
-	gunzip --force GShisen-1.3.0.tar.gz
-	tar -xf GShisen-1.3.0.tar
-	cd GShisen-1.3.0
+	cd Weather.app
+   make clean
+	git pull origin master
 fi
 
-_build
+### Build
+printf "Building...\n"
+make
+sudo -E make install
 }
-
 

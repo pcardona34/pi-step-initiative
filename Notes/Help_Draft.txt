@@ -1,0 +1,18 @@
+Help: draft
+
+### What is GNUstep?
+
+[GNUstep](https://gnustep.github.io/) is a mature API and a set of libraries, Frameworks and Tools compliant with Cocoa frameworks and specifications 
+ which allow a developer to create efficiently portable software 
+ to Microsoft Windows, Apple MacOS and to GNU/Linux and BSD like. It provides already many efficient apps like GNUMail and SimpleAgenda... But also a powered set of apps and tools to developp and build new apps: Gorm (Interface Builder) and ProjectCenter; Make Tools...
+
+### Managing the Future
+
+We should thing the way to enlarge the GNUstep 
+community. Young developers may not have the money to buy yet an 
+Apple MacBook, but they could buy a more affordable material 
+like a Raspberry pi 400 or 500. 
+
+And 
+
+---

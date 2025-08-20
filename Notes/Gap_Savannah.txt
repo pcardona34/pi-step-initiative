@@ -1,0 +1,61 @@
+# MEMOS
+
+## Gap (GNUstep Applications Project)
+
+Important!
+Use Savannah repo instead of Github outdated mirror.
+
+Gap on Savannah: releases
+http://download.savannah.nongnu.org/releases/gap/
+
+Gap on Savannah: subversion:
+https://svn.savannah.gnu.org/gap/trunk/
+
+Exemples of Subversion Paths:
+GShisen 1.4.0 (subversion)
+
+svn co svn://svn.savannah.nongnu.org/gap/trunk/user-apps/Games/GShisen
+
+
+NeXTGo:
+svn co svn://svn.savannah.nongnu.org/gap/trunk/ported-apps/Games/NeXTGo
+
+===
+
+In system-apps:
+
+AudioMixer
+svn co svn://svn.savannah.nongnu.org/gap/trunk/system-apps/AudioMixer
+Build: OK
+A étudier // alsamixer...
+
+Alternative: wmalsamixer
+
+HelpViewer
+StepSync
+Terminal
+svn co svn://svn.savannah.nongnu.org/gap/trunk/system-apps/Terminal
+loginpanel
+
+=================
+In user-apps
+
+AClock
+Cynthiune
+GSPdf
+Graphos
+Grr
+InnerSpace
+
+TalkSoup
+
+==================
+In ported-apps/Util
+Bean
+TimeMon
+
+In ported-apps/Games
+Chess
+NeXGo
+
+

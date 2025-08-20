@@ -1,0 +1,84 @@
+# Defaults to set for a PiSi Desktop
+
+## Theming and ergonomy
+
+### Applying a theme: 
+
+#### Syntax: defaults write NSGlobalDomain GSTheme THEME-NAME
+#### (in our case: THEME-NAME is 'Rik')
+NSGlobalDomain GSTheme Rik
+
+### Horizontal menus and MacOS like behaviour
+NSGlobalDomain NSInterfaceStyleDefault NSMacintoshInterfaceStyle
+NSGlobalDomain NSMenuInterfaceStyle NSMacintoshInterfaceStyle
+### Set TopBar transparency withi Rik Theme
+NSGlobalDomain RikMenuBarTransparency 0.0
+
+### Modern Dock look (transparency)
+org.gnustep.GWorkspace dockstyle 1
+
+### GNUMail colors tweaking with Rik Theme
+org.gnustep.GNUMail QUOTE_COLOR_LEVEL_1 '0.166774 0.400093 1.000000'
+org.gnustep.GNUMail QUOTE_COLOR_LEVEL_2 '1.000000 0.214640 0.543376'
+org.gnustep.GNUMail QUOTE_COLOR_LEVEL_3 '0.000000 1.000000 0.000000'
+org.gnustep.GNUMail QUOTE_COLOR_LEVEL_4 '0.000000 1.000000 1.000000'
+org.gnustep.GNUMail MAILHEADERCELL_COLOR '0.333000 0.333000 0.333000'
+
+---
+
+## Other settings (To be completed...)
+
+### Dock to the right
+org.gnustep.GWorkspace dockposition 1
+
+### Single click to launch an app form the Dock
+org.gnustep.GWorkspace singleclicklaunch 1
+
+### Terminal to use with GWorkspace is Terminal.app and its services
+org.gnustep.GWorkspace terminal_services 1
+
+### Show the desktop background of GW
+org.gnustep.GWorkspace no_desktop 0
+
+### Set TextEdit as default Editor
+org.gnustep.GWorkspace defaulteditor TextEdit.app
+
+### Apps on the Dock
+
+org.gnustep.GWorkspace applications '{
+    1 = TextEdit;
+    2 = SimpleAgenda;
+    3 = Terminal;
+    4 = GNUMail;
+    5 = InnerSpace;
+}'
+
+### Desktop appearance: imagepath sets the wallpaper
+
+org.gnustep.GWorkspace desktopinfo '{
+    backcolor = {
+        alpha = 1;
+        blue = 0;
+        green = 0;
+        red = 0;
+    };
+    "fsn_info_type" = 0;
+    iconposition = 5;
+    iconsize = 48;
+    imagepath = "/home/patrick/GNUstep/Library/WindowMaker/Backgrounds/wp_pi_step_initiative.jpg";
+    imagestyle = 1;
+    indexes = {
+    };
+    labeltxtsize = 12;
+    usebackimage = 1;
+}'
+
+### Filemanager: hide dotFiles
+NSGlobalDomain GSFileBrowserHideDotFiles 1
+
+### Terminal: unicode setting
+org.gap.Terminal Linux_CharacterSet utf-8
+
+### AddressManager: name format
+Addresses ScreenNameFormat FirstNameFirst
+

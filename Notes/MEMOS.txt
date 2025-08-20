@@ -1,0 +1,23 @@
+# MEMOS
+
+## GNUstep Installation dir
+
+Installing an app for ALL USERS:
+
+export LOCAL_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
+sudo -E make install
+
+if no target install:
+sudo cp ${APP_NAME}.app $LOCAL_INSTALL_DIR/
+
+===
+
+Installing only to the USER DIR:
+???
+
+## Testing a Web Browser
+
+- CSS & JS:
+https://www.acidtests.org/
+
+

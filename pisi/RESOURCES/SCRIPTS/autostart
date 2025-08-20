@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Place applications to be executed when WindowMaker is started here.
 # This should only be used for non-X applications or applications that
@@ -19,3 +19,22 @@ xset m 20/10 4
 ### This is to prevent DMPS and blanking issues on RPI machine
 xset -dpms
 xset s off
+
+# gdnc
+gdomap -L GDNCServer || gdnc &
+
+# compton
+pgrep compton || compton -b
+
+# TopBar
+pgrep TopBar || openapp TopBar &
+
+### Notifications
+systemctl --user import-environment DISPLAY &
+pgrep dunst || dunst &
+
+# conky
+pgrep conky || sleep 10 && conky -c ~/.config/pisi/conky.conf &
+
+### Updater notification
+sleep 30 && ~/.local/bin/Updater.sh -d &

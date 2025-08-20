@@ -1,0 +1,54 @@
+#!/bin/bash
+
+####################################################
+### P i S i Desktop - by Patrick Cardona
+### pcardona34 @ Github
+###
+### Thanks for the GNUstep Developers Community
+### This is Free and Open Source software.
+### Read License in the root directory.
+####################################################
+
+####################################################
+### Functions for wrappers
+####################################################
+
+##############################################
+### All the Wrappers
+#### Those are in RESOURCES/WRAPPERS
+##############################################
+function install_wrappers()
+{
+cd $_PWD/RESOURCES/WRAPPERS || exit 1
+
+for WRAP in *.app
+do
+	APPNAME=${WRAP%.app}
+
+	echo "$APPNAME" >> $LOG
+	title "Installing the wrapper for $APPNAME"
+
+	sudo cp -r ${APPNAME}.app $INSTALL_DIR/
+	check $APPNAME
+done
+
+cd $_PWD
+}
+
+##############################################
+### End of functions
+##############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+

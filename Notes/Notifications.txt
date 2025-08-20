@@ -1,0 +1,13 @@
+# Notifications
+
+sudo apt install dunst
+
+Ajouter dans .xinitrc
+systemctl --user import-environment DISPLAY
+/usr/bin/dunst &
+
+=== ou dans autostart ??? ===
+
+
+config:
+cp /etc/dunst/dunstrc $HOME/.config/dunst/dunstrc

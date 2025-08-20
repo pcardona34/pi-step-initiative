@@ -1,23 +1,25 @@
 #!/bin/sh
 
 # $HOME/.xinitrc
-#
-# global xinitrc file, used by all X sessions started by xinit (startx)
 
-### Start Xserver & Window Manager:
-exec wmaker
+### Start Xserver & Window Manager in a DBus session:
+PID_XSESSION=$$
+
+wmaker --no-dock --no-clip --static &
+notify-send "PiSi Desktop is loading..."
+sleep 1
+openapp SimpleAgenda &
+sleep 2
+exec dbus-launch --sh-syntax --exit-with-session openapp GWorkspace
+
+kill $PID_XSESSION
 
 ############ INFO ###############################################
 ### DMPS and blanking issues on RPI machine
 ### are fixed (xset) within
-### $HOME/GNUstep/Library/WindowMaker/autostart
+### $HOME/.config/openbox/autostart
 ### Not here!
 #################################################################
 ### Setting GNUstep environment
 ### This is done with .profile, not here.
-#################################################################
-### Starting Apps within wmaker is done
-### with session management...
-### and thensaved in WMState ans WMWindowAttributes
-### Not here.
 #################################################################

@@ -1,0 +1,62 @@
+#!/bin/bash
+
+####################################################
+### P i S i Desktop - by Patrick Cardona
+### pcardona34 @ Github
+###
+### Thanks for the GNUstep Developers Community
+### This is Free and Open Source software.
+### Read License in the root directory.
+####################################################
+
+################################
+### PiSi actions...
+################################
+
+ARG="$1"
+if [ "$ARG" == "" ];then
+	ARG="--help"
+fi
+
+. $HOME/.local/bin/colors.sh
+
+#######################################################""
+### System Infos
+function info()
+{
+MODEL=$(cat /proc/cpuinfo | grep Model | awk '{print $5}')
+REVISION=$(cat /proc/cpuinfo | grep Model | awk '{print $7}')
+OS=$(cat /etc/os-release | grep -e "^ID" | awk -F= '{print $2}')
+RELEASE=$(cat /etc/debian_version)
+KERNEL=$(uname -s -r -m)
+WM=$(wmaker --version)
+WS=$(defaults read org.gnustep.GWorkspace GSWorkspaceApplication | awk '{print $3}')
+GSBASE=$(ls /usr/local/lib/GNUstep/Libraries/gnustep-base/Versions)
+GSGUI=$(ls /usr/local/lib/GNUstep/Libraries/gnustep-gui/Versions)
+THEME=$(defaults read NSGlobalDomain GSTheme | awk '{print $3}')
+
+title "PiSi: Système"
+printf "\tModèle: Raspberry Pi $MODEL Révision: $REVISION\n"
+printf "\tOS: $OS $RELEASE\n"
+printf "\tNoyau: $KERNEL\n"
+printf "\tGestionnaire de fenêtres: $WM\n"
+printf "\tEspace de travail: $WS\n"
+printf "\tGNUstep: Base: $GSBASE - Gui: $GSGUI\n"
+printf "\tThème: $THEME\n\n"
+}
+
+##################################################
+### Help
+function myhelp()
+{
+clear
+printf "Syntax:\n"
+cli "$0 <OPTION>\n\nOptions:\n\t--help\n\t--info"
+}
+
+##################################################
+
+case "$ARG" in
+	"--info" | "--Info" | "--INFO" | "info") info;;
+	*) myhelp;;
+esac
