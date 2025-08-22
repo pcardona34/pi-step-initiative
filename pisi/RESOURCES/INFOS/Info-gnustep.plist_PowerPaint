@@ -14,7 +14,7 @@
     NSMainNibFile = PowerPaint;
     NSMainStoryboardFile = "";
 	 NSIcon = "PowerPaint.tiff";
-    CFBundleIdentifier = "org.gnustep.Powerpaint";
+    CFBundleIdentifier = "org.gnustep.PowerPaint";
     NSPrincipalClass = NSApplication;
     NSTypes = (
 	{

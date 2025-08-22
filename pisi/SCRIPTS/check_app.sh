@@ -20,7 +20,7 @@ function check()
 ### VARS ENV
 __PWD=`pwd`
 if [ -z "$INSTALL_DIR" ];then
-	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
+	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 fi
 GNUSTEP_APPS_DIR=$INSTALL_DIR
 ISSUES=https://github.com/pcardona34/pi-step-initiative/issues
@@ -82,6 +82,31 @@ if [ -d "${APP}.framework" ];then
 	info "The Framework ${APP} has been found: ok."
 else
 	alert "ERROR! The Framework ${APP} was not found in ${GNUSTEP_FW_DIR}.\nPlease, report this issue at:\n${ISSUES}"
+	exit 1
+fi
+
+cd $__PWD
+}
+
+#####################################
+### Case of renaissance, performance
+function check_LIB()
+{
+### VARS ENV
+LIB="$1"
+__PWD=`pwd`
+ISSUES=https://github.com/pcardona34/pi-step-initiative/issues
+
+
+if [ -z "$INCLUDE_DIR" ];then
+	INCLUDE_DIR=/usr/local/include
+fi
+
+cd $INCLUDE_DIR || exit 1
+if [ -d "${LIB}" ];then
+	info "The lib ${LIB} has been found: ok."
+else
+	alert "ERROR! The lib ${LIB} was not found in ${INCLUDE_DIR}.\nPlease, report this issue at:\n${ISSUES}"
 	exit 1
 fi
 

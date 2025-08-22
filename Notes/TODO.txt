@@ -31,22 +31,24 @@
 - [x] A WebBrowser : Netsurf and gs-WebBrowser moved to DRAFTS...(See issues and work done by the respective developers. May change soon...) => In the meanwhile, a simple AppWrapper (see below): done.
 - [x] Add Chromium.app wrapper
 - [x] Add a function for the installation of the Wrappers in stage 2: added wrappers: Inkscape.app, EBookReader.app (FBReader), Focuswriter.app.
-- [ ] Create FocusWriter wrapper.
-- [ ] renew Screenshots
-- [ ] Update RELEASE info file
-- [ ] Backup data files from Documents
-- [ ] Push repo on Github
-- [ ] Test on a new fresh clean SD card
+- [x] Create FocusWriter wrapper.
+- [x] renew Screenshots
+- [x] Update RELEASE info file
+- [x] Backup data files from Documents
+- [x] Push repo on Github
+- [x] Test install on a new fresh clean SD card: ok now.
+- [ ] Test with a different username
 
 ### Testing some features / PiSi DEMO
 
+- [ ] Better Theme: enhancing PISI Theme (read again GNUstep Discuss List)
 - [ ] Syncing subdirs within StepSync
-- [ ] What are these GSMarkupBrowser and GSLocalizableStrings?
+- [x] What are these GSMarkupBrowser and GSLocalizableStrings? Answer: dev tools related to the Renaissance Framework.
 - [ ] MDFinder is not Finder?
 
 #### Testing within SAMPLES
 
-- [x] Create a SAMPLES Folder
+- [x] Create a 'SAMPLES' Folder
 - [ ] Make Testing Units Log those below
 - [ ] To be extended
 
@@ -64,8 +66,8 @@
 - [x] Debian (RPI OS) Updater (notifying applet) -- via the notifications (dunst). It is now in the TOOLS Folder: pisi_updater. Verity the installation is added to (user_settings?) - deps: dunst & libnotify-bin
 - [ ] PiSi Updater: info about a new PiSi release or an app update. Idem. Todo: extend pisi_updater to include this.
 - [ ] Recommended Software (easy way to install/uninstall each extra app)
-- [ ] EPub reader to include within Librarian and document convert tools... See in the meanwhile the wrapper EBookReader.app.
-- [ ] A Password Manager Web Browser free (see Pass, it's C or in the meanwhile, a dockapp like WMpasman) | in the meanwhile, use of Chromium password manager...
+- [-] EPub reader to include within Librarian and document convert tools... See in the meanwhile the wrapper EBookReader.app.
+- [-] A Password Manager Web Browser free (see Pass, it's C or in the meanwhile, a dockapp like WMpasman) | in the meanwhile, use of Chromium password manager...
 
 ### Misc apps for a French User
 
@@ -78,8 +80,9 @@
 - [ ] How to Login / start Workspace / halt pi400
 - [ ] Customization: locales, timezone (launching and using SystemPreferences)
 - [ ] How to use GWorkspace (basic operations on Files); mount/unmount a removable device...
-- [x] Setting CUPS (printing)
-- [x] Setting/Fixing AlsaMixer
+- [-] Setting CUPS (printing)
+- [-] Setting/Fixing AlsaMixer
+- [ ] setting/Using Librarian
 - [ ] An Application Quick Tour
 
 ### Developer Documentation

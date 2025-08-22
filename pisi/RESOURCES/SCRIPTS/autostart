@@ -1,13 +1,5 @@
 #!/bin/bash
 #
-# Place applications to be executed when WindowMaker is started here.
-# This should only be used for non-X applications or applications that
-# do not support session management. Other applications should be restarted
-# by the WindowMaker session restoring mechanism. For that, you should
-# either set SaveSessionOnExit=YES or select "Save Session" in the Workspace
-# submenu of the root menu when all applications you want started are
-# running.
-#
 # WindowMaker will wait until this script finishes, so if you run any
 # commands that take long to execute (like a xterm), put a ``&'' in the
 # end of the command line.
@@ -20,21 +12,19 @@ xset m 20/10 4
 xset -dpms
 xset s off
 
-# gdnc
+### gdnc
 gdomap -L GDNCServer || gdnc &
 
-# compton
+### compton: the -b arg means as a daemon like &
 pgrep compton || compton -b
 
-# TopBar
-pgrep TopBar || openapp TopBar &
-
 ### Notifications
-systemctl --user import-environment DISPLAY &
+systemctl --user import-environment DISPLAY
 pgrep dunst || dunst &
+dunstify "PiSi Desktop is loading..."
 
-# conky
-pgrep conky || sleep 10 && conky -c ~/.config/pisi/conky.conf &
+### conky
+pgrep conky || sleep 8 && conky -c ~/.config/pisi/conky.conf &
 
 ### Updater notification
-sleep 30 && ~/.local/bin/Updater.sh -d &
+sleep 60 && ~/.local/bin/Updater.sh -d &

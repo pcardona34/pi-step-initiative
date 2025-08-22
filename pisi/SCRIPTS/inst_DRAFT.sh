@@ -38,7 +38,7 @@ USER_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
 . SCRIPTS/spinner.sh
 . SCRIPTS/check_app.sh
 . SCRIPTS/functions_inst_DRAFT.sh
-. SCRIPTS/std_build.sh
+#. SCRIPTS/std_build.sh
 
 ### End of Include functions
 ################################
@@ -71,8 +71,7 @@ echo "$0" > $LOG
 
 ### Apps
 #install_gs-webbrowser
-#install_grr
-install_Weather
+#install_Weather
 
 ### Games
 #install_nextgo

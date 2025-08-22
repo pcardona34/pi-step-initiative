@@ -20,7 +20,7 @@ _PWD=`pwd`
 . /usr/local/share/GNUstep/Makefiles/GNUstep.sh
 LOG="$HOME/PISI_BUILD_EXTRA.log"
 SPIN='/-\|'
-INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
+INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 
 #################################################
 
@@ -31,7 +31,7 @@ INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
 . SCRIPTS/check_app.sh
 . SCRIPTS/size.sh
 . SCRIPTS/spinner.sh
-. SCRIPTS/functions_inst_6_build_extra_apps.sh
+. SCRIPTS/functions_inst_extra.sh
 . SCRIPTS/std_build.sh
 
 ### End of Include functions

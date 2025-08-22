@@ -14,56 +14,12 @@
 ################################
 
 ###############################################
-function misc_folder_GNUstep()
+function icon_folder()
 {
-FOLDER="GNUstep"
-if [ ! -d $HOME/${FOLDER} ];then
-	mkdir -p $HOME/$[FOLDER}
+FOLDER="$1"
+if ! [ -d $HOME/${FOLDER} ];then
+	mkdir -p $HOME/${FOLDER}
 fi
-cp $_PWD/RESOURCES/ICONS/dir_${FOLDER}.tiff $HOME/${FOLDER}/.dir.tiff
+cd RESOURCES/ICONS && cp -u dir_${FOLDER}.tiff $HOME/${FOLDER}/.dir.tiff
+cd $_PWD
 }
-###############################################
-
-###############################################
-function misc_folder_Mailboxes()
-{
-FOLDER="Mailboxes"
-if [ ! -d $HOME/${FOLDER} ];then
-	mkdir -p $HOME/$[FOLDER}
-fi
-cp $_PWD/RESOURCES/ICONS/dir_${FOLDER}.tiff $HOME/${FOLDER}/.dir.tiff
-}
-###############################################
-
-###############################################
-function misc_folder_Favorites()
-{
-FOLDER="Favorites"
-if [ ! -d $HOME/${FOLDER} ];then
-	mkdir -p $HOME/$[FOLDER}
-fi
-cp $_PWD/RESOURCES/ICONS/dir_${FOLDER}.tiff $HOME/${FOLDER}/.dir.tiff
-}
-###############################################
-
-###############################################
-function misc_folder_SOURCES()
-{
-FOLDER="SOURCES"
-if [ ! -d $HOME/${FOLDER} ];then
-	mkdir -p $HOME/$[FOLDER}
-fi
-cp $_PWD/RESOURCES/ICONS/dir_${FOLDER}.tiff $HOME/${FOLDER}/.dir.tiff
-}
-###############################################
-
-###############################################
-function misc_folder_Samples()
-{
-FOLDER="Samples"
-if [ ! -d $HOME/${FOLDER} ];then
-	mkdir -p $HOME/$[FOLDER}
-fi
-cp $_PWD/RESOURCES/ICONS/dir_${FOLDER}.tiff $HOME/${FOLDER}/.dir.tiff
-}
-###############################################

@@ -73,6 +73,12 @@ echo "$0" >$LOG
 ## save and run...
 ##############################################
 
+install_ink
+
+make_services
+sudo ldconfig
+exit
+
 install_systempreferences
 install_gworkspace
 install_helpviewer
@@ -80,7 +86,7 @@ install_textedit
 install_openup
 install_addressmanager
 install_gnumail
-install_Grr
+install_grr
 install_agenda
 install_terminal
 install_gspdf
@@ -91,6 +97,7 @@ install_librarian
 install_innerspace
 install_scanimage
 install_screenshot
+install_volumecontrol
 install_wrappers
 
 ##################
@@ -99,6 +106,4 @@ install_wrappers
 #install_timemon
 ##################
 
-make_services
-sudo ldconfig
-print_size
+#print_size

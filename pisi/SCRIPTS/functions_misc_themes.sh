@@ -15,17 +15,16 @@
 
 function update_info()
 {
-cd $PWD/RESOURCES/INFOS
+cd $_PWD/RESOURCES/INFOS
 for INFO in Info-gnustep.plist_*
 do
 	printf "Updating ${INFO#Info-gnustep.plist_}...\n"
+	TARGET="${LOCAL_INSTALL_DIR}/${INFO#Info-gnustep.plist_}.app/Resources/Info-gnustep.plist"
 	if [ -d ${LOCAL_INSTALL_DIR}/${INFO#Info-gnustep.plist_}.app/Resources ]; then
-		TARGET=${LOCAL_INSTALL_DIR}/${INFO#Info-gnustep.plist_}.app/Resources/Info-gnustep.plist
-		cp --force ${INFO} ${TARGET}
-		ok "Done"
+		sudo cp --force ${INFO} ${TARGET} && ok "Done"
 	else
-		alert "$TARGET was not found"
-		exit 1
-	fi	
+		warning "$TARGET was not found for $INFO"
+		#exit 1 #This should not prevent the 3rd step to accomplish...
+	fi
 done
 }

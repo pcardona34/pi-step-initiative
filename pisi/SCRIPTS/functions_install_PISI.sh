@@ -89,8 +89,10 @@ printf "You can install Pisi like this:"
 cli "./2_install_Pisi.sh OPTION"
 printf "\n- OPTION could be one of: desktop, apps, devel, extra, games"
 
-MESSAGE="- desktop: means WindowMaker and some dockapps.\n \
-(i) - apps: means GWorkspace, Terminal, TextEdit, GNUMail, etc."
+MESSAGE="- desktop: means WindowMaker, GNUstep, Frameworks...\n \
+(i) - apps: means GWorkspace, Terminal, TextEdit, GNUMail, etc.\n \
+(i) - You must use these options: 'desktop', then 'apps' for a daily use. And 'devel' for a GNUstep Workshop.\n \
+(i) - See RELEASE for a detailed explanation."
 info "$MESSAGE"
 }
 ### end of help

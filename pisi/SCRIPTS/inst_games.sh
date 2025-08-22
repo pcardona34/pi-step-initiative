@@ -20,7 +20,7 @@ _PWD=`pwd`
 . /usr/local/share/GNUstep/Makefiles/GNUstep.sh
 LOG="$HOME/PISI_BUILD_GAMES.log"
 SPIN='/-\|'
-INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
+INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 
 #################################################
 

@@ -99,37 +99,6 @@ check "MDFinder"
 }
 
 #############################################
-## TopBar
-### Repo/Release: github/gnustep/topbar
-#############################################
-
-function install_terminal()
-{
-
-APPNAME=TopBar
-RELEASE="0.1"
-
-echo "$APPNAME $RELEASE" >>$LOG
-title "$APPNAME $RELEASE"
-
-cd ../build || exit 1
-
-printf "Fetching...\n"
-if [ -d apps-topbar ];then
-	cd apps-topbar
-	git pull origin master &>/dev/null
-else
-	git clone https://github.com/gnustep/apps-topbar.git &>/dev/null
-	cd apps-topbar
-fi
-
-_build
-}
-
-### End of TopBar
-#############################################
-
-#############################################
 ## Terminal
 ### Repo/Release: Savannah/svn
 #############################################
@@ -253,8 +222,6 @@ else
         svn co svn://svn.savannah.nongnu.org/gap/trunk/user-apps/Cynthiune &>/dev/null
         cd Cynthiune
 fi
-
-cd Cynthiune
 
 ### PATCH
 cp $_PWD/RESOURCES/PATCHES/$PATCH ./
@@ -548,8 +515,6 @@ cp $_PWD/RESOURCES/PATCHES/$PATCH2 ./
 printf "\tA patch must be applied...\n"
 patch --forward -u ${TARGET2} -i ${PATCH2} &>>$LOG
 ok "\tPatch applied"
-### New Icon
-cp $_PWD/RESOURCES/ICONES_PISI/InnerSpace.tiff ./
 
 _build
 }
@@ -693,6 +658,34 @@ fi
 _build
 }
 
+###################################################
+## VolumeConrol
+### Repo/Release: Github/Alexmyczko
+###################################################
+
+function install_volumecontrol()
+{
+
+APPNAME=VolumeControl
+RELEASE=""
+
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
+
+cd ../build || exit 1
+
+printf "Fetching...\n"
+if [ -d ${APPNAME}.app ];then
+	cd ${APPNAME}.app
+	git pull origin master &>/dev/null
+else
+	git clone https://github.com/alexmyczko/VolumeControl.app.git &>/dev/null
+	cd ${APPNAME}.app
+fi
+
+_build
+}
+
 
 ##############################################
 ### End of functions
@@ -712,7 +705,8 @@ _build
 
 
 #################################################################################
-#################################################################################  Archive
+#################################################################################
+### Archive
 ### Removed
 
 ###################################################
@@ -798,3 +792,34 @@ ok "Done"
 }
 ### End of copy of ressources to /etc/skel
 ##############################################
+
+#############################################
+## TopBar
+### Repo/Release: github/gnustep/topbar
+#############################################
+
+function install_topbar()
+{
+
+APPNAME=TopBar
+RELEASE="0.1"
+
+echo "$APPNAME $RELEASE" >>$LOG
+title "$APPNAME $RELEASE"
+
+cd ../build || exit 1
+
+printf "Fetching...\n"
+if [ -d apps-topbar ];then
+	cd apps-topbar
+	git pull origin master &>/dev/null
+else
+	git clone https://github.com/gnustep/apps-topbar.git &>/dev/null
+	cd apps-topbar
+fi
+
+_build
+}
+
+### End of TopBar
+#############################################

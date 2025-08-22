@@ -17,8 +17,14 @@
 ### Install objc2
 function install_libobjc2()
 {
+if [ -d ../build ];then
+	cd ../build
+else
+	mkdir -p ../build && cd ../build
+fi
 
-title "Lib OBJC2" | tee -a $LOG
+title "Lib OBJC2"
+echo "Lib OBJC2" >>$LOG
 
 printf "Fetching...\n"
 if [ -d libobjc2 ];then
@@ -29,11 +35,6 @@ else
 	cd libobjc2
 fi
 
-if [ -d build ];then
-	cd build
-else
-	mkdir build && cd build
-fi
 
 printf "Configuring...\n"
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo &>>$LOG

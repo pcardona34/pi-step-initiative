@@ -67,8 +67,13 @@ prefix="#"
 
 while read DEP
 do
-if [ "$DEP" == "$prefix"* ] || [ -z "$DEP" ];then
-	# This line is commented or it is an empty line...
+if [ -z "$DEP" ];then
+	# This line is empty...
+	continue
+fi
+echo "$DEP" | grep -e "$prefix" &>/dev/null
+if [ $? -eq 0 ];then
+	# This line is commented out...
 	continue
 else
 	printf "${DEP}... "
@@ -107,7 +112,6 @@ if [ -f cmake-4.0.2-linux-aarch64.sh ];then
 	if [ -f $HOME/.local/bin/cmake ];then
 		CMAKE_VER=`$HOME/.local/bin/cmake --version`
 		info "cmake 4 is installed.\n${CMAKE_VER}"
-		exit 0
 	else
 		printf "The following script will install cmake.\n"
 		printf "Type 'q' to exit LICENSE reading, then 'y' twice to accept the defaults.\n"
@@ -123,8 +127,8 @@ if [ -f cmake-4.0.2-linux-aarch64.sh ];then
 else
 	printf "\nfetching: CMake-4.0.2...\n"
 	wget --quiet https://github.com/Kitware/CMake/releases/download/v4.0.2/cmake-4.0.2-linux-aarch64.sh
+	install_cmake # recursive call
 fi
-install_cmake # recursive call
 }
 ### End of up to date CMake
 #############################################

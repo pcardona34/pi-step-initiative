@@ -6,12 +6,12 @@
 ### This is Free and Open Source software.
 ### Read License in the root directory.
 ####################################################
-#
+
 #################################
 ### PISI Desktop dependencies ###
 ### on Debian 12 (Bookworm)   ###
 #################################
-#
+
 ### Build tools - Fetching sources
 # Autoconf >= 2.69: it is 2.71
 autoconf
@@ -25,7 +25,7 @@ git
 # Libtool >= 1.4.2: it is 2.4.7
 libtool
 subversion
-#
+
 #########################################
 ### WMaker
 #########################################
@@ -79,19 +79,25 @@ libxinerama-dev
 xdotool
 xinit
 xnest
-#
+
+### Desktop goodies
+dunst
+compton
+conky
+
 ### Printer & scanner: see also Setup_Printer script
 cups
 libcups2
 libcups2-dev
 sane-utils
+
 #########################################
 ### Applications
 #### Spelling
 aspell
 inkscape
 libaspell-dev
-# Web
+### Web
 chromium
 rpi-chromium-mods
 #### Dictionary
@@ -101,6 +107,8 @@ dict-jargon
 dict-wn
 #### epub reader
 fbreader
+### Writer wrapper
+focuswriter
 #### Audio and Video - Player & Cynthiune
 ffmpeg
 libao4
@@ -126,6 +134,7 @@ vlc-bin
 vlc-data
 vlc-plugin-base
 vlc-plugin-video-output
+
 ##########################################
 ### Games
 # Chess
@@ -133,6 +142,7 @@ gnuchess
 # NeXTGo ?
 # gnugo
 ###########################################
+
 ### Desktop utilities
 #### PS & PDF - GSPdf
 fonts-freefont-ttf
@@ -142,11 +152,13 @@ poppler-utils
 sqlite3
 tzdata
 xpdf
+
 ###########################################
 #### Cryptography - GNUMail
 gnutls-bin
 libgnutls28-dev
 libssl-dev
+
 ###########################################
 ### Freedesktop
 libavahi-client-dev
@@ -154,16 +166,20 @@ libavahi-compat-libdnssd-dev
 libcurl4-gnutls-dev
 libcurl4-openssl-dev
 libdbus-1-dev
+dbus-x11
+
 ############################################
 ### Image manipulation & view
 libffi8
 libffi-dev
 libexif-dev
 webp
+
 ############################################
 ### Calendar
 libical3
 libical-dev
+
 ############################################
 ### Other libs
 libicu-dev
@@ -180,17 +196,20 @@ libxmu-dev
 libxslt1-dev
 uuid-dev
 zlib1g-dev
+
 ###########################################
 ### Dev Tools
 lld
 make
 pkg-config
+
 ###########################################
 ### Other Tools
 htop
 wget
+
 #### Librarian
 recollcmd
+
 #### SceenShot
 scrot
-#

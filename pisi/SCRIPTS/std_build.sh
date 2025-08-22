@@ -53,13 +53,13 @@ check ${APPNAME}
 }
 
 ###################################################
-### Building Frameworks
+### Building Frameworks / Libs
 ###################################################
 
 function _build_FW()
 {
 
-if [ -z ${APPNAME} ];then
+if [ -z ${FWNAME} ];then
 	alert "The Name of Framework is misconfigured. Aborting!"
 fi
 
@@ -91,15 +91,18 @@ ok "\rDone"
 
 cd $_PWD
 
-check_FW ${APPNAME}
-
+if [ "${FWNAME}" == "Renaissance" ] || [ "${FWNAME}" == "Performance" ] || [ "${FWNAME}" == "WebServices" ];then
+	check_LIB ${FWNAME}
+else
+	check_FW ${FWNAME}
+fi
 }
 
 ###################################################
 ### Building Themes
 ###################################################
 
-function _build_FW()
+function _build_Theme()
 {
 
 if [ -z ${APPNAME} ];then
@@ -121,8 +124,8 @@ PID=$!
 spinner
 
 printf "\rInstalling...\n"
-#sudo -E make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=LOCAL &>>$LOG &
-make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=USER &>>$LOG &
+sudo -E make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=LOCAL &>>$LOG &
+#make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=USER &>>$LOG &
 
 PID=$!
 spinner

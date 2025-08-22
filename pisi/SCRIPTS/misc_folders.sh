@@ -38,7 +38,9 @@ SPIN='/-\|'
 echo "$0" >$LOG
 
 ###############################################
-misc_folder_GNUstep
-misc_folder_Mailboxes
-misc_folder_Signets
-misc_folder_SOURCES
+for FOLD in Books Favorites GNUstep Mailboxes Samples SOURCES
+do
+	printf "Setting Folder ${FOLD}\n"
+	icon_folder $FOLD
+	ok "Done"
+done

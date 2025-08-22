@@ -3,7 +3,7 @@
 ## Abstract
 
 - Setting a GNUstep compliant Desktop on a Raspberry Pi 400.
-- **Release/Status**: 0.1-alpha.
+- **Release/Status**: see [RELEASE](pisi/RELEASE).
 - The Operating System is Raspberry Pi OS Lite, itself based on Debian Bookworm, i.e. 12: Trixie not tried yet.
 
 ## Detailed goals and targets
@@ -29,9 +29,10 @@ The targets of the project are two communities concerned:
 3) Providing a finalized set of easy install scripts to build and setup the Desktop.
 
 Until now, steps 1 to 3 are mostly done.
+  - **Status**: complete install on a fresh SD card: done: ok | with a different username: (to do)
 
 4) Adding tutorials targeting the learning community of the Raspberry Pi 
- Foundation and new GNUstep incoming developers: to do.
+ Foundation and new GNUstep incoming developers: (to do).
 
 ---
 
@@ -51,7 +52,7 @@ Until now, steps 1 to 3 are mostly done.
 - The GNUstep environment is built from the latest sources of the Libraries, Tools and Apps: unlike some other great projects like NEXTSPACE and GS-Desktop, I am using legacy Window Maker and GWorkspace...
 - PiSi provides its original Themes: 'PISI.theme' for GNUstep and 'PISI.themed' for Window Maker. I tried to give a strong GNUstep identity (vertical menus and Dock) but with customized colors and modern icons. Most of these icons were adapted from the [Papirus Iconset project](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme). Several are my own work as the WallPaper too.
 - The Monitoring board on the Desktop is using [Conky](https://github.com/brndnmtthws/conky).
-- Read the [RELEASE](./pisi/RESOURCES/RELEASE) file to get the complete and detailed list of the components and Apps provided.
+- Read the [RELEASE](./pisi/RELEASE) file to get the complete and detailed list of the components and Apps provided.
 
 ### How to install
 

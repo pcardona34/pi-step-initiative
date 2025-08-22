@@ -18,7 +18,7 @@
 function install_pdfkit()
 {
 
-APPNAME="PDFKit"
+FWNAME="PDFKit"
 CONFIG_ARGS="--enable-a4-paper"
 
 cd ../build || exit 1
@@ -62,8 +62,7 @@ else
 fi
 
 cd Frameworks
-title "Adresses"
-APPNAME="Addresses"
+FWNAME="Addresses"
 cd Addresses
 
 _build_FW
@@ -79,8 +78,8 @@ function install_fw_addressview()
 
 cd ../build || exit 1
 
-title "Addresses and AddressView"
-echo "Addresses and AddressView" >>$LOG
+title "AddressView"
+echo "AddressView" >>$LOG
 printf "Fetching...\n"
 
 if [ -d Addresses-0.5.0 ];then
@@ -93,8 +92,7 @@ else
 fi
 
 cd Frameworks
-title "AdressView"
-APPNAME="AddressView"
+FWNAME="AddressView"
 cd AddressView
 
 _build_FW
@@ -109,7 +107,7 @@ function install_pantomime()
 
 cd ../build || exit 1
 
-APPNAME="Pantomime"
+FWNAME="Pantomime"
 title "Pantomime"
 echo "Pantomime" >>$LOG
 printf "Fetching...\n"
@@ -129,39 +127,13 @@ _build_FW
 ###############################
 
 ###############################
-## Themes
-function install_themes()
-{
-
-cd ../build || exit 1
-
-APPNAME="Sombre"
-
-title "Theme $APPNAME for GNUstep"
-echo "Theme $APPNAME for GNUstep" >>$LOG
-printf "Fetching...\n"
-
-if [ -d plugins-themes-sombre ];then
-	cd plugins-themes-sombre
-	git pull origin master &>/dev/null
-else
-	git clone https://github.com/gnustep/plugins-themes-sombre &>/dev/null
-	cd plugins-themes-sombre
-fi
-
-_build_THEME
-}
-### End of Theme Sombre
-###############################
-
-###############################
 ## SimpleWebKit
 function install_SWK()
 {
 
 cd ../build || exit 1
 
-APPNAME="SimpleWebKit"
+FWNAME="SimpleWebKit"
 title "SimpleWebKit"
 echo "SimpleWebKit" >>$LOG
 printf "Fetching...\n"
@@ -187,9 +159,9 @@ function install_hlkit()
 
 cd ../build || exit 1
 
-APPNAME="HighLighterKit"
-title "HighLighterKit"
-echo "HighLighterKit" >>$LOG
+FWNAME="HighlighterKit"
+title "HighlighterKit"
+echo "HighlighterKit" >>$LOG
 
 printf "Fetching...\n"
 if [ -d HighlighterKit-0.1.3 ];then
@@ -246,7 +218,7 @@ function install_renaissance()
 {
 cd ../build || exit 1
 
-APPNAME="Renaissance"
+FWNAME="Renaissance"
 title "Renaissance"
 echo "Renaissance" >>$LOG
 
@@ -265,15 +237,15 @@ _build_FW
 ##############################
 
 ##############################
-## Performances
+## Performance
 function install_performance()
 {
 
 cd ../build || exit 1
 
-APPNAME="Performances"
-title "Performances"
-echo "Performances" >>$LOG
+FWNAME="Performance"
+title "Performance"
+echo "Performance" >>$LOG
 
 printf "Fetching...\n"
 if [ -d libs-performance ];then
@@ -296,7 +268,7 @@ function install_webservices()
 
 cd ../build || exit 1
 
-APPNAME=WebServices"
+FWNAME="WebServices"
 title "WebServices"
 echo "WebServices" >>$LOG
 
@@ -322,7 +294,7 @@ function install_dbuskit()
 
 cd ../build || exit 1
 
-APPNAME="DBusKit"
+FWNAME="libs-dbuskit"
 title "DBusKit"
 echo "DBusKit" >>$LOG
 
@@ -344,19 +316,22 @@ if ! [ -d config ];then
 fi
 cp config/config.guess ./
 cp config/config.sub ./
-./configure &>>$LOG &
-PID=$!
-spinner
+./configure
+#&>>$LOG &
+#PID=$!
+#spinner
 
 printf "\rBuilding...\n"
-make &>>$LOG &
-PID=$!
-spinner
+make
+#&>>$LOG &
+#PID=$!
+#spinner
 
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
+#printf "\rInstalling...\n"
+#sudo -E make install
+# &>>$LOG &
+#PID=$!
+#spinner
 
 ### Cleaning
 make clean &>/dev/null
@@ -364,7 +339,7 @@ make clean &>/dev/null
 ok "\rDone"
 cd $_PWD
 
-check_FW $APPNAME
+#check_FW $FWNAME
 }
 ### End of DbusKit
 ###############################
@@ -373,9 +348,7 @@ check_FW $APPNAME
 ### libs-steptalk
 function install_steptalk()
 {
-
-APPNAME="StepTalk"
-FWNAME="libs-steptalk"
+FWNAME="StepTalk"
 title "$FWNAME"
 echo "$FWNAME" >>$LOG
 
@@ -400,7 +373,6 @@ _build_FW
 ## RSSKit
 function install_rsskit()
 {
-APPNAME="RSSKit"
 FWNAME="RSSKit"
 title "$FWNAME"
 echo "$FWNAME" >>$LOG
@@ -412,7 +384,8 @@ if [ -d RSSKit ];then
 	cd RSSKit
 	svn update &>/dev/null
 else
-	svn co svn://svn.savannah.nongnu.org/gap/trunk/Frameworks/RSSKit &>/dev/null
+	svn co svn://svn.savannah.nongnu.org/gap/trunk/libs/RSSKit
+#&>/dev/null
 	cd RSSKit
 fi
 
@@ -420,5 +393,38 @@ _build_FW
 
 }
 ### End of RSSKit
+###############################
+
+####################################################################
+
+###############################
+### OBSOLETE !!!
+#### The PISI Theme is now  provided
+#### within the folder RESOURCES
+###############################
+
+## Themes
+function install_themes()
+{
+
+cd ../build || exit 1
+
+APPNAME="Sombre"
+
+title "Theme $APPNAME for GNUstep"
+echo "Theme $APPNAME for GNUstep" >>$LOG
+printf "Fetching...\n"
+
+if [ -d plugins-themes-sombre ];then
+	cd plugins-themes-sombre
+	git pull origin master &>/dev/null
+else
+	git clone https://github.com/gnustep/plugins-themes-sombre &>/dev/null
+	cd plugins-themes-sombre
+fi
+
+_build_THEME
+}
+### End of Theme Sombre
 ###############################
 

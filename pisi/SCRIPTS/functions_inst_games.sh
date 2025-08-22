@@ -143,13 +143,15 @@ title "$APPNAME $REL"
 cd ../build || exit 1
 
 printf "Fetching...\n"
-if [ -d GShisen-1.3.0 ];then
-	cd GShisen-1.3.0
+if [ -d GShisen ];then
+	cd GShisen
+	svn update
 else
-	wget --quiet http://mirror.netcologne.de/savannah/gap/GShisen-1.3.0.tar.gz
-	gunzip --force GShisen-1.3.0.tar.gz
-	tar -xf GShisen-1.3.0.tar
-	cd GShisen-1.3.0
+	svn co svn://svn.savannah.nongnu.org/gap/trunk/user-apps/Games/GShisen &>/dev/null
+#	wget --quiet http://mirror.netcologne.de/savannah/gap/GShisen-1.3.0.tar.gz
+#	gunzip --force GShisen-1.3.0.tar.gz
+#	tar -xf GShisen-1.3.0.tar
+	cd GShisen
 fi
 
 _build

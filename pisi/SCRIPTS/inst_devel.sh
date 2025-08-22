@@ -21,7 +21,7 @@ _PWD=`pwd`
 . /usr/local/share/GNUstep/Makefiles/GNUstep.sh
 LOG="$HOME/PISI_BUILD_BASE.log"
 SPIN='/-\|'
-INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
+INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 
 ### End of VARS
 ################################
@@ -40,7 +40,7 @@ INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
 ################################
 
 clear
-title "PISI - Main applications and Tools"
+title "PISI - Devel applications and Tools"
 
 ################################
 ### Is there a Build Folder?
@@ -50,7 +50,7 @@ if ! [ -d ../build ];then
 fi
 
 ################################
-### Is there a USER APPS Folder?
+### Is there an APPS Folder?
 
 if ! [ -d $INSTALL_DIR ];then
 	mkdir -p $INSTALL_DIR

@@ -25,18 +25,35 @@
 
 _PWD=`pwd`
 
+clear
+
 ####################################################
 ### FreeDesktop User filesystem
 
+title "Customizing the User Home folder"
 ### Set or restore standard $HOME filesystem
-xdg-user-dirs-update
+### Do NOT use xdg-user-dirs-update!!!
+for FOLD in Books Desktop Documents Downloads Favorites Images Mailboxes Music Samples Videos
+do
+	if ! [ -d $HOME/$FOLD ];then
+		mkdir -p $HOME/$FOLD
+	fi
+done
+
 ### Set misc folders (non standard ones)
 . SCRIPTS/misc_folders.sh
+
+### Target of Tools
+if ! [ -d $HOME/.local/bin ];then
+	mkdir -p $HOME/.local/bin
+fi
+
 
 ####################################################
 ### User profile
 ### Very important, because GNUstep needs to source this...
 
+title "User profile"
 IS_PROFILE=`grep -e "GNUstep.sh" $HOME/.profile`
 if [ $? -eq 0 ];then
 	info "$HOME/.profile is yet sourcing GNUstep."
@@ -44,30 +61,49 @@ else
 	echo ". /usr/local/share/GNUstep/Makefiles/GNUstep.sh" >> $HOME/.profile
 	. $HOME/.profile
 fi
+ok "Done"
 
 ###################################################
 ### Prevent .cache issue
+
+title "Fixing cache issue"
 IS_BASHRC=`grep -e ".cache" $HOME/.bashrc`
 if [ $? -eq 0 ];then
 	info "$HOME/.bashrc already fixes the '.cache' issue."
 else
 	cat RESOURCES/SCRIPTS/_bashrc >> $HOME/.bashrc
 fi
+ok "Done"
 
 ###################################################
 ### User WindowMaker profile
+title "User's WindowMaker profile"
 
 ### We set standard first
+if [ -d $HOME/GNUstep/Library/WindowMaker ];then
+	printf "Already set.\n"
+else
+	cd
+	wmaker.inst
+	cd $_PWD
+fi
+ok "Done"
 
-cd
-wmaker.inst
+###################################################
+### Autostart
+title "Autostart"
+cd $_PWD/RESOURCES/SCRIPTS
+cp --force autostart $HOME/GNUstep/Library/WindowMaker/
+printf "Autostart for Window Maker has been updated.\n"
 cd $_PWD
+ok "Done"
 
 ###################################################
 ### .xinitrc
+title "Xinit"
 
 if ! [ -f $HOME/.xinitrc ];then
-	cp --verbose RESOURCES/SCRIPTS/_xinitrc $HOME/.xinitrc
+	cd RESOURCES/SCRIPTS && cp _xinitrc $HOME/.xinitrc
 else
 	warning "A xinit script is already in the user directory."
 	IS_WMAKER=`grep -e "wmaker" $HOME/.xinitrc`
@@ -78,74 +114,106 @@ else
 		cp -i RESOURCES/SCRIPTS/_xinitrc $HOME/.xinitrc
 	fi
 fi
-
-### Symbolic link to Applications
-if [ -d /user/local/lib/GNUstep/Applications ];then
-	cd /
-	sudo ln -s /user/local/lib/GNUstep/Applications Applications
-fi
-
 cd $_PWD
+ok "Done"
 
+#################################################
 ### Wallpaper
-WP=wp_pi_step_initiative.png
-if [ ! -f $HOME/GNUstep/Library/WindowMaker/Backgrounds/$WP ];then
-	cp RESOURCES/WALLPAPERS/$W $HOME/GNUstep/Library/WindowMaker/Backgrounds/
+title "Wallpaper"
+WP=fond_pi_step_initiative.png
+WP_FOLDER=$HOME/GNUstep/Library/WindowMaker/Backgrounds
+if ! [ -f $WP_FOLDER/$WP ];then
+	cd RESOURCES/WALLPAPERS && cp $WP $WP_FOLDER/
 fi
+cd $_PWD
+ok "Done"
 
+#################################################
 ### Installing Tools and confs... Updater
-cd TOOLS/pisi_updater || exit 1
+title "Updater tool"
+cd $_PWD/TOOLS/pisi_updater || exit 1
 . ./install_pisi_updater.sh
 cd $_PWD
+ok "Done"
 
 ### Installing Tools and confs... Conky
-cd TOOLS/pisi_conky || exit 1
+title "Conky Monitoring Board"
+cd $_PWD/TOOLS/pisi_conky || exit 1
 . ./install_pisi_conky.sh
 cd $_PWD
+ok "Done"
 
 ### Installing Tools and confs...
-cd TOOLS/pisi_compton || exit 1
+title "Compton Compositing"
+cd $_PWD/TOOLS/pisi_compton || exit 1
 . ./install_pisi_compton.sh
 cd $_PWD
+ok "Done"
 
 ###########################################
-### Installing the themes
-. SCRIPTS/inst_themes
-### Apps known to not comply with Theme: workaround
+### Installing the theme
+title "PISI Theme"
+cd $_PWD
+. SCRIPTS/inst_themes.sh
+### Some Apps known to not comply with Theme: workaround
 ### We need to update Info-gnustep.plist for these apps
-. SCRIPTS/misc_themes
+### Adding 'CFBundleIdentifier' property in the Dictionary
+. SCRIPTS/misc_themes.sh
+cd $_PWD
 
 ###########################################
 ### Setting the Defaults...
+title "GNUstep Defaults Setting"
+. SCRIPTS/prep_defaults.sh
 . SCRIPTS/set_defaults.sh
+rm SCRIPTS/set_defaults.sh
+cd $_PWD
+ok "Done"
 
 
 ###########################################
 ### Installing Tools
+title "User Tools"
+cd $_PWD/RESOURCES/SCRIPTS || exit 1
+for TOOL in Setup_Printer.sh pisi
+do
+	cp -u $TOOL $HOME/.local/bin/
+done
+
+cd $_PWD/SCRIPTS || exit 1
+for TOOL in colors.sh spinner.sh
+do
+	cp -u $TOOL $HOME/.local/bin/
+done
+
 cd $_PWD
-cp -i RESOURCES/SCRIPTS/autostart $HOME/GNUstep/Library/Windowmaker/
-cp RESOURCES/SCRIPTS/Setup_Printer.sh $HOME/.local/bin/
-cp RESOURCES/SCRIPTS/pisi $HOME/.local/bin/
-cp SCRIPTS/colors.sh SCRIPTS/spinner.sh $HOME/.local/bin/
+ok "Done"
 
 ###########################################
-### Copying samples
-printf "Copying samples...\n"
-cp $_PWD/RESOURCES/Samples.tar.gz $HOME/
+### Samples
+title "Sample Files"
+cd $_PWD/RESOURCES && cp -u Samples.tar.gz $HOME/
 cd $HOME
 gunzip --force Samples.tar.gz
-tar -xf Samples.tar
+tar -xf Samples.tar && rm Samples.tar
+cd $_PWD
 ok "Done"
+
+cd
+
+### Cleaner...
+mv --force *.log Documents/
 
 ###########################################
 ### Uncomment below if you use a Display Manager like XDM, Login.app...
 ### Do not use WDM.
 #cp $HOME/.xinitrc $HOME/.xsession
 
-printf "\nThe PiStep Initiative OS Desktop is ready to use now.\n"
-
-printf "To start it, execute:\n"
-cli "cd && startx"
+MESSAGE="The PiStep Initiative Desktop is ready to use now.\n \
+You should log out, log in again...\n \
+Then To start it, execute:\n"
+info "$MESSAGE"
+cli "startx"
 
 warning "Until now, no DM nor Login Manager... \nDO NOT use WDM, it could break PiSi installation!"
 

@@ -1,0 +1,94 @@
+Pi-STEP initiative Desktop / PiSi
+Release: 0.2-alpha
+
+==========================
+
+### The Desktop Components
+
+- Operating System: Raspberry Pi OS Lite release (it is now Debian Bookworm 12). Not yet tested on Trixie.
+- Window Manager: Window Maker 0.96.0 with PISI.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Wondow Maker.
+- GNUstep has been built with Clang 19, ARC enabled and Grand Central Dispatch. For the detailed versions, use: `pisi --info`
+- Preferences Manager: SystemPreferences
+- Workspace: GWorkspace and Recycler: 1.1.0 (02 2025) - Its own Desktop layer and its Dock (modern flavour) are shown. The Wallpaper is shown on this layer. It is a mandatory set to manage mounted removable devices on the Desktop and to unmount those by DND on the Recycler Icon.
+- Theme: PISI (mostly inspired by Papirus Icon theme)
+- Session: DBus
+- Notifyer: dunst
+- Compositing: compton
+- Sys Infos: conky. Weather data is fetched from Wttr.in. The system monitoring is upon: date, time, uptime, CPU, Memory, Storage and Networking.
+- Alsa compliant Audio Mixer: see VolumeControl below.
+
+Installation (cd firts in the 'pisi' folder): `./2_install_PISI.sh desktop`
+
+===========================================
+
+### Applications and Tools for the average User and The Developer
+
+For the average User: 
+- Installation: `./2_install_PISI.sh apps`
+
+Note-1: Extra GNUstep Application item has a "(E)" mention in the list below.
+- Installation: `./2_install_PISI.sh extra`
+
+Note-2: GNUstep Game item has a "(G)" mention in the list below.
+- Installation: `./2_install_PISI.sh games`
+
+Note-3: Non GNUstep Application Wrapper item has a "(W)" mention in the list below. Those have been installed with the 'apps' option.
+
+Note-4: Devel GNUstep Application item has a "(D)" mention in the list below.
+- Installation: `./2_install_PISI.sh devel`.
+
+
+- AddressManager: contacts
+- Calculator (E)
+- Cenon (E): Desktop Publishing
+- Chess (G)
+- Chromium (W): a wrapper for the Chromium Web Browser
+- Cynthiune: Music Player
+- Dictionary (E): Dictionary Lookup for the English User
+- EasyDiff (D): graphical Diff Tool
+- EBookReader.app (W): a wrapper for FBReader
+- FlexiSheet (E): a Spreadsheet inspired by Quantrix
+- FontManager (E)
+- Freecell (G): a card game
+- Gemas (D): a specialized editor for objectiveC, plist, GSmarkup...
+- GNUMail: Mail User Agent
+- Gomoku (G): a TicTacToe game
+- Gorm (D): Interface Builder for GNUstep
+- Graphos (E): a simple Vectorial Drawing app
+- Grr: RSS Reader
+- GShisen (G): a MahJong game
+- GSMarkupBrowser: it is a Devel tool, but it was installed within libs-renaissance at stage 1 (Frameworks and Libs).
+- GSMarkupLocalizableStrings: idem.
+- GSPdf: PS and PDF reader/viewer
+- GWorkspace: the Workspace manager: see above.
+- HelpViewer: .help reader (Help Files have a .help extension).
+- ImageViewer
+- InnerSpace: screen saver
+- Ink: Rich text (rtf and rtfd) editor.
+- Inkscape (W): a wrapper for inkscape SVG editor.
+- LapisPuzzle (G): a Tetris like game
+- Librarian: Books and Documents Organizing
+- MDFinder: within GWorkspace indexing
+- OpenUp: archive manager
+- PikoPixel (E): Pixel Art Editor
+- Player: a wrapper for VLC video player
+- PowerPaint (E): Bitmap Drawing
+- PRICE (E): Image Manipulation program
+- ProjectCenter (D): Project Builder for GNUstep
+- Recycler: see GWorkspace.
+- ScanImage: Scanner (sane) client
+- ScreenShot: screen recorder
+- SimpleAgenda: agenda
+- StepSync (E): Syncing Folders
+- SystemPreferences
+- Terminal: a Terminal emulator
+- TextEdit: text editor and note taking
+- Thematic (D): a Theme Editor for GNUstep
+- VolumeControl: AlsaMixer compliant mixer
+- Writer (W): a wrapper for Focuswriter
+
+
+
+
+
+
