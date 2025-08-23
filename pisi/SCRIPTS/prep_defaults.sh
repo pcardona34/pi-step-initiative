@@ -14,14 +14,16 @@
 ################################
 
 _PWD=`pwd`
+GWDEF="org.gnustep.GWorkspace"
+DEFDIR=$_PWD/RESOURCES/DEFAULTS
 
-cd $_PWD/SCRIPTS || exit 1
+cd $DEFDIR || exit 1
 
 if [ "$USER" == "patrick" ];then
 	### Default user...
-	cp --force set_defaults_DRAFT set_defaults.sh
+	cp --force ${GWDEF}.TEMPLATE ${GWDEF}.plist
 else
-	cat set_defaults_DRAFT | sed -e s/patrick/$USER/g > set_defaults.sh
+	cat ${GWDEF}.TEMPLATE | sed -e s/patrick/$USER/g > ${GWDEF}.plist
 fi
 
 cd $_PWD

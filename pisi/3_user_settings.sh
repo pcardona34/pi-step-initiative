@@ -166,10 +166,7 @@ cd $_PWD
 title "GNUstep Defaults Setting"
 . SCRIPTS/prep_defaults.sh
 . SCRIPTS/set_defaults.sh
-rm SCRIPTS/set_defaults.sh
 cd $_PWD
-ok "Done"
-
 
 ###########################################
 ### Installing Tools
@@ -196,6 +193,13 @@ cd $_PWD/RESOURCES && cp -u Samples.tar.gz $HOME/
 cd $HOME
 gunzip --force Samples.tar.gz
 tar -xf Samples.tar && rm Samples.tar
+
+cd Samples
+for FIC in *.mp3 *.ogg; do cp --force "$FIC" $HOME/Music/ ;done
+for FIC in *.mp4 *.mkv; do cp --force "$FIC" $HOME/Videos/ ;done
+for FIC in *.png *.jpg *.tiff; do cp --force "$FIC" $HOME/Images/ ;done
+for FIC in *.epub *.pdf; do cp --force "$FIC" $HOME/Books/ ;done
+
 cd $_PWD
 ok "Done"
 
@@ -210,10 +214,9 @@ mv --force *.log Documents/
 #cp $HOME/.xinitrc $HOME/.xsession
 
 MESSAGE="The PiStep Initiative Desktop is ready to use now.\n \
-You should log out, log in again...\n \
-Then To start it, execute:\n"
+To start it, execute:\n"
 info "$MESSAGE"
-cli "startx"
+cli "cd && startx"
 
 warning "Until now, no DM nor Login Manager... \nDO NOT use WDM, it could break PiSi installation!"
 
