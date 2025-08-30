@@ -1,4 +1,5 @@
 # Defaults to set for a PiSi Desktop
+### This is incomplete: see new method upon .plist files in GNUstep/Defaults.
 
 ## Theming and ergonomy
 

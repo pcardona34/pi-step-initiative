@@ -2,12 +2,10 @@
 
 sudo apt install dunst
 
-Ajouter dans .xinitrc
+## Add to autostart:
+
 systemctl --user import-environment DISPLAY
 /usr/bin/dunst &
 
-=== ou dans autostart ??? ===
-
-
-config:
-cp /etc/dunst/dunstrc $HOME/.config/dunst/dunstrc
+## config in:
+$HOME/.config/dunst/dunstrc

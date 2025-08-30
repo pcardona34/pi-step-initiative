@@ -4,40 +4,58 @@
 
 ### Install Scripts
 
-- [x] WMaker theme: PISI.themed installed to ~/GNUstep/Library/Windowmaker/Themes/
-- [x] Compositing: Compton into dependencies; compton.conf: installed ~/.config/
-- [x] Conky: installed to ~/.config/pisi/conky.conf
+- [x] WMaker theme: PISI.themed (~/GNUstep/Library/Windowmaker/Themes/)
+- [x] Compositing: Compton: dependencies; compton.conf (~/.config/)
+- [x] Conky: (~/.config/pisi/conky.conf)
 - [x] Window Maker autostart 
 - [x] Update 3_user_settings.
 - [x] Remove/Replace all the Dockapps.
-- [x] Move HelpViewer from Extra to the base apps install
-- [x] Make a separate stage: Desktop/theme (VS) base-apps - Complete tests of all scripts together for the three major stages: 1_prep, 2_install_PISI (only base option) and 3_user_settings.
+- [x] Move HelpViewer from Extra to the main apps install
+- [x] Make a separate stage: Desktop/theme (VS) base-apps - Complete tests of all scripts together for the three major stages: 1_prep, 2_install_PISI (only main option) and 3_user_settings.
 - [x] Remove NetSurf 3.11 (no JavaScript)
 - [x] Extra: stable apps : review and test relevant scripts
 - [x] Libs-webservices
-- [x] Do not use clip anymore for monitoring apps... => modify .xinitrc and _xinitrc template... WMState, etc. See Conky
+- [x] Do not use clip anymore for monitoring apps... => modify .xinitrc and _xinitrc template... See Conky conf.
 - [x] Frameworks: added libs-steptalk (not fixing gs-WebBrowser);
 - [x] Remove gs-webbrowser
 - [x] Save renewed .xinitrc to RESOURCES/_xinitrc
 - [x] Save renewed autostart
 - [x] Save conky.conf and comptonrc
 - [x] Verify/Save .bashrc to _bashrc and modify user_settings...
-- [x] Notifications: Alarms with SimpleAgenda, etc. => add dunst, libnotify-bin to deps. Issue created onto the Repo of PoRoussel. [Fixed]
+- [x] Notifications: Alarms with SimpleAgenda, etc. => add dunst, libnotify-bin to deps. Issue created onto the Repo of PoRoussel. [Fixed] See Notes/Notifications.txt.
 - [x] Dependencies: list with commentaries managed by the install script; see and add what is about CUPS (cups-filters, cups-filters-core-drivers,printer-drivers-cups, hplip?)
-- [x] Games: review and test relevant scripts - Added Freecell; GShisen. Moved to DRAFT: NeXTGo.
-- [x] Gap: review all with Savannah as prefered repo... Replace all sources from github/gnustep/gap by the respective on Savannah!!!
-- [x] Exit cleanly the Xsession
+- [x] Games: review and test relevant scripts - Added Freecell, GShisen. Moved to DRAFT: NeXTGo.
+- [x] Gap: review all with Savannah as prefered repo... Replace all sources from github/gnustep/gap by the respective on Savannah.
+- [x] Exit cleanly the Xsession: see .xinitrc
 - [x] Remove /etc/skel/GNUstep template
 - [x] A WebBrowser : Netsurf and gs-WebBrowser moved to DRAFTS...(See issues and work done by the respective developers. May change soon...) => In the meanwhile, a simple AppWrapper (see below): done.
 - [x] Add Chromium.app wrapper
-- [x] Add a function for the installation of the Wrappers in stage 2: added wrappers: Inkscape.app, EBookReader.app (FBReader), Focuswriter.app.
-- [x] Create FocusWriter wrapper.
-- [x] renew Screenshots
+- [x] Add a function for the installation of the Wrappers in stage 2: added wrappers: Inkscape.app, EBookReader.app (FBReader).
+- [x] Create FocusWriter wrapper: Writer.app.
+- [x] Renew Screenshots
 - [x] Update RELEASE info file
 - [x] Backup data files from Documents
 - [x] Push repo on Github
 - [x] Test install on a new fresh clean SD card: ok now.
-- [ ] Test with a different username
+- [x] Improve Defaults setting.
+- [x] Test with a different username ('tom'): ok now.
+=> RELEASE: 0.2-Alpha
+
+- [ ] delete redundant resources (most of the Icons are already stored in PISI.theme folder)
+
+### Sound must work!
+
+- [ ] Test and set ALSA conf
+- [ ] Document the method (.help) to set ALSA working and also the Mixer app.
+
+### Agenda notifications must work!
+
+- [ ] See again exchange with poroussel and issue notes.
+
+=> RELEASE: 0.3-Alpha
+- [ ] Update RELEASE
+- [ ] push to github repo
+
 
 ### Testing some features / PiSi DEMO
 
@@ -49,7 +67,7 @@
 #### Testing within SAMPLES
 
 - [x] Create a 'SAMPLES' Folder
-- [ ] Make Testing Units Log those below
+- [ ] Make Testing Units Log (better logs)
 - [ ] To be extended
 
 ### Misc Migrating Tools and procedures
@@ -58,7 +76,7 @@
 - [ ] Target: AddressManager. A way to import a Birthday list with a .vcf intermediate converter
 - [ ] Target: a GSPass (frontend to create) with Pass. A way to import from a .csv (see export of the Password Manager of Chromium; and also from KeePassXC) passwords database.
 - [x] Target: AddressManager: import a .vcf directory from Abook. Test ok.
-- [ ] Documentation about each procedure.
+- [ ] Documentation about each process.
 
 ### Tools a Pi average user should look for
 
@@ -110,8 +128,8 @@
 
 ### Public release
 
-- [ ] Inform GNUstep community
-- [ ] Inform Raspberry Pi community
+- [-] Inform GNUstep community: some screenshots as teasing... Got good feedbacks from the List. :-)
+- [ ] Inform Raspberry Pi community: not before a descent Beta release.
 
 ## New candidates to Extra apps
 
@@ -122,14 +140,14 @@
 - [ ] Xsession compliant with freedesktop.org specs (DBus)
 
 ### Tests begun
-- [ ] Weather.app (by paulodelgado at Github) - Status: build ok. First test failed. To be continued.
+- [-] Weather.app (by paulodelgado at Github) - Status: build ok. First test failed. To be continued...
 - [ ] WebApps: Youtube, Spotify... See issue about gs-webbrowser
 - [ ] Maybe also, a FreeMusicArchive access?
 
 ### Apps-Wrappers
 
 - [x] Chromium
-- [ ] FocusWriter? Depends on OpenOutliner achievement. Created in the meanwhile.
+- [x] FocusWriter? Depends on OpenOutliner achievement. Created in the meanwhile.
 - [x] Inkscape
 - [x] EBookReader (FBReader)
 
@@ -144,8 +162,7 @@ There are the failed builds, the tests before choosing, etc.
 - [x] NetSurf (wait: issue has been addressed by Anthony RC... See https://github.com/anthonyc-r/netsurf-gnustep/issues/2
 - [-] gs-webbrowser: idem, issue has been addressed by Onflapp
 - [-] NeXTGo
-- [x] GShisen: to be reverted into Games stable.
-- [-] OpenOutliner
+- [-] OpenOutliner: to be tested again...
 
 ## Future releases
 
@@ -156,7 +173,7 @@ There are the failed builds, the tests before choosing, etc.
 
 ## Garage
 
-Maybe one day useful ?
+Maybe one day useful ? But see Conky board also...
 - Changing monitor resolution: wmressel
 - Changing keyboard layout: wmkeys
 - App customized menu: wmmenu

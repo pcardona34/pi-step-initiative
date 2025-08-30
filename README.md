@@ -1,9 +1,9 @@
-# A Pi-STEP initiative (PiSi)
+# A Pi-STEP initiative (PiSiN)
 
 ## Abstract
 
 - Setting a GNUstep compliant Desktop on a Raspberry Pi 400.
-- **Release/Status**: see [RELEASE](pisi/RELEASE).
+- **Release/Status**: see [RELEASE](pisin/RELEASE).
 - The Operating System is Raspberry Pi OS Lite, itself based on Debian Bookworm, i.e. 12: Trixie not tried yet.
 
 ## Detailed goals and targets
@@ -36,7 +36,7 @@ Until now, steps 1 to 3 are mostly done.
 
 ---
 
-## The PiSi Desktop
+## The PiSiN Desktop
 
 ### Screenshots of the current release
 
@@ -46,19 +46,19 @@ Until now, steps 1 to 3 are mostly done.
 ![With the Applications Directory](./Screenshots/Screenshot_V01_Apps_mini.jpg)
 [Magnify](./Screenshots/Screenshot_V01_Apps.jpg)
 
-### PiSi Components as Brief
+### PiSiN Components as Brief
 
-- PiSi provides a set of Bash Scripts to fetch, build, install and customize the whole Desktop.
+- PiSiN provides a set of Bash Scripts to fetch, build, install and customize the whole Desktop.
 - The GNUstep environment is built from the latest sources of the Libraries, Tools and Apps: unlike some other great projects like NEXTSPACE and GS-Desktop, I am using legacy Window Maker and GWorkspace...
-- PiSi provides its original Themes: 'PISI.theme' for GNUstep and 'PISI.themed' for Window Maker. I tried to give a strong GNUstep identity (vertical menus and Dock) but with customized colors and modern icons. Most of these icons were adapted from the [Papirus Iconset project](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme). Several are my own work as the WallPaper too.
+- PiSiN provides its original Themes: 'PISIN.theme' for GNUstep and 'PISIN.themed' for Window Maker. I tried to give a strong GNUstep identity (vertical menus and Dock) but with customized colors and modern icons. Most of these icons were adapted from the [Papirus Iconset project](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme). Several are my own work as the WallPaper too.
 - The Monitoring board on the Desktop is using [Conky](https://github.com/brndnmtthws/conky).
-- Read the [RELEASE](./pisi/RELEASE) file to get the complete and detailed list of the components and Apps provided.
+- Read the [RELEASE](./pisin/RELEASE) file to get the complete and detailed list of the components and Apps provided.
 
 ### How to install
 
-- Read the [INSTALL](./pisi/INSTALL) guide to know how to fetch and build PiSi.
+- Read the [INSTALL](./pisin/INSTALL) guide to know how to fetch and build PiSiN.
 
 ## Thanks and Tributes
 
-This project is a little piece amount the great work of a community for decades. I would thanks the people who kindly answered my newbie questions on the GNUstep Discuss List. I was also inspired by the theming works of Bertrand Deconinck. I also used some apps from the GS-Desktop project by Florian Ondrej (alias Onflapp on Github).
+This project is a little piece amount the great work of a community for decades. I would thanks the people who kindly answered my newbie questions on the GNUstep Discuss List. I was also inspired by the theming works of Bertrand Deconinck and the Sleek theme by Riccardo Mottola. I also used some apps from the GS-Desktop project by Florian Ondrej (alias Onflapp on Github).
 

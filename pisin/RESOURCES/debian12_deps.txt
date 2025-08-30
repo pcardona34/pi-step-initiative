@@ -1,0 +1,215 @@
+####################################################
+### P i S i N   Desktop - by Patrick Cardona
+### pcardona34 @ Github
+###
+### Thanks for the GNUstep Developers Community
+### This is Free and Open Source software.
+### Read License in the root directory.
+####################################################
+
+##################################
+### PISIN Desktop dependencies ###
+### on Debian 12 (Bookworm)    ###
+##################################
+
+### Build tools - Fetching sources
+# Autoconf >= 2.69: it is 2.71
+autoconf
+# Automake >= 1.12: it is 1.16
+automake
+clang-19
+cmake
+#cvs
+gdb
+git
+# Libtool >= 1.4.2: it is 2.4.7
+libtool
+subversion
+
+#########################################
+### WMaker
+#########################################
+# Below is glibc on Debian
+fontconfig
+# GNU gettext: is 0.21 --- the latest on FSF site is 0.25...
+gettext
+libbsd0
+libbsd-dev
+libc6-dev
+libfontconfig
+libfontconfig-dev
+libfreetype6
+libfreetype6-dev
+libfreetype-dev
+# libgif >= 2.3
+libgif7
+libgif-dev
+# libjpeg >= 6.0.1
+libjpeg-dev
+libjpeg-tools
+libjpeg62-turbo
+# libmagickwand
+libmagickwand-dev
+libmagickwand-6.q16-6
+# libpng >= 0.96: pkg-config --modeversion libpng says: 1.6.39
+libpng16-16
+libpng-dev
+# libtiff >= 3.4 
+libtiff6
+libtiff-dev
+# libwebp >= 0.4.1
+libwebp7
+libwebp-dev
+libxft2
+libxft-dev
+# libxpm >= 4.7: debian 12 too old?
+libxmp4
+libxpm-dev
+# For Inotify
+linux-libc-dev
+#### Xorg
+xorg-dev
+x11-utils
+xorg
+libx11-6
+libx11-dev
+libxext6
+libxext-dev
+libxinerama-dev
+xdotool
+xinit
+xnest
+
+### Desktop goodies
+dunst
+compton
+conky
+
+### Printer & scanner: see also Setup_Printer script
+cups
+libcups2
+libcups2-dev
+sane-utils
+
+#########################################
+### Applications
+#### Spelling
+aspell
+inkscape
+libaspell-dev
+### Web
+chromium
+rpi-chromium-mods
+#### Dictionary
+dict
+dict-freedict-eng-fra
+dict-jargon
+dict-wn
+#### epub reader
+fbreader
+### Writer wrapper
+focuswriter
+#### Audio and Video - Player & Cynthiune
+ffmpeg
+libao4
+libao-dev
+libasound2
+libasound2-dev
+libaudiofile1
+libaudiofile-dev
+libid3tag0
+libid3tag0-dev
+libmad0
+libmad0-dev
+libmusicbrainz5-2
+libmusicbrainz5-dev
+libogg0
+libogg-dev
+libsndfile1
+libsndfile1-dev
+libvorbis0a
+libvorbis-dev
+portaudio19-dev
+vlc-bin
+vlc-data
+vlc-plugin-base
+vlc-plugin-video-output
+
+##########################################
+### Games
+# Chess
+gnuchess
+# NeXTGo ?
+# gnugo
+###########################################
+
+### Desktop utilities
+#### PS & PDF - GSPdf
+fonts-freefont-ttf
+ghostscript 
+gsfonts
+poppler-utils
+sqlite3
+tzdata
+xpdf
+
+###########################################
+#### Cryptography - GNUMail
+gnutls-bin
+libgnutls28-dev
+libssl-dev
+
+###########################################
+### Freedesktop
+libavahi-client-dev
+libavahi-compat-libdnssd-dev
+libcurl4-gnutls-dev
+libcurl4-openssl-dev
+libdbus-1-dev
+dbus-x11
+
+############################################
+### Image manipulation & view
+libffi8
+libffi-dev
+libexif-dev
+webp
+
+############################################
+### Calendar
+libical3
+libical-dev
+
+############################################
+### Other libs
+libicu-dev
+libsqlite3-dev
+libtag1-dev 
+libtag1v5
+libtagc0
+libtagc0-dev
+libuuid1
+libxml2
+libxml2-dev
+libxmu6
+libxmu-dev
+libxslt1-dev
+uuid-dev
+zlib1g-dev
+
+###########################################
+### Dev Tools
+lld
+make
+pkg-config
+
+###########################################
+### Other Tools
+htop
+wget
+
+#### Librarian
+recollcmd
+
+#### SceenShot
+scrot
