@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ####################################################
-### P i S i Updater - by Patrick Cardona
+### P i S i N     Desktop - by Patrick Cardona
 ### pcardona34 @ Github
 ###
 ### This is Free and Open Source software.
@@ -10,7 +10,7 @@
 
 ################################
 ### Install the Compton conf file
-### herited from Deconinck
+### herited from B. Deconinck
 ################################
 
 ################################

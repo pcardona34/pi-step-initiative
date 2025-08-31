@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ####################################################
-### P i S i Updater - by Patrick Cardona
+### P i S i N    Desktop - by Patrick Cardona
 ### pcardona34 @ Github
 ###
 ### This is Free and Open Source software.
@@ -18,11 +18,11 @@
 AUTO=$HOME/GNUstep/Library/WindowMaker/autostart
 HOME_DIR_CONF=$HOME/.config
 
-if [ ! -d $HOME_DIR_CONF/pisi ];then
-	mkdir -p "${HOME_DIR_CONF}/pisi"
+if [ ! -d $HOME_DIR_CONF/pisin ];then
+	mkdir -p "${HOME_DIR_CONF}/pisin"
 fi
 
-cp conky.conf $HOME_DIR_CONF/pisi/
+cp conky.conf $HOME_DIR_CONF/pisin/
 
 grep -e "conky" $AUTO &>/dev/null
 if [ $? -eq 0 ];then

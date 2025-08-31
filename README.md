@@ -1,17 +1,18 @@
-# A Pi-STEP initiative (PiSiN)
+# A Pi-Step iNitiative (PiSiN)
 
 ## Abstract
 
-- Setting a GNUstep compliant Desktop on a Raspberry Pi 400.
+- Setting a GNUstep compliant Desktop on a Raspberry Pi.
 - **Release/Status**: see [RELEASE](pisin/RELEASE).
 - The Operating System is Raspberry Pi OS Lite, itself based on Debian Bookworm, i.e. 12: Trixie not tried yet.
+- Short Name changed to 'PiSiN' to avoid misconfusion with an already existent GNU/Linux distro.
 
 ## Detailed goals and targets
 
 ### Hardware choice
 
 It is a [Raspberry Pi 400](https://www.raspberrypi.com/products/raspberry-pi-400/specifications/) because it is an affordable and well known hardware. It provides a simple way 
-to change the operating system and to test another one by changing the SD card and booting this another system! What functions on my Pi 400 must function on all.
+to change the operating system and to test another one by changing the SD card and booting this another system! What functions on my Pi 400 must function on all. Model 3b should be tested soon.
 
 ### Audience
 
@@ -32,7 +33,7 @@ Until now, steps 1 to 3 are mostly done.
   - **Status**: complete install on a fresh SD card: done: ok | with a different username: (to do)
 
 4) Adding tutorials targeting the learning community of the Raspberry Pi 
- Foundation and new GNUstep incoming developers: (to do).
+ Foundation and new GNUstep incoming developers: (begun).
 
 ---
 
