@@ -203,6 +203,18 @@ for FIC in *.epub *.pdf; do cp --force "$FIC" $HOME/Books/ ;done
 cd $_PWD
 ok "Done"
 
+###########################################
+### Help
+title "Help Files"
+cd $_PWD/RESOURCES/HELP
+for HLP in *.help
+do
+	cp -ruf ${HLP} $HOME/Books/
+done
+
+cd $_PWD
+ok "Done"
+
 cd
 
 ### Cleaner...

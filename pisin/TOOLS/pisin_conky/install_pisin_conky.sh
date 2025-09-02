@@ -17,12 +17,17 @@
 
 AUTO=$HOME/GNUstep/Library/WindowMaker/autostart
 HOME_DIR_CONF=$HOME/.config
+TRANS=`echo ${LANG%.UTF-8} | awk -F_ '{print $1}'`
 
 if [ ! -d $HOME_DIR_CONF/pisin ];then
 	mkdir -p "${HOME_DIR_CONF}/pisin"
 fi
 
-cp conky.conf $HOME_DIR_CONF/pisin/
+if [ -n $TRANS ] && [ -f conky.conf.${TRANS} ];then
+	cp --force conky.conf.${TRANS} $HOME_DIR_CONF/pisin/conky.conf
+else
+	cp --force conky.conf $HOME_DIR_CONF/pisin/
+fi
 
 grep -e "conky" $AUTO &>/dev/null
 if [ $? -eq 0 ];then

@@ -1,0 +1,40 @@
+<document>
+
+<header>
+<title>PiSiN Desktop User Guide</title>
+</header>
+
+<plain name="Cover">
+
+		<center>
+	    	<img src="ban_PISIN_UG.png">
+		</center>
+
+<left>	
+	    <br><br>
+		<information>
+	    <br />PiSiN stands for: (Raspberry) Pi S(tep) iN(itiative). 
+		<br />It means a Desktop Environment on a Raspberry Pi computer powered by the Framework GNUstep.&nbsp;&nbsp;
+		<br />&nbsp;<br />&nbsp;
+	    </information>
+
+	    <caution>
+	    (c) 2025 Patrick Cardona. This project is a Free Software provided under the GNU Public Licence (GPL).
+	    </caution>
+
+	    <note>
+            <br>
+	    Site: <url>https://github.com/pcardona34/pi-step-initiative</url>&nbsp;&nbsp;
+	    <br>&nbsp;
+	    <br>Please, post there any issue.
+	    <br>&nbsp;<br>
+	    </note>
+</left>
+</plain>
+
+<chapter src="Introduction.xlp" name="PiSiN Brief Tour"></chapter>
+<chapter src="StartAndStop.xlp" name="Start and Stop"></chapter>
+<chapter src="Sound.xlp" name="The Sound"></chapter>
+<chapter src="Devices.xlp" name="Removable Devices"></chapter>
+
+</document>
