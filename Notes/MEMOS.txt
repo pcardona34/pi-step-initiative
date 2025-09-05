@@ -12,9 +12,6 @@ sudo cp ${APP_NAME}.app $LOCAL_INSTALL_DIR/
 
 ===
 
-Installing only to the USER DIR:
-???
-
 ## Testing a Web Browser
 
 - CSS & JS:

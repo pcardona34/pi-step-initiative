@@ -35,14 +35,34 @@ GSBASE=$(ls /usr/local/lib/GNUstep/Libraries/gnustep-base/Versions)
 GSGUI=$(ls /usr/local/lib/GNUstep/Libraries/gnustep-gui/Versions)
 THEME=$(defaults read NSGlobalDomain GSTheme | awk '{print $3}')
 
-title "PiSiN: Système"
-printf "\tModèle: Raspberry Pi $MODEL Révision: $REVISION\n"
+TRANS=`echo ${LANG%.UTF-8} | awk -F_ '{print $1}'`
+
+title "PiSiN: Infos"
+
+case "$TRANS" in
+	"fr")
+                MOD="Modèle"
+                REV="Révision"
+                KER="Noyau"
+                WIN="Gestionnaire de fenêtre"
+                WOR="Espace de travail"
+                THE="Thème";;
+	"en"|*)
+		MOD="Model"
+		REV="Revision"
+		KER="Kernel"
+		WIN="Window Manager"
+		WOR="Workspace"
+		THE="Theme";;
+esac
+
+printf "\t${MOD}: Raspberry Pi $MODEL ${REV}: $REVISION\n"
 printf "\tOS: $OS $RELEASE\n"
-printf "\tNoyau: $KERNEL\n"
-printf "\tGestionnaire de fenêtres: $WM\n"
-printf "\tEspace de travail: $WS\n"
+printf "\t${KER}: ${KERNEL}\n"
+printf "\t${WIN}: $WM\n"
+printf "\t${WOR}: $WS\n"
 printf "\tGNUstep: Base: $GSBASE - Gui: $GSGUI\n"
-printf "\tThème: $THEME\n\n"
+printf "\t${THE}: $THEME\n\n"
 }
 
 ##################################################

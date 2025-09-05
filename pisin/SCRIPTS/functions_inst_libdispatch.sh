@@ -25,11 +25,9 @@ printf "Fetching...\n"
 
 if [ -d swift-corelibs-libdispatch ];then
 	cd swift-corelibs-libdispatch
-	git pull origin main 
-#&>/dev/null
+	git pull origin main &>/dev/null
 else
-	git clone --branch=main "https://github.com/apple/swift-corelibs-libdispatch" 
-#&>/dev/null
+	git clone --branch=main "https://github.com/apple/swift-corelibs-libdispatch" &>/dev/null
 	cd swift-corelibs-libdispatch
 fi
 
@@ -41,29 +39,26 @@ fi
 
 printf "Configuring...\n"
 cmake .. \
-    -DCMAKE_C_COMPILER=clang \
-    -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_C_COMPILER=${CC} \
+    -DCMAKE_CXX_COMPILER=${CXX} \
     -DINSTALL_PRIVATE_HEADERS=YES \
     -DBUILD_TESTING=OFF \
-    -DCMAKE_BUILD_TYPE=Debug 
-#&>>$LOG &
-#PID=$!
+    -DCMAKE_BUILD_TYPE=Debug &>>$LOG &
+PID=$!
+spinner
 
 printf "\rBuilding...\n"
-make 
-#&>>$LOG &
-#PID=$!
-#spinner
+make &>>$LOG &
+PID=$!
+spinner
 
 printf "\rInstalling...\n"
-sudo make install 
-#&>>$LOG &
-#PID=$!
-#spinner
+sudo -E make install &>>$LOG &
+PID=$!
+spinner
 
 ### Cleaning
-sudo make clean 
-#&>/dev/null
+sudo make clean &>/dev/null
 
 cd $_PWD
 ok "\rDone"

@@ -4,15 +4,20 @@
 
 - Setting a GNUstep compliant Desktop on a Raspberry Pi.
 - **Release/Status**: see [RELEASE](pisin/RELEASE).
-- The Operating System is Raspberry Pi OS Lite, itself based on Debian Bookworm, i.e. 12: Trixie not tried yet.
-- Short Name changed to 'PiSiN' to avoid misconfusion with an already existent GNU/Linux distro.
+- The Operating System is Raspberry Pi OS Lite, itself based on Debian Bookworm, i.e. 12
+- Roadmap: Trixie will be tested as soon as the RPI OS Lite will officially adopt the 13th Debian release.
+- Short Name changed to 'PiSiN' to avoid misconfusion with an already existent GNU/Linux distro project.
 
 ## Detailed goals and targets
 
 ### Hardware choice
 
 It is a [Raspberry Pi 400](https://www.raspberrypi.com/products/raspberry-pi-400/specifications/) because it is an affordable and well known hardware. It provides a simple way 
-to change the operating system and to test another one by changing the SD card and booting this another system! What functions on my Pi 400 must function on all. Model 3b should be tested soon.
+to change the operating system and to test another one by changing the SD card and booting this another system! What functions on my Pi 400 must function on all. It should also function on a Pi 4b model.
+
+Model 3b has been also successfully tested (Sat 6 Sep 2025): see a [screenshot](./Screenshots/screenshot_PiSiN_on_3B.png).
+
+**Roadmap**: Pi 500 will be tested on Jan. 2026.
 
 ### Audience
 
@@ -30,10 +35,12 @@ The targets of the project are two communities concerned:
 3) Providing a finalized set of easy install scripts to build and setup the Desktop.
 
 Until now, steps 1 to 3 are mostly done.
-  - **Status**: complete install on a fresh SD card: done: ok | with a different username: (to do)
+  - **Status**: complete install on a fresh SD card: done: ok | with a different username: done | On another Pi model (3B: done)
 
-4) Adding tutorials targeting the learning community of the Raspberry Pi 
+4) Adding helps and tutorials targeting the learning community of the Raspberry Pi 
  Foundation and new GNUstep incoming developers: (begun).
+  - A 'PiSiN User Guide' and a 'GWorkspace User Guide' are provided in the 'Books' folder.
+  - **Roadmap**: a 'Developer User Guide' should be the next major Help contribution.
 
 ---
 
@@ -54,6 +61,7 @@ Until now, steps 1 to 3 are mostly done.
 - PiSiN provides its original Themes: 'PISIN.theme' for GNUstep and 'PISIN.themed' for Window Maker. I tried to give a strong GNUstep identity (vertical menus and Dock) but with customized colors and modern icons. Most of these icons were adapted from the [Papirus Iconset project](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme). Several are my own work as the WallPaper too.
 - The Monitoring board on the Desktop is using [Conky](https://github.com/brndnmtthws/conky).
 - Read the [RELEASE](./pisin/RELEASE) file to get the complete and detailed list of the components and Apps provided.
+- User Guides (.help format for HelpViewer app)
 
 ### How to install
 

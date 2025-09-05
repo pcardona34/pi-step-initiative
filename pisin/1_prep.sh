@@ -49,7 +49,6 @@ sleep 1
 sanity_check
 debian_update
 install_deps
-install_cmake
 
 sudo ldconfig
 

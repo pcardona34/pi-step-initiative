@@ -43,7 +43,8 @@ if ! [ -d $INSTALL_DIR ];then
 fi
 
 clear
-title "Frameworks" | tee $LOG
+title "Frameworks"
+echo "Frameworks" > $LOG
 
 install_pdfkit
 install_fw_addresses

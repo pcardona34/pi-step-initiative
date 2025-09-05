@@ -17,7 +17,7 @@
 ### VARS
 
 _PWD=`pwd`
-LOG="$HOME/PISI_BUILD_OBJC2.log"
+LOG="$HOME/PISIN_BUILD_OBJC2.log"
 SPIN='/-\|'
 . ./SCRIPTS/environ.sh
 

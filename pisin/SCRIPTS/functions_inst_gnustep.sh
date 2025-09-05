@@ -42,7 +42,7 @@ PID=$!
 spinner
 
 printf "\rBuilding and installing...\n"
-sudo make install &>>$LOG &
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
@@ -79,7 +79,7 @@ PID=$!
 spinner
 
 printf "\rBuilding and installing...\n"
-make && sudo -E make install &>>$LOG &
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
@@ -117,7 +117,7 @@ PID=$!
 spinner
 
 printf "\rBuilding and installing...\n"
-sudo make install &>>$LOG &
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
@@ -155,7 +155,7 @@ PID=$!
 spinner
 
 printf "\rBuilding and installing...\n"
-sudo make install &>>$LOG &
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
@@ -198,12 +198,12 @@ PID=$!
 spinner
 
 printf "\rInstalling...\n"
-sudo make install &>>$LOG &
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
 ### Cleaning
-make clean &>/dev/null
+sudo make clean &>/dev/null
 ok "\rDone"
 cd $_PWD
 }

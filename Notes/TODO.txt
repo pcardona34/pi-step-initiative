@@ -41,25 +41,25 @@
 - [x] Test with a different username ('tom'): ok now.
 => RELEASE: 0.2-Alpha
 
-- [ ] delete redundant resources (most of the Icons are already stored in PISI.theme folder)
+- [x] delete redundant resources (most of the Icons are already stored in PISI.theme folder)
 
 ### Sound must work!
 
-- [ ] Test and set ALSA conf
-- [ ] Document the method (.help) to set ALSA working and also the Mixer app.
+- [x] Tested: ALSA conf
+- [x] Document the method (.help) to set ALSA working and also the Mixer app.
 
 ### Agenda notifications must work!
 
 - [ ] See again exchange with poroussel and issue notes.
 
 => RELEASE: 0.3-Alpha
-- [ ] Update RELEASE
-- [ ] push to github repo
+- [x] Update RELEASE
+- [x] push to github repo
 
 
 ### Testing some features / PiSi DEMO
 
-- [ ] Better Theme: enhancing PISI Theme (read again GNUstep Discuss List)
+- [x] Better Theme: enhancing PISIN Theme (read again GNUstep Discuss List) with help from Sleek Theme.
 - [ ] Syncing subdirs within StepSync
 - [x] What are these GSMarkupBrowser and GSLocalizableStrings? Answer: dev tools related to the Renaissance Framework.
 - [ ] MDFinder is not Finder?
@@ -67,7 +67,7 @@
 #### Testing within SAMPLES
 
 - [x] Create a 'SAMPLES' Folder
-- [ ] Make Testing Units Log (better logs)
+- [x] Make Testing Units Log (better logs): install of GNUstep Core has been detached and refined.
 - [ ] To be extended
 
 ### Misc Migrating Tools and procedures
@@ -81,8 +81,8 @@
 ### Tools a Pi average user should look for
 
 - [x] a Mixer: must be AlsaMixer compliant, because it is the way the sound is managed under RPI Lite OS (no PulseAudio) --> VolumControl
-- [x] Debian (RPI OS) Updater (notifying applet) -- via the notifications (dunst). It is now in the TOOLS Folder: pisi_updater. Verity the installation is added to (user_settings?) - deps: dunst & libnotify-bin
-- [ ] PiSi Updater: info about a new PiSi release or an app update. Idem. Todo: extend pisi_updater to include this.
+- [x] Debian (RPI OS) Updater (notifying applet) -- via the notifications (dunst). It is now in the TOOLS Folder: pisin_updater. Verity the installation is added to (user_settings?) - deps: dunst & libnotify-bin
+- [ ] PiSi Updater: info about a new PiSiN release or an app update. Idem. Todo: extend pisi_updater to include this.
 - [ ] Recommended Software (easy way to install/uninstall each extra app)
 - [-] EPub reader to include within Librarian and document convert tools... See in the meanwhile the wrapper EBookReader.app.
 - [-] A Password Manager Web Browser free (see Pass, it's C or in the meanwhile, a dockapp like WMpasman) | in the meanwhile, use of Chromium password manager...
@@ -94,12 +94,12 @@
 
 ### Average User Documentation
 
-- [ ] Help: should be within HelpViewer (.help/.xlp format)
-- [ ] How to Login / start Workspace / halt pi400
+- [x] Help: should be within HelpViewer (.help/.xlp format)
+- [x] How to Login / start Workspace / halt pi400
 - [ ] Customization: locales, timezone (launching and using SystemPreferences)
-- [ ] How to use GWorkspace (basic operations on Files); mount/unmount a removable device...
+- [x] How to use GWorkspace (basic operations on Files); mount/unmount a removable device...
 - [-] Setting CUPS (printing)
-- [-] Setting/Fixing AlsaMixer
+- [x] Setting/Fixing AlsaMixer
 - [ ] setting/Using Librarian
 - [ ] An Application Quick Tour
 
@@ -122,14 +122,14 @@
 
 ## Setting the Beta release
 
-- [ ] Last whole installation from sources and testing
+- [x] Last whole installation from sources and testing
 - [ ] Add a binary release
 - [ ] Publish the binary release
 
 ### Public release
 
 - [-] Inform GNUstep community: some screenshots as teasing... Got good feedbacks from the List. :-)
-- [ ] Inform Raspberry Pi community: not before a descent Beta release.
+- [ ] Inform Raspberry Pi community: not before a descent Beta release, tested and approved by the GNUstep community.
 
 ## New candidates to Extra apps
 
@@ -159,16 +159,16 @@ There are the failed builds, the tests before choosing, etc.
 
 - [-] A well integrated WebBrowser (High priority) : see repo 'netsurf-gnustep' (by Anthonyc-r at Github) which embeds Netsurf 3.10: a build issue has been posted on the repo's owner. Moved to DRAFT. See there. || Alternative: gs-WebBrowser (by Onflapp at Github) embeds Chromium, it was successfully built, but the Web pages do not load... Something is missing, but not documented.
 - [x] Grr (High priority): done
-- [x] NetSurf (wait: issue has been addressed by Anthony RC... See https://github.com/anthonyc-r/netsurf-gnustep/issues/2
-- [-] gs-webbrowser: idem, issue has been addressed by Onflapp
+- [x] NetSurf (wait: issue has been addressed by Anthony RC... See https://github.com/anthonyc-r/netsurf-gnustep/issues/2 - Removed due to Javascript missing feature.
+- [-] gs-webbrowser: idem, issue has been addressed by Onflapp.
 - [-] NeXTGo
 - [-] OpenOutliner: to be tested again...
 
 ## Future releases
 
-- [ ] Test PiSi on Debian Trixie (13) / RPI OS Lite Flavour
+- [ ] Test PiSiN on Debian Trixie (13) / RPI OS Lite Flavour: wait for official Raspberry Pi release before - Winter 2025?
 - [ ] List needed changes and evolutions for Debian 13
-- [ ] Test on a Pi 500 
+- [ ] Test on a Pi 500 (January 2026)
 - [ ] List needed changes and evolutions for the Pi 500
 
 ## Garage

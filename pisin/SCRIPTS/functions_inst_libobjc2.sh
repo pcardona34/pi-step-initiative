@@ -17,6 +17,13 @@
 ### Install objc2
 function install_libobjc2()
 {
+### Dependency
+title "Robin Map Dev dependency"
+sudo apt install -y robin-map-dev &>/dev/null &
+PID=$!
+spinner
+echo "\rDone"
+
 if [ -d ../build ];then
 	cd ../build
 else
@@ -29,32 +36,33 @@ echo "Lib OBJC2" >>$LOG
 printf "Fetching...\n"
 if [ -d libobjc2 ];then
 	cd libobjc2
-	git pull origin master 
-#&>/dev/null
+	git pull origin master &>/dev/null
 else
-	git clone --recurse-submodules --branch=master "https://github.com/gnustep/libobjc2" 
-#&>/dev/null
+	git clone --recurse-submodules --branch=master "https://github.com/gnustep/libobjc2" &>/dev/null
 	cd libobjc2
 fi
 
-sudo rm -Rf build
-mkdir build && cd build
+sudo rm -Rf Build
+mkdir Build && cd Build
 printf "Configuring...\n"
-cmake ../ -DCMAKE_BUILD_TYPE=RelWithDebInfo 
-#&>>$LOG
+cmake .. \
+	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	-DCMAKE_C_COMPILER=${CC} \
+	-DCMAKE_CXX_COMPILER=${CXX} &>>$LOG &
+PID=$!
+spinner
+
 printf "Building...\n"
-sudo make clean 
-#&>/dev/null
-make 
-#&>>$LOG &
-##PID=$!
-##spinner
+make -j8 &>>$LOG &
+PID=$!
+spinner
 
 printf "\rInstalling...\n"
-sudo make install 
-##&>>$LOG &
-##PID=$!
-##spinner
+sudo -E make install &>>$LOG &
+PID=$!
+spinner
+
+sudo make clean &>/dev/null
 
 cd $_PWD
 ok "\rDone."

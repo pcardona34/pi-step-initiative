@@ -1,9 +1,13 @@
 ## PiSi POST-INSTALL Documentation (TODO)
 
-- How to use the Workspace (GWorkspace)
+- How to use the Workspace (GWorkspace): done
+- Managing Removable Devices: done: in PiSiN UG
+- Sound within a Pi 400: done: in PiSiN UG
+
+TODO:
+
 - How to set alarms within SimpleAgenda: see this doc. See also issue fixed: https://github.com/poroussel/simpleagenda/issues/13
 - Printing and Scanning;
-- Managing Removable Devices;
 - Configuring the Mail User Agent (i.e. GNUMail)
 - Using the Developer Tools and Apps (ProjectCenter, Gorm)
 ...
@@ -18,7 +22,7 @@ use any deb package of GNUstep nor of WindowMaker, because those are
 often outdated. So all of those are fetched out of the Debian apt repo
 and built from their own respective sources, mostly from Github or Savannah.
 
-It has been first tested on and conceived for the Raspberry Pi 400 Model (not yet tested on a Pi500: if you did, so let me know) and with 
+It has been first tested on and conceived for the Raspberry Pi 400 Model (not yet tested on a Pi500: soon on January 2026. If you did, so let me know) and with 
 an HD monitor connected at the HDMI port (my current resolution is 1920x1080).
 
 I am using a wired network connection, so I do not care about WiFi. If you need it, use the native RPI CLI tools to get a working connection.
@@ -28,8 +32,9 @@ Do not be afraid about building: all is made by the scripts provided within this
 Those scripts will do the following steps:
 
 - Preparing the environment: fetching and installing dependencies on Debian.
-- Fetching and building every piece of software: libs, frameworks and applications.
-- Setting the User Desktop profile and the PISI Theme.
+- Installing GNUstep Core.
+- Fetching and building every piece of software: WMaker, frameworks and applications.
+- Setting the User Desktop profile and the PiSiN Theme.
 
 ---
 

@@ -1,5 +1,5 @@
 Pi-STEP initiative Desktop / PiSiN
-Release: 0.4-alpha
+Release: 0.5-Beta
 
 ==========================
 
@@ -22,18 +22,18 @@ Release: 0.4-alpha
 ### Applications and Tools for the average User and The Developer
 
 For the average User: 
-- Installation option is 'apps': `./2_install_PISIN.sh apps`
+- Installation option is 'apps': `./3_install_PISIN.sh apps`
 
 Note-1: Extra GNUstep Application item has a "(E)" mention in the list below.
-- Installation option is 'extra': `./2_install_PISIN.sh extra`
+- Installation option is 'extra': `./3_install_PISIN.sh extra`
 
 Note-2: GNUstep Game item has a "(G)" mention in the list below.
-- Installation option is 'games': `./2_install_PISIN.sh games`
+- Installation option is 'games': `./3_install_PISIN.sh games`
 
 Note-3: Non GNUstep Application Wrapper item has a "(W)" mention in the list below. Those have been installed with the 'apps' option.
 
 Note-4: Devel GNUstep Application item has a "(D)" mention in the list below.
-- Installation option is 'devel': `./2_install_PISIN.sh devel`.
+- Installation option is 'devel': `./3_install_PISIN.sh devel`.
 
 
 - AddressManager: contacts

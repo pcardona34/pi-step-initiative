@@ -35,9 +35,6 @@ _PWD=`pwd`
 function install_desktop()
 {
 . SCRIPTS/inst_wmaker.sh
-. SCRIPTS/inst_libdispatch.sh
-. SCRIPTS/inst_libojc2.sh
-. SCRIPTS/inst_gnustep.sh
 . SCRIPTS/inst_frameworks.sh
 }
 ### End of desktop
@@ -89,9 +86,9 @@ printf "You can install PiSiN like this:"
 cli "./2_install_PISIN.sh OPTION"
 printf "\n- OPTION could be one of: desktop, apps, devel, extra, games"
 
-MESSAGE="- desktop: means WindowMaker, GNUstep, Frameworks...\n \
+MESSAGE="- desktop: means WindowMaker, Frameworks...\n \
 (i) - apps: means GWorkspace, Terminal, TextEdit, GNUMail, etc.\n \
-(i) - You must use these options: 'desktop', then 'apps' for a daily use. And 'devel' for a GNUstep Workshop.\n \
+(i) - You must use these options: 'desktop' (mandatory) then 'apps' (needed) for a daily use. And 'devel' for a GNUstep Workshop. 'Games' for the fun.\n \
 (i) - See RELEASE for a detailed explanation."
 info "$MESSAGE"
 }

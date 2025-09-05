@@ -19,7 +19,7 @@
 ################################
 ### ENV
 
-LOG="$HOME/PISI_BUILD_BASE_WM.log"
+LOG="$HOME/PISIN_BUILD_BASE_WM.log"
 _PWD=`pwd`
 SPIN='/-\|'
 #. SCRIPTS/environ.sh
