@@ -24,10 +24,10 @@ title "Checking your environment"
 ARCHI=`uname -a | awk '{print $10}'`
 MODEL=`cat /sys/firmware/devicetree/base/model | awk '{print $3}'`
 
-if [ "$ID" == "$REQUIRED_OS" ] && [ $VERSION_ID -eq $REQUIRED_RELEASE ] && [ "$ARCHI" == "$REQUIRED_ARCH" ] && [ "$MODEL" == "$REQUIRED_MODEL" ];then
+if [ "$ID" == "$REQUIRED_OS" ] && [ $VERSION_ID -eq $REQUIRED_RELEASE ] && [ "$ARCHI" == "$REQUIRED_ARCH" ] && [ "$MODEL" == "400" ] || [ "$MODEL" == "4" ] || [ "$MODEL" == "3" ];then
 	info "On $ID - $VERSION_ID - ${ARCHI} - Raspberry Pi ${MODEL}\nYou are welcome!\n\n"
 else
-	alert "PiSiN Desktop should not be installed without Debian 12.\nNor without Arm64 processor.\nIt has been conceived on and for a Raspberry Pi 400 SBC.\nAborting!\n"
+	alert "PiSiN Desktop should not be installed without $REQUIRED_OS ${REQUIRED_RELEASE}.\nNor without Arm64 processor.\nIt has been conceived on and for a Raspberry Pi SBC.\nAborting!\n"
 	exit 1
 fi
 }

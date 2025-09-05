@@ -47,7 +47,7 @@ PID=$!
 spinner
 
 ### Cleaning
-make clean &>/dev/null
+sudo make clean &>/dev/null
 
 ok "\rDone"
 cd $_PWD
@@ -79,11 +79,12 @@ PID=$!
 spinner
 
 printf "\rBuilding and installing...\n"
-sudo make install &>>$LOG &
+make && sudo -E make install &>>$LOG &
 PID=$!
+spinner
 
 ### Cleaning
-make clean &>/dev/null
+sudo make clean &>/dev/null
 
 ok "\rDone"
 cd $_PWD

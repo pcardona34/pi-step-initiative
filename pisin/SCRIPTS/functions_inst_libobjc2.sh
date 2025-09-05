@@ -29,25 +29,32 @@ echo "Lib OBJC2" >>$LOG
 printf "Fetching...\n"
 if [ -d libobjc2 ];then
 	cd libobjc2
-	git pull origin master &>/dev/null
+	git pull origin master 
+#&>/dev/null
 else
-	git clone --recurse-submodules --branch=master "https://github.com/gnustep/libobjc2" &>/dev/null
+	git clone --recurse-submodules --branch=master "https://github.com/gnustep/libobjc2" 
+#&>/dev/null
 	cd libobjc2
 fi
 
-
+sudo rm -Rf build
+mkdir build && cd build
 printf "Configuring...\n"
-cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo &>>$LOG
+cmake ../ -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+#&>>$LOG
 printf "Building...\n"
-make clean &>/dev/null
-make &>>$LOG &
-PID=$!
-spinner
+sudo make clean 
+#&>/dev/null
+make 
+#&>>$LOG &
+##PID=$!
+##spinner
 
 printf "\rInstalling...\n"
-sudo make install &>>$LOG &
-PID=$!
-spinner
+sudo make install 
+##&>>$LOG &
+##PID=$!
+##spinner
 
 cd $_PWD
 ok "\rDone."
