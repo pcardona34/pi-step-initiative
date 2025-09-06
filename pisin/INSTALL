@@ -1,17 +1,18 @@
 # PiStep Initiative Desktop (PiSiN)
 
-## How to install
+## How to install (from SOURCES)
 
 ### Base OS and Locale
 
-1) On an SD card (16Gb required) install the 'Raspberry Pi OS Lite' (no desktop) 64bit edition --- i.e.: Bookworm (Debian 12)    
-and then boot your Pi with this system.
+1) On an SD card (16 GB required) copy the '64-bit Raspberry Pi OS Lite' (without desktop) --- i.e.: Debian Bookworm (12) --- You should customize the keyboard layout, the user name and its password...   
 
-2) Update the Debian OS:
+2) Boot your Pi with this Operating System.
+
+3) Update the Debian OS:
 
 	sudo apt update && sudo apt full-upgrade
 
-3) Enable and install your desired locale:
+4) Enable and install your desired locale:
 
 - Uncomment your locale in '/etc/locale.gen':
 
@@ -48,13 +49,17 @@ and then boot your Pi with this system.
 	cd pi-step-initiative/pisin
 
 
-4) One pass script (should work on well tested Pi's SBC: Models 3B, 400, 4B)
+### Start All-in-One install script
+
+This script should work on well tested Pi's SBC: Models 3B, 400, 4B.
 
 ./enjoy.sh
 
+After several minutes, you should see the PiSiN Desktop on your screen. You can see progress and info messages while PiSiN is installing.
+
 ---
 
-If the above 'enjoy.sh' script failed for some reason, try the following steps:
+If the above 'enjoy.sh' script failed for some reason, try the following steps to note the step and the issue concerned:
 
 ### a) Prepare the installation (mainly debian dependencies)
 	
@@ -75,12 +80,7 @@ This will show you an help message to select your OPTION installation: 'desktop'
 ### d) Set the current user's environment and PISI theme
 
 	./4_user_settings.sh
-	
-N.B.: If you want to regenerate your default user's setting, log out the Desktop and do that:
-	cd && rm -fR GNUstep
-	cd SOURCES/pi-step_initiative/pisin
-	./4_user_settings.sh
-	
+		
 ### e) Start the X server and PiSiN Desktop:
 	
 	cd && startx
@@ -91,3 +91,12 @@ N.B.: If you want to regenerate your default user's setting, log out the Desktop
 !!! DO NOT install 'wdm' session manager, because the WINGS libs dependencies 
 would conflict with those already installed by PiSiN Desktop.
 And do not install any GNUstep deb package for the same reason.
+
+### Notes
+
+- If you want to regenerate your default user's setting, log out the Desktop and do that:
+	cd && rm -fR GNUstep
+	cd SOURCES/pi-step_initiative/pisin
+	./4_user_settings.sh
+
+- Step 4 must be run after every new step 3.
