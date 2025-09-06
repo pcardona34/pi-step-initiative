@@ -34,6 +34,7 @@ SPIN='/-\|'
 ### End of include functions
 ################################
 
+. SCRIPTS/test_cmake.sh
 install_libobjc2
 sudo ldconfig
 

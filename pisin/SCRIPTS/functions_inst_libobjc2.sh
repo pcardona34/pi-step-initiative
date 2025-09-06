@@ -22,7 +22,7 @@ title "Robin Map Dev dependency"
 sudo apt install -y robin-map-dev &>/dev/null &
 PID=$!
 spinner
-echo "\rDone"
+ok "\rDone."
 
 if [ -d ../build ];then
 	cd ../build

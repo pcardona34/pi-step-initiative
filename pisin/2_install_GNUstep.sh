@@ -46,12 +46,12 @@ if [ $? -eq 0 ];then
 	# Must be sure to have an updated PATH
 	echo $PATH | grep -e ".local/bin" &>/dev/null
 	if ! [ $? -eq 0 ];then
-		. ~/.profile
+		export PATH=$HOME/.local/bin:$PATH
 	fi
 else
 	printf "The new Cmake release has not been correctly installed.\n"
 	printf "Run again $0 and answer y/Y for every question.\n"
-
+	exit 1
 fi
 
 cd $_PWD

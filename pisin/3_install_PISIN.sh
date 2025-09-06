@@ -52,4 +52,5 @@ esac
 ### Space available ?
 print_size
 
-
+### Info about 4th step
+warning "Do not forget to run again './4_user_settings.sh' after each new installation of applications."

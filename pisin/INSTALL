@@ -4,8 +4,8 @@
 
 ### Base OS and Locale
 
-1) Create an SD card with the Raspberry Pi OS Lite 64bit Bookworm (12) (no desktop)   
-and then boot with this system.
+1) On an SD card (16Gb required) install the 'Raspberry Pi OS Lite' (no desktop) 64bit edition --- i.e.: Bookworm (Debian 12)    
+and then boot your Pi with this system.
 
 2) Update the Debian OS:
 
@@ -47,23 +47,32 @@ and then boot with this system.
 	git clone https://github.com/pcardona34/pi-step-initiative.git
 	cd pi-step-initiative/pisin
 
-### Prepare the installation (mainly debian dependencies)
+
+4) One pass script (should work on well tested Pi's SBC: Models 3B, 400, 4B)
+
+./enjoy.sh
+
+---
+
+If the above 'enjoy.sh' script failed for some reason, try the following steps:
+
+### a) Prepare the installation (mainly debian dependencies)
 	
 (i) Tip: the point './' below means to search and execute the script in the current directory:
 
 	./1_prep.sh
 
-### Install the Core GNUstep
+### b) Install the Core GNUstep
 
 	./2_install_GNUstep.sh	
 	
-### Start the main installation script
+### c) Start the main installation script
 
 	./3_install_PISIN.sh
 
 This will show you an help message to select your OPTION installation: 'desktop', then 'apps' are mandatory.
 
-### Set the current user's environment and PISI theme
+### d) Set the current user's environment and PISI theme
 
 	./4_user_settings.sh
 	
@@ -72,11 +81,9 @@ N.B.: If you want to regenerate your default user's setting, log out the Desktop
 	cd SOURCES/pi-step_initiative/pisin
 	./4_user_settings.sh
 	
-### Start the X server and PiSiN Desktop:
+### e) Start the X server and PiSiN Desktop:
 	
 	cd && startx
-
-Enjoy!
 
 ## CAUTION!
 

@@ -1,5 +1,5 @@
 Pi-STEP initiative Desktop / PiSiN
-Release: 0.5-Beta
+Release: 0.6-Beta
 
 ==========================
 
@@ -20,6 +20,10 @@ Release: 0.5-Beta
 ===========================================
 
 ### Applications and Tools for the average User and The Developer
+
+- All-in-One install script is now available: "./enjoy.sh'
+
+It installs all the following...
 
 For the average User: 
 - Installation option is 'apps': `./3_install_PISIN.sh apps`
