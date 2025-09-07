@@ -86,8 +86,12 @@ spinner
 ### Cleaning
 sudo make clean &>/dev/null
 
-ok "\rDone"
 cd $_PWD
+
+sudo ldconfig
+
+ok "\rDone"
+
 }
 
 ########################################
@@ -124,8 +128,11 @@ spinner
 ### Cleaning
 make clean &>/dev/null
 
-ok "\rDone"
 cd $_PWD
+
+sudo ldconfig
+
+ok "\rDone"
 }
 
 ###########################################
@@ -162,8 +169,11 @@ spinner
 ### Cleaning
 make clean &>/dev/null
 
-ok "\rDone"
 cd $_PWD
+
+sudo ldconfig
+
+ok "\rDone"
 }
 
 #######################################
@@ -204,8 +214,12 @@ spinner
 
 ### Cleaning
 sudo make clean &>/dev/null
-ok "\rDone"
+
 cd $_PWD
+
+sudo ldconfig
+
+ok "\rDone"
 }
 ### Enf of functions
 ########################################

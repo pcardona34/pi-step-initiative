@@ -287,63 +287,6 @@ _build_FW
 ### End of WebServices
 ###############################
 
-###############################
-## DBusKit
-function install_dbuskit()
-{
-
-cd ../build || exit 1
-
-FWNAME="libs-dbuskit"
-title "DBusKit"
-echo "DBusKit" >>$LOG
-
-printf "Fetching...\n"
-if [ -d libs-dbuskit ];then
-        cd libs-dbuskit
-        git pull origin master &>/dev/null
-else
-        git clone https://github.com/gnustep/libs-dbuskit.git &>/dev/null
-        cd libs-dbuskit
-fi
-
-printf "Configuring...\n"
-### Updating config.guess and config.sub
-rm config.guess
-rm config.sub
-if ! [ -d config ];then
-	git clone https://git.savannah.gnu.org/git/config.git &>/dev/null
-fi
-cp config/config.guess ./
-cp config/config.sub ./
-./configure
-#&>>$LOG &
-#PID=$!
-#spinner
-
-printf "\rBuilding...\n"
-make
-#&>>$LOG &
-#PID=$!
-#spinner
-
-#printf "\rInstalling...\n"
-#sudo -E make install
-# &>>$LOG &
-#PID=$!
-#spinner
-
-### Cleaning
-make clean &>/dev/null
-
-ok "\rDone"
-cd $_PWD
-
-#check_FW $FWNAME
-}
-### End of DbusKit
-###############################
-
 ##############################################
 ### libs-steptalk
 function install_steptalk()
@@ -395,11 +338,169 @@ _build_FW
 ### End of RSSKit
 ###############################
 
+
+##########################################################################
+### ******************************************************************
+### /!\ The following code is NOT functional
+### ******************************************************************
+##########################################################################
+
+###############################
+## DBusKit_OLD
+function install_dbuskit_OLD()
+{
+
+######################################################
+### Dirty code to correct headers not found issues
+### within aarch64 system
+cd /usr/include
+sudo ln -s dbus-1.0/dbus
+cd dbus
+sudo ln -s /usr/lib/aarch64-linux-gnu/dbus-1.0/include/dbus/dbus-arch-deps.h
+sudo ldconfig
+
+cd $_PWD
+### End of dirty code
+######################################################
+
+cd ../build || exit 1
+
+FWNAME="libs-dbuskit"
+title "DBusKit"
+echo "DBusKit" >>$LOG
+
+printf "Fetching...\n"
+if [ -d libs-dbuskit ];then
+        cd libs-dbuskit
+        git pull origin master 
+##&>/dev/null
+else
+        git clone https://github.com/gnustep/libs-dbuskit.git 
+##&>/dev/null
+        cd libs-dbuskit
+fi
+
+##################################################
+### Dirty BIS...
+cd Source
+cp --force --update config.h.in config.h
+cd ..
+##################################################
+
+printf "Configuring...\n"
+
+##################################################
+### Corrects a permission issue
+chmod +x configure
+
+### Updating config.guess and config.sub
+rm --force config.guess
+rm --force config.sub
+if ! [ -d config ];then
+	git clone https://git.savannah.gnu.org/git/config.git 
+##&>/dev/null
+fi
+cp --force --update config/config.guess ./
+cp --force --update config/config.sub ./
+
+./configure
+#&>>$LOG &
+#PID=$!
+#spinner
+
+printf "\rBuilding...\n"
+make
+#&>>$LOG &
+#PID=$!
+#spinner
+
+#printf "\rInstalling...\n"
+###sudo -E make install
+# &>>$LOG &
+#PID=$!
+#spinner
+
+### Cleaning
+sudo make clean &>/dev/null
+
+ok "\rDone"
+cd $_PWD
+
+check_FW $FWNAME
+}
+### End of DbusKit_OLD
+###############################
+
+###############################
+### Another try...
+## DBusKit
+function install_dbuskit()
+{
+
+######################################################
+### Dirty code to correct headers not found issues
+### within aarch64 system
+cd /usr/include
+sudo ln -s dbus-1.0/dbus
+cd dbus
+sudo ln -s /usr/lib/aarch64-linux-gnu/dbus-1.0/include/dbus/dbus-arch-deps.h
+sudo ldconfig
+
+### End of dirty code
+######################################################
+
+######################################################
+### Dependencies
+sudo apt install -y libdbus-1-dev libdbus-1-3 libclang1-19 libclang-19-dev
+
+cd $_PWD
+
+cd ../build
+git clone https://github.com/gnustep/libs-dbuskit/
+cd libs-dbuskit
+git checkout 5d69a35357f6e32fc2e1194194e176bf48588120
+
+### Fix config.guess and config.sub:
+
+curl -o config.guess "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD"
+curl -o config.sub "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD"
+
+export CPATH=$CPATH:/usr/lib/llvm-19/include/clang:/usr/include/dbus-1.0/dbus/:/usr/lib/aarch64-linux-gnu/dbus-1.0/include:/usr/GNUstep/Local/Library/Headers
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu:/usr/lib/llvm-19/lib/
+# Use clang
+export CC=clang-19
+export CXX=clang++-19
+export RUNTIME_VERSION=gnustep-2.1
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export LD=/usr/bin/ld.gold
+export LDFLAGS="-fuse-ld=gold -L/usr/local/lib"
+
+##################################################
+### Dirty BIS...
+cd Source
+cp --force --update config.h.in config.h
+cd ..
+##################################################
+
+./configure
+make nonstrict=yes && sudo -E make install
+cd Bundles
+    cd ../DKUserNotification
+        make
+        sudo -E make install
+
+cd $_PWD
+}
+### End of DbusKit
+###############################
+
+
+
 ####################################################################
 
 ###############################
 ### OBSOLETE !!!
-#### The PISI Theme is now  provided
+#### The PISIN Theme is now  provided
 #### within the folder RESOURCES
 ###############################
 

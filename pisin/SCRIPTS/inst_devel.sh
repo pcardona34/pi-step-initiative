@@ -19,7 +19,7 @@
 _PWD=`pwd`
 . SCRIPTS/environ.sh
 . /usr/local/share/GNUstep/Makefiles/GNUstep.sh
-LOG="$HOME/PISIN_BUILD_BASE.log"
+LOG="$HOME/PISIN_BUILD_DEVEL.log"
 SPIN='/-\|'
 INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 
@@ -73,8 +73,9 @@ install_easydiff
 install_gemas
 install_thematic
 
-make_services
 sudo ldconfig
+make_services
+
 print_size
 
 ###############

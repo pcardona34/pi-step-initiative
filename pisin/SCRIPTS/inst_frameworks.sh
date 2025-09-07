@@ -59,12 +59,16 @@ install_performance
 install_webservices
 install_steptalk
 
-make_services &>>$LOG
+####################################
+### Removed: not building...
+
+# install_dbuskit
+####################################
+
 sudo ldconfig
+make_services &>>$LOG
 
 info "All is done for the Frameworks." | tee -a $LOG
 sleep 2
 
-### Removed: not building...
-#install_dbuskit
 

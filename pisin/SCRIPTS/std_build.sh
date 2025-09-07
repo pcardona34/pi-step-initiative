@@ -87,9 +87,12 @@ spinner
 ### Cleaning
 make clean &>/dev/null
 
-ok "\rDone"
+sudo ldconfig
 
 cd $_PWD
+
+ok "\rDone"
+
 
 if [ "${FWNAME}" == "Renaissance" ] || [ "${FWNAME}" == "Performance" ] || [ "${FWNAME}" == "WebServices" ];then
 	check_LIB ${FWNAME}
@@ -133,9 +136,9 @@ spinner
 ### Cleaning
 make clean &>/dev/null
 
-ok "\rDone"
-
 cd $_PWD
+
+ok "\rDone"
 
 check_THEME ${APPNAME}
 

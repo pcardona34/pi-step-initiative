@@ -16,7 +16,7 @@
 ################################
 ### ENV
 
-LOG="$HOME/PISI_MISC_FOLDERS.log"
+LOG="$HOME/PISIN_MISC_FOLDERS.log"
 _PWD=`pwd`
 SPIN='/-\|'
 

@@ -35,7 +35,8 @@ if ! [ -d ../build ];then
 fi
 
 clear
-title "Installing all GNUstep libs and Tools" | tee $LOG
+title "Installing all GNUstep libs and Tools"
+echo "Installing all GNUstep libs and Tools" >> $LOG
 
 install_gnustep_make
 install_gnustep_base

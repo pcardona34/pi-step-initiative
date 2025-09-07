@@ -101,10 +101,17 @@ function install_cmake()
 title "A more up to date CMAKE"
 
 _PWD=`pwd`
+TARGET=$HOME/.local
+BUILD=../build
 
-if ! [ -d ../build ];then
-	mkdir ../build
-fi
+for DIR in $TARGET $BUILD
+do
+	if ! [ -d $DIR ];then
+		mkdir -p $DIR
+	fi
+done
+
+
 cd ../build || exit 1
 
 if [ -f cmake-4.0.2-linux-aarch64.sh ];then
@@ -114,14 +121,13 @@ if [ -f cmake-4.0.2-linux-aarch64.sh ];then
 		info "cmake 4 is installed.\n${CMAKE_VER}"
 	else
 		printf "The following script will install cmake.\n"
-		printf "Type 'q' to exit LICENSE reading, then 'y' twice to accept the defaults.\n"
-		sleep 3
-		bash ./cmake-4.0.2-linux-aarch64.sh
-		cd cmake-4.0.2-linux-aarch64 || exit 1
-		for d in bin share
-		do
-			cp --recursive $d "$HOME/.local/"
-		done
+		sleep 1
+		bash ./cmake-4.0.2-linux-aarch64.sh --skip-license --exclude-subdir --prefix="$TARGET"
+		#cd cmake-4.0.2-linux-aarch64 || exit 1
+		#for d in bin share
+		#do
+		#	cp --recursive $d "$HOME/.local/"
+		#done
 		cd $_PWD
 	fi
 else

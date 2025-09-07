@@ -16,7 +16,7 @@
 ################################
 ### ENV
 
-LOG="$HOME/PISI_MISC_THEMES.log"
+LOG="$HOME/PISIN_MISC_THEMES.log"
 LOCAL_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 _PWD=`pwd`
 SPIN='/-\|'

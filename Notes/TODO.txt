@@ -43,6 +43,8 @@
 
 - [x] delete redundant resources (most of the Icons are already stored in PISI.theme folder)
 
+- [-] All in one script (enjoy.sh) to test install with several new hardware (Pi 3B, Pi 400) and fresh SD card: begun... Still some issues to check and correct. => 0.7.0 (Stable)
+
 ### Sound must work!
 
 - [x] Tested: ALSA conf
@@ -50,12 +52,12 @@
 
 ### Agenda notifications must work!
 
-- [ ] See again exchange with poroussel and issue notes.
+- [-] See again exchange with poroussel and issue notes. => Notifications depend on 'libs-dbuskit', but the insallation of this framework still fails.
+- [ ] Help needed!
 
 => RELEASE: 0.3-Alpha
 - [x] Update RELEASE
 - [x] push to github repo
-
 
 ### Testing some features / PiSi DEMO
 
@@ -123,6 +125,9 @@
 ## Setting the Beta release
 
 - [x] Last whole installation from sources and testing
+
+## First official stable release
+
 - [ ] Add a binary release
 - [ ] Publish the binary release
 

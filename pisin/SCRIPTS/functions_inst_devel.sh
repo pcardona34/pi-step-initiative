@@ -126,7 +126,7 @@ else
 	wget --quiet ${HUB}/${APPNAME}-${RELEASE}${EXT}
 	gunzip --force ${APPNAME}-${RELEASE}${EXT}
 	tar -xf ${APPNAME}-${RELEASE}.tar
-	cd ${APPNAME}-${RELEASE}
+	cd ${APPNAME}-${RELEASE} || exit 1
 fi
 
 _build

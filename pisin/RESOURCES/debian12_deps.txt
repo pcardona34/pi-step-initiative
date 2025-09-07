@@ -12,19 +12,30 @@
 ### on Debian 12 (Bookworm)    ###
 ##################################
 
-### Build tools - Fetching sources
+### Building tools
+
 # Autoconf >= 2.69: it is 2.71
 autoconf
 # Automake >= 1.12: it is 1.16
 automake
+bison
+build-essential
 clang-19
 cmake
-#cvs
+flex
 gdb
-git
 # Libtool >= 1.4.2: it is 2.4.7
 libtool
+lld
+m4
+make
+pkg-config
+
+### Fetching sources
+curl
+git
 subversion
+wget
 
 #########################################
 ### WMaker
@@ -80,7 +91,7 @@ xdotool
 xinit
 xnest
 
-### Desktop goodies
+### Desktop tools
 dunst
 compton
 conky
@@ -198,18 +209,54 @@ uuid-dev
 zlib1g-dev
 
 ###########################################
-### Dev Tools
-lld
-make
-pkg-config
-
-###########################################
 ### Other Tools
 htop
-wget
+util-linux-locales
+locales-all
 
 #### Librarian
 recollcmd
 
 #### SceenShot
 scrot
+
+#### Other dependencies (completed from Plaurent scripts)
+uuid-runtime
+libsctp1
+libsctp-dev
+lksctp-tools
+libavahi-client3
+libavahi-core7
+libavahi-core-dev
+libavahi-common3
+libavahi-common-dev
+libavahi-common-data
+libgcrypt20
+libgcrypt20-dev
+libc-dev
+libc++-dev
+libc++1
+python-dev-is-python3
+swig
+libedit-dev
+libedit2
+libeditreadline-dev
+binfmt-support
+libtinfo-dev
+libicns1
+libicns-dev
+libxslt1.1
+libxft-dev
+libflite1
+flite1-dev
+libxpm4
+libgnutls30
+default-libmysqlclient-dev
+libpq-dev
+libstdc++-11-dev
+gobjc-11
+gobjc++-11
+gobjc++
+libstdc++-11-doc
+libstdc++-11-pic
+libxrandr-dev

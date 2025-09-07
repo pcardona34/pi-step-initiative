@@ -49,8 +49,7 @@ if [ $? -eq 0 ];then
 		export PATH=$HOME/.local/bin:$PATH
 	fi
 else
-	printf "The new Cmake release has not been correctly installed.\n"
-	printf "Run again $0 and answer y/Y for every question.\n"
+	alert "The new Cmake release has not been correctly installed.\n"
 	exit 1
 fi
 

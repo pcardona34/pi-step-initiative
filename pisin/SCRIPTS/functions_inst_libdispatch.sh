@@ -61,6 +61,9 @@ spinner
 sudo make clean &>/dev/null
 
 cd $_PWD
+
+sudo ldconfig
+
 ok "\rDone"
 
 }
