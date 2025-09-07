@@ -34,7 +34,9 @@ _PWD=`pwd`
 
 function install_prep_GNUstep()
 {
+cd $_PWD
 . SCRIPTS/inst_libdispatch.sh
+cd $_PWD
 . SCRIPTS/inst_libojc2.sh
 }
 ### End of prep GNUstep
