@@ -123,11 +123,6 @@ if [ -f cmake-4.0.2-linux-aarch64.sh ];then
 		printf "The following script will install cmake.\n"
 		sleep 1
 		bash ./cmake-4.0.2-linux-aarch64.sh --skip-license --exclude-subdir --prefix="$TARGET"
-		#cd cmake-4.0.2-linux-aarch64 || exit 1
-		#for d in bin share
-		#do
-		#	cp --recursive $d "$HOME/.local/"
-		#done
 		cd $_PWD
 	fi
 else

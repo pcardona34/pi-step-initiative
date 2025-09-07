@@ -39,20 +39,6 @@ title "Prepare the GNUstep installation"
 
 install_cmake
 
-### Check CMake
-which ~/.local/bin/cmake &>/dev/null
-if [ $? -eq 0 ];then
-	# New version of cmake has been installed
-	# Must be sure to have an updated PATH
-	echo $PATH | grep -e ".local/bin" &>/dev/null
-	if ! [ $? -eq 0 ];then
-		export PATH=$HOME/.local/bin:$PATH
-	fi
-else
-	alert "The new Cmake release has not been correctly installed.\n"
-	exit 1
-fi
-
 cd $_PWD
 
 ### Install GCD and Libobjc2
