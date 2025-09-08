@@ -59,15 +59,15 @@ libgif-dev
 libjpeg-dev
 libjpeg-tools
 libjpeg62-turbo
-# libmagickwand
-libmagickwand-dev
-libmagickwand-6.q16-6
 # libpng >= 0.96: pkg-config --modeversion libpng says: 1.6.39
 libpng16-16
 libpng-dev
 # libtiff >= 3.4 
 libtiff6
 libtiff-dev
+# libmagickwand
+libmagickwand-dev
+libmagickwand-6.q16-6
 # libwebp >= 0.4.1
 libwebp7
 libwebp-dev
@@ -91,43 +91,64 @@ xdotool
 xinit
 xnest
 
+############################################
+### GNUstep requirements
+############################################
+### Several were already set by WMaker deps above
+libffi8
+libffi-dev
+libxml2
+libxml2-dev
+libxslt1-dev
+openssl
+aspell
+libaspell-dev
+portaudio19-dev
+libaudiofile1
+libaudiofile-dev
+cups
+libcups2
+libcups2-dev
+
+
 ### Desktop tools
 dunst
 compton
 conky
 
 ### Printer & scanner: see also Setup_Printer script
-cups
-libcups2
-libcups2-dev
+### See cups above
 sane-utils
 
 #########################################
 ### Applications
 #### Spelling
-aspell
+
+### Inkscape wrapper
 inkscape
-libaspell-dev
+
 ### Web
 chromium
 rpi-chromium-mods
+
 #### Dictionary
 dict
 dict-freedict-eng-fra
 dict-jargon
 dict-wn
+
 #### epub reader
 fbreader
+
 ### Writer wrapper
 focuswriter
+
 #### Audio and Video - Player & Cynthiune
 ffmpeg
 libao4
 libao-dev
 libasound2
 libasound2-dev
-libaudiofile1
-libaudiofile-dev
 libid3tag0
 libid3tag0-dev
 libmad0
@@ -140,7 +161,6 @@ libsndfile1
 libsndfile1-dev
 libvorbis0a
 libvorbis-dev
-portaudio19-dev
 vlc-bin
 vlc-data
 vlc-plugin-base
@@ -179,10 +199,10 @@ libcurl4-openssl-dev
 libdbus-1-dev
 dbus-x11
 
+
+
 ############################################
 ### Image manipulation & view
-libffi8
-libffi-dev
 libexif-dev
 webp
 
@@ -200,11 +220,8 @@ libtag1v5
 libtagc0
 libtagc0-dev
 libuuid1
-libxml2
-libxml2-dev
 libxmu6
 libxmu-dev
-libxslt1-dev
 uuid-dev
 zlib1g-dev
 

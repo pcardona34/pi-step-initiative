@@ -13,6 +13,7 @@
 ### Install all GNUstep libs and Tools
 ################################
 
+
 ####################################
 ### Install GNUstep MAKE TOOLS
 function install_gnustep_make()
@@ -25,7 +26,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d tools-make ];then
 	cd tools-make
-	git pull origin master &>/dev/null
+	git pull &>/dev/null
 else
 	git clone --branch=master "https://github.com/gnustep/tools-make" &>/dev/null
 	cd tools-make
@@ -47,7 +48,8 @@ PID=$!
 spinner
 
 ### Cleaning
-sudo make clean &>/dev/null
+sudo chown -fR $USER:$USER . &>/dev/null
+make clean &>/dev/null
 
 ok "\rDone"
 cd $_PWD
@@ -67,7 +69,7 @@ title "2 - GNUstep BASE"
 printf "Fetching...\n"
 if [ -d libs-base ];then
 	cd libs-base
-	git pull origin master &>/dev/null
+	git pull &>/dev/null
 else
 	git clone --branch=master "https://github.com/gnustep/libs-base" &>/dev/null
 	cd libs-base
@@ -84,7 +86,8 @@ PID=$!
 spinner
 
 ### Cleaning
-sudo make clean &>/dev/null
+sudo chown -fR $USER:$USER . &>/dev/null
+make clean &>/dev/null
 
 cd $_PWD
 
@@ -109,7 +112,7 @@ title "3 - GNUstep COREBASE"
 printf "Fetching...\n"
 if [ -d libs-corebase ];then
 	cd libs-corebase
-	git pull origin master &>/dev/null
+	git pull &>/dev/null
 else
 	git clone --branch=master "https://github.com/gnustep/libs-corebase" &>/dev/null
 	cd libs-corebase
@@ -126,6 +129,7 @@ PID=$!
 spinner
 
 ### Cleaning
+sudo chown -fR $USER:$USER . &>/dev/null
 make clean &>/dev/null
 
 cd $_PWD
@@ -167,6 +171,7 @@ PID=$!
 spinner
 
 ### Cleaning
+sudo chown -fR $USER:$USER . &>/dev/null
 make clean &>/dev/null
 
 cd $_PWD
@@ -213,7 +218,8 @@ PID=$!
 spinner
 
 ### Cleaning
-sudo make clean &>/dev/null
+sudo chown -fR $USER:$USER . &>/dev/null
+make clean &>/dev/null
 
 cd $_PWD
 

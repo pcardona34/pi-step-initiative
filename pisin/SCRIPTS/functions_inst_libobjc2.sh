@@ -22,7 +22,7 @@ title "Robin Map Dev dependency"
 sudo apt install -y robin-map-dev &>/dev/null &
 PID=$!
 spinner
-ok "\rDone."
+ok "\rDone"
 
 if [ -d ../build ];then
 	cd ../build
@@ -72,3 +72,30 @@ ok "\rDone."
 }
 ### end of function
 ###########################
+
+################################
+### test of CMake release
+################################
+
+function testcmake()
+{
+CMV=`cmake --version | grep -e "version"`
+MAJOR=`echo $CMV | awk '{print $3}' | awk -F. '{print $1}'`
+if [ $MAJOR -eq 4 ];then
+	info "Cmake version is now ok."
+else
+	warning "Cmake version seems not good. \nMaybe a PATH issue?"
+	sleep 1
+	echo $PATH | grep -e ".local/bin" &>/dev/null
+	if ! [ $? -eq 0 ];then
+		export PATH=$HOME/.local/bin:$PATH
+		### recursive call
+		testcmake
+	else
+		alert "Cmake version could not been solved. Aborting. Please report this issue."
+		exit 1
+	fi
+
+fi
+}
+

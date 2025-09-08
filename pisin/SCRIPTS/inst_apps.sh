@@ -25,7 +25,6 @@ _PWD=`pwd`
 . /usr/local/share/GNUstep/Makefiles/GNUstep.sh
 LOG="$HOME/PISIN_BUILD_APPS.log"
 SPIN='/-\|'
-#INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
 INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 
 ### End of VARS
@@ -103,4 +102,3 @@ install_wrappers
 
 sudo ldconfig
 make_services
-print_size

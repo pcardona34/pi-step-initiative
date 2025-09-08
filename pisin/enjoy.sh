@@ -9,6 +9,10 @@
 ### Read License in the root directory.
 ####################################################
 
+LOG="$HOME/ENJOY.log"
+BEG=`date`
+echo "Begining of Enjoy script at: $BEG" > $LOG
+
 . SCRIPTS/colors.sh
 
 ####################################################
@@ -35,5 +39,10 @@ fi
 ./3_install_PISIN.sh devel
 ./3_install_PISIN.sh games
 ./4_user_settings.sh
+
+END=`date`
+LOG="$HOME/ENJOY.log"
+echo "Installation ending at: $END" >> $LOG
+mv -f $LOG $HOME/Documents/
 
 cd && startx

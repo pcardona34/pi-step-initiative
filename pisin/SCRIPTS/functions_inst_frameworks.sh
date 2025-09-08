@@ -327,8 +327,7 @@ if [ -d RSSKit ];then
 	cd RSSKit
 	svn update &>/dev/null
 else
-	svn co svn://svn.savannah.nongnu.org/gap/trunk/libs/RSSKit
-#&>/dev/null
+	svn co svn://svn.savannah.nongnu.org/gap/trunk/libs/RSSKit &>/dev/null
 	cd RSSKit
 fi
 
