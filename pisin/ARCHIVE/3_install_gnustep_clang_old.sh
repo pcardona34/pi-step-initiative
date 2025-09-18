@@ -16,8 +16,12 @@
 ####################################################
 ### Vars
 
-_PWD=`pwd`
+PISIN=`pwd`
 SPIN='/-\|'
+GS_ERRORS=0
+. /etc/os-release
+# set -v
+
 
 ### End of vars
 ####################################################
@@ -29,10 +33,9 @@ SPIN='/-\|'
 . SCRIPTS/spinner.sh
 . SCRIPTS/environ.sh
 . SCRIPTS/functions_prep.sh
+. SCRIPTS/functions_inst_gnustep.sh
 . SCRIPTS/functions_inst_libdispatch.sh
 . SCRIPTS/functions_inst_libobjc2.sh
-. SCRIPTS/functions_inst_gnustep.sh
-
 
 ### End of include functions
 ####################################################
@@ -43,12 +46,37 @@ clear
 title "Prepare the GNUstep installation"
 echo "Prepare the GNUstep installation" > $LOG
 
+if ! [ -d ../build ];then
+	mkdir ../build
+fi
+
 ##########################################
 ### Install CMake 4
+### Dependencies
 ##########################################
-install_cmake
 
-cd $_PWD
+title "CMake 4.x"
+echo "CMake 4.x" >> $LOG
+
+cd $PISIN
+
+if ! [ -f $HOME/.local/bin/cmake ];then
+	install_cmake
+fi
+test_cmake || exit 1
+
+cd $PISIN
+LIST="gnustep" && install_deps
+
+###############################
+### GNUstep Make (1/2)
+###############################
+
+cd $PISIN
+install_gnustep_make || exit 1
+is_gnustep_ok || exit 1
+sudo ldconfig
+
 
 #########################################
 ### Install GRAND CENTRAL DISPATCH	#
@@ -62,18 +90,14 @@ cd $_PWD
 #########################################
 ### VARS
 LOG="$HOME/PISIN_BUILD_GCD.log"
+
 #########################################
 title "Grand Central Dispatch"
 echo "Installing GCD..." > $LOG
 
-if ! [ -d ../build ];then
-	mkdir ../build
-fi
-
-install_libdispatch
+cd $PISIN
+install_libdispatch || exit 1
 sudo ldconfig
-
-cd $_PWD
 
 ### Checking for GCD
 GCD=/usr/local/lib/libdispatch.so
@@ -86,16 +110,9 @@ else
 	ok "Done"
 fi
 
-#####################################
-### 1st install of GNUstep Tools-Make
-#####################################
+is_gnustep_ok || exit 1
+sudo ldconfig
 
-##########################################
-### VARS
-LOG="$HOME/PISIN_BUILD_TOOLS-MAKE_01.log"
-##########################################
-
-install_gnustep_make
 
 ################################
 ### Install LIBOBJC2
@@ -104,16 +121,15 @@ install_gnustep_make
 ################################
 ### VARS
 LOG="$HOME/PISIN_BUILD_OBJC2.log"
+cd $PISIN
 ################################
 
 title "LIBOBJC2"
 echo "Installing Libobjc2..." > $LOG
 
-testcmake
-install_libobjc2
+#testcmake
+install_libobjc2 || exit 1
 sudo ldconfig
-
-cd $_PWD
 
 ### Ckecking for LIBOBJC2
 OBJC=/usr/local/lib/libobjc.so
@@ -127,6 +143,9 @@ else
 
 fi
 
+is_gnustep_ok || exit 1
+sudo ldconfig
+
 ################################
 ### Install all GNUstep libs and Tools
 ################################
@@ -134,24 +153,38 @@ fi
 ################################
 ### VARS
 LOG="$HOME/PISIN_BUILD_GNUstep.log"
+
+cd $PISIN
 ################################
 
-clear
 title "Installing all GNUstep libs and Tools"
 echo "Installing all GNUstep libs and Tools" > $LOG
 
 ###############################
-### GNUstep Make: 2th install
+### GNUstep Make (2/2)
 ###############################
 
-install_gnustep_make
+install_gnustep_make || exit 1
 
+###############################
 ### Other libs...
-install_gnustep_base
-install_gnustep_corebase
-install_gnustep_gui
-install_gnustep_back
+###############################
+cd $PISIN
+install_gnustep_base || exit 1
+is_gnustep_ok || exit 1
 
-sudo ldconfig
+cd $PISIN
+install_gnustep_corebase || exit 1
+is_gnustep_ok || exit 1
 
-info "GNUstep has been installed. Follow step 3 now."
+cd $PISIN
+install_gnustep_gui || exit 1
+is_gnustep_ok || exit 1
+
+cd $PISIN
+install_gnustep_back || exit 1
+is_gnustep_ok || exit 1
+
+
+cd $PISIN
+is_gnustep_ok || exit 1

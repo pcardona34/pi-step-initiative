@@ -16,7 +16,7 @@
 ####################################################
 ### Vars
 
-OPTION="$1"
+OPTION="$1:-help"
 
 ### End of vars
 ####################################################
@@ -30,13 +30,7 @@ OPTION="$1"
 ### End of include functions
 ####################################################
 
-if [ -z "$1" ];then
-	OPTION="help"
-fi
-
 case "$OPTION" in
-	"DESKTOP" | "Desktop" | "desktop")
-		install_desktop;;
 	"APPS" | "Apps" | "apps")
 		install_apps;;
 	"DEVEL" | "Devel" | "devel")
@@ -53,4 +47,4 @@ esac
 print_size
 
 ### Info about 4th step
-warning "Do not forget to run again './4_user_settings.sh' after each new installation of applications."
+warning "Do not forget to run again './6_user_settings.sh' after each new installation of applications."

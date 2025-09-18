@@ -17,11 +17,13 @@
 ### ENV
 
 _PWD=`pwd`
-. SCRIPTS/environ.sh
-. /usr/local/share/GNUstep/Makefiles/GNUstep.sh
+#. SCRIPTS/environ.sh
+GSMAKE=$(gnustep-config --variable=GNUSTEP_SYSTEM_MAKEFILES)
+. ${GSMAKE}/GNUstep.sh
 LOG="$HOME/PISIN_BUILD_DEVEL.log"
 SPIN='/-\|'
 INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
+INSTALL_ARGS="GNUSTEP_INSTALLATION_DOMAIN=LOCAL"
 
 ### End of VARS
 ################################

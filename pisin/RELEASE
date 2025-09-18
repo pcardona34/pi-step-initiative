@@ -1,17 +1,22 @@
 Pi-STEP initiative Desktop / PiSiN
-Release: 0.7-Beta
-
 ==========================
+
+- **Release**: 0.7.1
+- **Status**: Alpha (still in heavy development: do not try to install yet)
 
 ### The Desktop Components
 
 - Operating System: Raspberry Pi OS Lite release (it is now Debian Bookworm 12). Not yet tested on Trixie.
 - Window Manager: Window Maker 0.96.0 with PISIN.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Wondow Maker.
-- GNUstep has been built with Clang 19, ARC enabled and Grand Central Dispatch. For the detailed versions, use: `pisi --info`
+
+- GNUstep: until now, the Runtime (GNU vs OBJC2) has not been definitely chosen. Work in progress. In the future, use: `pisi --info`
+
 - Preferences Manager: SystemPreferences
 - Workspace: GWorkspace and Recycler: 1.1.0 (02 2025) - Its own Desktop layer and its Dock (modern flavour) are shown. The Wallpaper is shown on this layer. It is a mandatory set to manage mounted removable devices on the Desktop and to unmount those by DND on the Recycler Icon.
 - Theme: PISIN (mostly inspired by Papirus Icon theme and GNUstep Sleek Theme)
-- Session: DBus
+
+- Session: DBus (but the DBusKit does not build)
+
 - Notifyer: dunst
 - Compositing: compton
 - Sys Infos: conky. Weather data is fetched from Wttr.in. The system monitoring is upon: date, time, uptime, CPU, Memory, Storage and Networking.
@@ -21,7 +26,7 @@ Release: 0.7-Beta
 
 ### Applications and Tools for the average User and The Developer
 
-- All-in-One install script is now available: "./enjoy.sh'
+- All-in-One install script is now available: './enjoy.sh'
 
 It installs all the following...
 

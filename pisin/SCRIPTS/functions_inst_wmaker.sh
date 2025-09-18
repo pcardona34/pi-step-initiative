@@ -41,7 +41,7 @@ RELEASE="0.96.0"
 #RELEASE="0.95.9"
 #####################################################
 
-CONFIG_ARGS="--disable-xinerama --disable-magick"
+CONFIG_ARGS="--disable-xinerama --disable-magick --with-gnustepdir=/usr/GNUstep/Local"
 EXT=".tar.gz"
 DIR="${APP}-${RELEASE}"
 ARCHIVE="${DIR}${EXT}"
@@ -61,6 +61,10 @@ else
 	cd $DIR || exit 1
 fi
 
+if ! [ -d /usr/GNUstep/System/Applications ];then
+	sudo mkdir -p /usr/GNUstep/System/Applications
+fi
+
 printf "Configuring...\n"
 ./autogen.sh ${CONFIG_ARGS} &>>$LOG
 ./configure ${CONFIG_ARGS} &>>$LOG &
@@ -73,7 +77,7 @@ PID=$!
 spinner
 
 printf "\rInstalling...\n"
-sudo make install &>>$LOG &
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 

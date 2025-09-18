@@ -15,6 +15,7 @@
 
 ###############################################################
 ### Vars
+PISIN=`pwd`
 LOG="$HOME/PISIN_DEPS.log"
 SPIN='/-\|'
 STATUS=0
@@ -22,12 +23,13 @@ CONF=RESOURCES/PISIN.conf
 REQUIRED_OS=`grep -e "OS" $CONF | awk -F= '{print $2}'`
 REQUIRED_RELEASE=`grep -e "REL" $CONF | awk -F= '{print $2}'`
 REQUIRED_ARCH=`grep -e "ARCH" $CONF | awk -F= '{print $2}'`
-REQUIRED_MODEL=`grep -e "MOD" $CONF | awk -F= '{print $2}'`
+REQUIRED_MODEL=`grep -e "MODEL" $CONF | awk -F= '{print $2}'`
 ### End of Vars
 ###############################################################
 
 ###############################################################
 ### include functions
+. /etc/os-release
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
 . SCRIPTS/size.sh
@@ -37,7 +39,7 @@ REQUIRED_MODEL=`grep -e "MOD" $CONF | awk -F= '{print $2}'`
 
 ### Here it really begins...
 
-echo "Pi STEP Initiative Desktop: dependencies log" >>$LOG
+echo "Pi STEP Initiative Desktop: init log" >>$LOG
 
 clear
 title "Pi STEP Initiative Desktop"
@@ -46,14 +48,19 @@ sleep 1
 
 #########################
 
-sanity_check
+#not_again || exit 1
+sanity_check || exit 1
 debian_update
-install_deps
+sudo apt autoremove -y &>/dev/null
+
+LIST="build" && install_deps
 
 sudo ldconfig
 
 ########################
 
-info "All the dependencies have been fetched and installed.\nYou may go on with step 2."
+info "The System is up to date.\nYou may go on with step 2."
 print_size
+sleep 3
 
+cd

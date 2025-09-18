@@ -15,11 +15,12 @@
 
 ###################################
 ### Install objc2
-function install_libobjc2()
+function install_libobjc2
 {
+LOG=$HOME/PISIN_BUILD_LIBOBJC2.log
 ### Dependency
 title "Robin Map Dev dependency"
-sudo apt install -y robin-map-dev &>/dev/null &
+sudo apt-get install -qq robin-map-dev &>/dev/null &
 PID=$!
 spinner
 ok "\rDone"
@@ -31,29 +32,37 @@ else
 fi
 
 title "Lib OBJC2"
-echo "Lib OBJC2" >>$LOG
+echo "Lib OBJC2" >$LOG
 
 printf "Fetching...\n"
 if [ -d libobjc2 ];then
 	cd libobjc2
-	git pull origin master &>/dev/null
+	git submodule update &>/dev/null
 else
-	git clone --recurse-submodules --branch=master "https://github.com/gnustep/libobjc2" &>/dev/null
+	git clone https://github.com/gnustep/libobjc2 &>/dev/null
 	cd libobjc2
+	git submodule init && git submodule update
 fi
 
-sudo rm -Rf Build
-mkdir Build && cd Build
+sudo rm -Rf build
+mkdir build && cd build
+
 printf "Configuring...\n"
+C_FLAGS="-Wno-error=unused-but-set-variable"
 cmake .. \
-	-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 	-DCMAKE_C_COMPILER=${CC} \
-	-DCMAKE_CXX_COMPILER=${CXX} &>>$LOG &
+	-DCMAKE_CXX_COMPILER=${CXX} \
+	-DCMAKE_ASM=${CC} \
+	-DCMAKE_LINKER=${LD} \
+	-DCMAKE_MODULE_LINKER_FLAGS=${LDFLAGS} \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DBUILD_STATIC_LIBOBJC=1 \
+	-DTESTS=OFF &>>$LOG &
 PID=$!
 spinner
 
-printf "Building...\n"
-make -j8 &>>$LOG &
+printf "\rBuilding...\n"
+cmake --build &>>$LOG &
 PID=$!
 spinner
 
@@ -62,13 +71,12 @@ sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
-sudo make clean &>/dev/null
+sudo ldconfig
 
 cd $_PWD
 
-sudo ldconfig
-
 ok "\rDone."
+
 }
 ### end of function
 ###########################
@@ -77,7 +85,7 @@ ok "\rDone."
 ### test of CMake release
 ################################
 
-function testcmake()
+function testcmake
 {
 CMV=`cmake --version | grep -e "version"`
 MAJOR=`echo $CMV | awk '{print $3}' | awk -F. '{print $1}'`
@@ -97,5 +105,6 @@ else
 	fi
 
 fi
+
 }
 

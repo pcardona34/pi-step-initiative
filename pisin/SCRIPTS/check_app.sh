@@ -20,7 +20,7 @@ function check()
 ### VARS ENV
 __PWD=`pwd`
 if [ -z "$INSTALL_DIR" ];then
-	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
+	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_DOMAIN_APPS)
 fi
 GNUSTEP_APPS_DIR=$INSTALL_DIR
 ISSUES=https://github.com/pcardona34/pi-step-initiative/issues

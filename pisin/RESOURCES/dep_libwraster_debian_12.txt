@@ -1,0 +1,19 @@
+### Deps for libwraster
+libgif-dev
+libjpeg-dev
+libpng-dev
+libtiff-dev
+libwebp-dev
+libxpm-dev
+libxmu-dev
+libxext-dev
+libx11-dev
+libgif7
+libjpeg8
+libtiff5
+libpng16-16
+libwebp7
+libxpm4
+libxmu6
+libxext6
+libx11-6 

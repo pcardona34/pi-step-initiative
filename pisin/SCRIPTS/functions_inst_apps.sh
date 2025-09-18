@@ -22,6 +22,9 @@ function install_systempreferences()
 {
 APPNAME="SystemPreferences"
 RELEASE="1.2.0"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >> $LOG
 title "$APPNAME $RELEASE"
@@ -31,7 +34,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d apps-systempreferences ];then
 	cd apps-systempreferences
-	git pull origin master &>/dev/null
+	git pull &>/dev/null
 else
 	git clone --branch=master https://github.com/gnustep/apps-systempreferences &>/dev/null
 	cd apps-systempreferences
@@ -51,6 +54,9 @@ function install_gworkspace()
 APPNAME=GWorkspace
 RELEASE="1.1.0"
 CONFIG_ARGS="--with-inotify --enable-gwmetadata"
+BUILD_ARGS=""
+INSTALL_ARGS=""
+
 
 echo "$APPNAME $RELEASE" >> $LOG
 title "$APPNAME $RELEASE"
@@ -60,7 +66,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d apps-gworkspace ];then
 	cd apps-gworkspace
-	git pull origin master &> /dev/null
+	git pull &> /dev/null
 else
 	git clone --branch=master "https://github.com/gnustep/apps-gworkspace" &> /dev/null
 	cd apps-gworkspace
@@ -80,6 +86,11 @@ spinner
 
 printf "\rBuilding...\n"
 make &>>$LOG &
+PID=$!
+spinner
+
+printf "\rInstalling...\n"
+sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
@@ -108,6 +119,9 @@ function install_terminal()
 
 APPNAME=Terminal
 RELEASE="0.9.8"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -140,10 +154,13 @@ function install_addressmanager()
 APPNAME=AddressManager
 RELEASE="0.5.0"
 # A better Icon from gs-desktop project
-ICON_APP=$_PWD/RESOURCES/ICONES_PISI/AddressManager.tiff
+#ICON_APP=$_PWD/RESOURCES/ICONES_PISI/AddressManager.tiff
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 cd ../build || exit 1
 
@@ -159,9 +176,9 @@ else
 	cd AddressManager
 fi
 
-if [ -f $ICON_APP ];then
-	cp $ICON_APP ./
-fi
+#if [ -f $ICON_APP ];then
+#	cp $ICON_APP ./
+#fi
 
 _build
 }
@@ -175,6 +192,9 @@ function install_gspdf()
 {
 APPNAME=GSPdf
 RELEASE="0.5"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -203,10 +223,11 @@ function install_cynthiune()
 {
 APPNAME=Cynthiune
 RELEASE="1.0.0"
-BUILD_ARGS="disable-audiofile=yes disable-flac=yes disable-flactags=yes \
+CONFIG_ARGS="disable-audiofile=yes disable-flac=yes disable-flactags=yes \
         disable-mod=yes disable-windowsmedia=yes disable-musepack=yes \
         disable-timidity=yes disable-asdtags=yes disable-waveout=yes \
         disable-esound=yes disable-ao=yes"
+BUILD_ARGS="${CONFIG_ARGS}"
 INSTALL_ARGS="${BUILD_ARGS}"
 PATCH="Cynthiune-1.0.0_Bundles_ALSA_fails_to_build_due_to_memcheck_inclusion.patch"
 
@@ -243,6 +264,9 @@ function install_textedit()
 {
 APPNAME=TextEdit
 RELEASE="4.0"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -252,7 +276,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d gs-textedit ];then
 	cd gs-textedit
-	git pull origin master &>/dev/null
+	git pull &>/dev/null
 else
 	git clone https://github.com/onflapp/gs-textedit.git &>/dev/null
 	cd gs-textedit
@@ -270,6 +294,9 @@ function install_imageviewer()
 {
 APPNAME=ImageViewer
 RELEASE="0.1"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -279,7 +306,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d gs-desktop ];then
         cd gs-desktop
-        git pull origin main &>/dev/null
+        git pull &>/dev/null
 else
         git clone https://github.com/onflapp/gs-desktop.git &>/dev/null
         cd gs-desktop
@@ -299,6 +326,9 @@ function install_agenda()
 {
 APPNAME=SimpleAgenda
 RELEASE="0.4.7"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -308,7 +338,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d simpleagenda ];then
 	cd simpleagenda
-	git pull origin master &>/dev/null
+	git pull &>/dev/null
 else
 	git clone https://github.com/poroussel/simpleagenda.git &>/dev/null
 	cd simpleagenda
@@ -326,6 +356,9 @@ function install_gnumail()
 {
 APPNAME=GNUMail
 RELEASE="1.4.0"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -354,6 +387,9 @@ function install_openup()
 {
 APPNAME=OpenUp
 RELEASE="0.1"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -363,7 +399,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d gs-desktop ];then
         cd gs-desktop
-        git pull origin main &>/dev/null
+        git pull &>/dev/null
 else
         git clone https://github.com/onflapp/gs-desktop.git &>/dev/null
         cd gs-desktop
@@ -383,6 +419,9 @@ function install_scanimage()
 {
 APPNAME=ScanImage
 RELEASE="0.1"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -392,7 +431,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d gs-desktop ];then
         cd gs-desktop
-        git pull origin main &>/dev/null
+        git pull &>/dev/null
 else
         git clone https://github.com/onflapp/gs-desktop.git &>/dev/null
         cd gs-desktop
@@ -412,6 +451,9 @@ function install_screenshot()
 {
 APPNAME=ScreenShot
 RELEASE="0.1"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -421,7 +463,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d gs-desktop ];then
         cd gs-desktop
-        git pull origin main &>/dev/null
+        git pull &>/dev/null
 else
         git clone https://github.com/onflapp/gs-desktop.git &>/dev/null
         cd gs-desktop
@@ -441,6 +483,9 @@ function install_player()
 {
 APPNAME=Player
 RELEASE="0.1"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -450,7 +495,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d gs-desktop ];then
         cd gs-desktop
-        git pull origin main &>/dev/null
+        git pull &>/dev/null
 else
         git clone https://github.com/onflapp/gs-desktop.git &>/dev/null
         cd gs-desktop
@@ -470,6 +515,10 @@ function install_innerspace()
 {
 APPNAME=InnerSpace
 RELEASE="0.1"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
+
 PATCH="spordefs.patch"
 TARGET="spordefs.m"
 PROJ="SporView.bproj"
@@ -533,9 +582,10 @@ APPNAME="HelpViewer"
 REPO="gs-desktop"
 OWNER="onflapp"
 HUB="https://github.com"
-BRANCH="main"
 BUILD_DIR="Applications" # "system-apps" | "ported-apps"
 CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 cd ../build || exit 1
 
@@ -545,7 +595,7 @@ title "$APPNAME $RELEASE"
 printf "Fetching...\n"
 if [ -d $REPO ];then
         cd $REPO
-        git pull origin $BRANCH &>/dev/null
+        git pull &>/dev/null
 else
 	git clone ${HUB}/${OWNER}/${REPO}.git &>/dev/null
 	cd $REPO
@@ -571,10 +621,10 @@ APPNAME="Ink"
 REPO="tests-examples"
 OWNER="gnustep"
 HUB="https://github.com"
-BRANCH="master"
 BUILD_DIR="gui"
 CONFIG_ARGS=""
 INSTALL_ARGS=""
+BUILD_ARGS=""
 
 echo "$APPNAME - $RELEASE" >> $LOG
 title "$APPNAME $RELEASE"
@@ -582,7 +632,7 @@ title "$APPNAME $RELEASE"
 printf "Fetching...\n"
 if [ -d $REPO ];then
         cd $REPO
-        git pull origin $BRANCH &>/dev/null
+        git pull &>/dev/null
 else
 	git clone ${HUB}/${OWNER}/${REPO}.git &>/dev/null
 	cd $REPO
@@ -611,6 +661,7 @@ HUB="https://github.com"
 BRANCH="main"
 BUILD_DIR="Applications"
 CONFIG_ARGS=""
+BUILD_ARGS=""
 INSTALL_ARGS=""
 
 echo "$APPNAME - $RELEASE" >> $LOG
@@ -640,6 +691,9 @@ function install_grr()
 
 APPNAME=Grr
 RELEASE="1.1"
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -668,6 +722,9 @@ function install_volumecontrol()
 
 APPNAME=VolumeControl
 RELEASE=""
+CONFIG_ARGS=""
+BUILD_ARGS=""
+INSTALL_ARGS=""
 
 echo "$APPNAME $RELEASE" >>$LOG
 title "$APPNAME $RELEASE"
@@ -677,7 +734,7 @@ cd ../build || exit 1
 printf "Fetching...\n"
 if [ -d ${APPNAME}.app ];then
 	cd ${APPNAME}.app
-	git pull origin master &>/dev/null
+	git pull &>/dev/null
 else
 	git clone https://github.com/alexmyczko/VolumeControl.app.git &>/dev/null
 	cd ${APPNAME}.app

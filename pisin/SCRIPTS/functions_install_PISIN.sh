@@ -30,17 +30,6 @@ _PWD=`pwd`
 ####################################################
 
 ####################################################
-### install base desktop
-
-function install_desktop()
-{
-. SCRIPTS/inst_wmaker.sh
-. SCRIPTS/inst_frameworks.sh
-}
-### End of desktop
-####################################################
-
-####################################################
 ### install main apps
 
 function install_apps()
@@ -82,14 +71,16 @@ function help()
 {
 clear
 title "Main PiSiN install script: Help"
-printf "You can install PiSiN like this:"
-cli "./2_install_PISIN.sh OPTION"
-printf "\n- OPTION could be one of: desktop, apps, devel, extra, games"
+printf "You can install PiSiN applications like this:"
+cli "./2_install_PISIN.sh <OPTION>"
+printf "\n- OPTION could be one of: apps, devel, extra, games"
 
-MESSAGE="- desktop: means WindowMaker, Frameworks...\n \
-(i) - apps: means GWorkspace, Terminal, TextEdit, GNUMail, etc.\n \
-(i) - You must use these options: 'desktop' (mandatory) then 'apps' (needed) for a daily use. And 'devel' for a GNUstep Workshop. 'Games' for the fun.\n \
-(i) - See RELEASE for a detailed explanation."
+MESSAGE="- apps: means GWorkspace, Terminal, TextEdit, GNUMail, etc.\n \
+(i) - You must use these options: 'apps' (mandatory) for a daily use. \n \
+(i) - 'devel' for a GNUstep Workshop. \n \
+(i) - 'extra' for more apps. \n \ 
+(i) - 'Games' for the fun.\n \
+(i) - Read RELEASE for a detailed explanation."
 info "$MESSAGE"
 }
 ### end of help

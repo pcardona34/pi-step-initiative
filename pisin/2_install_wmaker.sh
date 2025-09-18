@@ -20,10 +20,9 @@
 ### ENV
 
 LOG="$HOME/PISIN_BUILD_WM.log"
-_PWD=`pwd`
+PISIN=`pwd`
 SPIN='/-\|'
-#. SCRIPTS/environ.sh
-#. /usr/local/share/GNUstep/Makefiles/GNUstep.sh
+. /etc/os-release
 
 ### End of VARS
 ################################
@@ -33,6 +32,7 @@ SPIN='/-\|'
 
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
+. SCRIPTS/functions_prep.sh
 . SCRIPTS/functions_inst_wmaker.sh
 
 ### End of Include functions
@@ -53,7 +53,11 @@ echo "$0" >$LOG
 ##############################################
 
 ### The DockApps must be built after wmaker and Wings libs.
+clear
+TITLE="Window Maker 0.96"
+echo "$TITLE" >> $LOG
 
+LIST="wmaker" && install_deps
 install_wmaker
 
 sudo ldconfig
@@ -61,7 +65,8 @@ sudo ldconfig
 ###############
 
 ###############################################
-### REMOVED
+### REMOVED: the Dock of wmaker is hidden!
+### Relevant services are done within Conky now.
 #install_wmifs
 #install_wmclock
 #install_alsamixer_dot_app

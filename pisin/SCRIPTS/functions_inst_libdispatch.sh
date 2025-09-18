@@ -15,40 +15,50 @@
 
 ####################################################
 ### Install GCD
-function install_libdispatch()
+function install_libdispatch
 {
 
+LOG=$HOME/PISIN_BUILD_GCD.log
+if ! [ -d ../build ];then
+	mkdir -p ../build
+fi
 cd ../build || exit 1
 
-title "Lib DISPATCH - Grand Central Dispatch"
+TITLE="Lib DISPATCH - Grand Central Dispatch"
+echo "$TITLE" >$LOG
+title "$TITLE"
+
 printf "Fetching...\n"
 
 if [ -d swift-corelibs-libdispatch ];then
 	cd swift-corelibs-libdispatch
-	git pull origin main &>/dev/null
+	git pull &>/dev/null
 else
 	git clone --branch=main "https://github.com/apple/swift-corelibs-libdispatch" &>/dev/null
 	cd swift-corelibs-libdispatch
 fi
 
-if [ -d build ];then
-	cd build
-else
-	mkdir build && cd build
-fi
+sudo rm -fR build
+mkdir build && cd build
 
 printf "Configuring...\n"
+
+### Cleaning
+sudo make clean &>/dev/null
+
+C_FLAGS="-Wno_error=unused-but-set-variable"
 cmake .. \
     -DCMAKE_C_COMPILER=${CC} \
     -DCMAKE_CXX_COMPILER=${CXX} \
-    -DINSTALL_PRIVATE_HEADERS=YES \
-    -DBUILD_TESTING=OFF \
-    -DCMAKE_BUILD_TYPE=Debug &>>$LOG &
+    -DCMAKE_C_FLAGS=${C_FLAGS} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DUSE_GOLD_LINKER=YES &>>$LOG &
 PID=$!
 spinner
 
 printf "\rBuilding...\n"
-make &>>$LOG &
+make clean &>/dev/null
+make ${MKARGS} &>>$LOG &
 PID=$!
 spinner
 
@@ -57,17 +67,12 @@ sudo -E make install &>>$LOG &
 PID=$!
 spinner
 
-### Cleaning
-sudo make clean &>/dev/null
+sudo ldconfig
 
 cd $_PWD
-
-sudo ldconfig
 
 ok "\rDone"
 
 }
 ### End of function
 ################################
-
-

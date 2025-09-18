@@ -9,7 +9,7 @@ if ! [ -d $XDG_CACHE_HOME ];then
 fi
 
 ### Set the right permissions
-chown $USER:$USER $XDG_CACHE_HOME
+sudo chown -fR $USER:$USER $XDG_CACHE_HOME
 
 ### MESA
 if [ -z "$MESA_SHADER_CACHE_DIR" ];then

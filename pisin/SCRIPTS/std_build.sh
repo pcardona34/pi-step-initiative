@@ -35,7 +35,7 @@ PID=$!
 spinner
 
 printf "\rInstalling...\n"
-sudo -E make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=LOCAL &>>$LOG &
+sudo -E make ${INSTALL_ARGS} install &>>$LOG &
 PID=$!
 spinner
 
@@ -79,8 +79,7 @@ PID=$!
 spinner
 
 printf "\rInstalling...\n"
-sudo -E make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=LOCAL &>>$LOG &
-#make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=USER &>>$LOG &
+sudo -E make ${INSTALL_ARGS} install &>>$LOG &
 PID=$!
 spinner
 
@@ -130,8 +129,7 @@ PID=$!
 spinner
 
 printf "\rInstalling...\n"
-sudo -E make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=LOCAL &>>$LOG &
-#make install ${INSTALL_ARGS} GNUSTEP_INSTALLATION_DOMAIN=USER &>>$LOG &
+sudo -E make ${INSTALL_ARGS} install &>>$LOG &
 
 PID=$!
 spinner

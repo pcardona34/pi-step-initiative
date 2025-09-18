@@ -48,26 +48,11 @@ if ! [ -d $HOME/.local/bin ];then
 	mkdir -p $HOME/.local/bin
 fi
 
-
-####################################################
-### User profile
-### Very important, because GNUstep needs to source this...
-
-title "User profile"
-IS_PROFILE=`grep -e "GNUstep.sh" $HOME/.profile`
-if [ $? -eq 0 ];then
-	info "$HOME/.profile is yet sourcing GNUstep."
-else
-	echo ". /usr/local/share/GNUstep/Makefiles/GNUstep.sh" >> $HOME/.profile
-	. $HOME/.profile
-fi
-ok "Done"
-
 ###################################################
 ### Prevent .cache issue
 
 title "Fixing cache issue"
-IS_BASHRC=`grep -e ".cache" $HOME/.bashrc`
+grep -e ".cache" $HOME/.bashrc &>/dev/null
 if [ $? -eq 0 ];then
 	info "$HOME/.bashrc already fixes the '.cache' issue."
 else
@@ -216,9 +201,6 @@ cd $_PWD
 ok "Done"
 
 cd
-
-### Cleaner...
-mv --force *.log Documents/
 
 ###########################################
 ### Uncomment below if you use a Display Manager like XDM, Login.app...

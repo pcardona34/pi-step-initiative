@@ -24,9 +24,11 @@
 LOG="$HOME/PISIN_BUILD_DRAFT.log"
 _PWD=`pwd`
 SPIN='/-\|'
-. SCRIPTS/environ.sh
-. /usr/local/share/GNUstep/Makefiles/GNUstep.sh
+#. SCRIPTS/environ.sh
+GSMAKE=$(gnustep-config --variable=GNUSTEP_SYSTEM_MAKEFILES)
+. ${GSMAKE}/GNUstep.sh
 USER_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_USER_APPS)
+INSTALL_ARGS="GNUSTEP_INSTALLATION_DOMAIN=USER"
 
 ### End of VARS
 ################################

@@ -4,13 +4,21 @@
 
 Installing an app for ALL USERS:
 
-export LOCAL_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
-sudo -E make install
+	export SYSTEM_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_SYSTEM_APPS)
+	sudo -E make install
 
-if no target install:
-sudo cp ${APP_NAME}.app $LOCAL_INSTALL_DIR/
+or
 
-===
+	sudo -E make GNUSTEP_INSTALLATION_DOMAIN=SYSTEM install
+
+=============================================================
+### Wrappers
+
+if no target install (case of Wrappers):
+	
+	sudo cp -r ${APP_NAME}.app $SYSTEM_INSTALL_DIR/
+
+=============================================================
 
 ## Testing a Web Browser
 

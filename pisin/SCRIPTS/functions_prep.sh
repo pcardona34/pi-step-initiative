@@ -15,26 +15,60 @@
 
 #############################################
 ### Sanity check
-function sanity_check()
+function sanity_check
 {
 
 title "Checking your environment"
 
+TEST=1
+MOD=1
+
 . /etc/os-release
 ARCHI=`uname -a | awk '{print $10}'`
 MODEL=`cat /sys/firmware/devicetree/base/model | awk '{print $3}'`
+MSG="On $ID - $VERSION_ID - ${ARCHI} - Raspberry Pi ${MODEL}\nYou are welcome!\n\n"
 
-if [ "$ID" == "$REQUIRED_OS" ] && [ $VERSION_ID -eq $REQUIRED_RELEASE ] && [ "$ARCHI" == "$REQUIRED_ARCH" ] && [ "$MODEL" == "400" ] || [ "$MODEL" == "4" ] || [ "$MODEL" == "3" ];then
-	info "On $ID - $VERSION_ID - ${ARCHI} - Raspberry Pi ${MODEL}\nYou are welcome!\n\n"
+if [ "$ID" == "$REQUIRED_OS" ] && [ $VERSION_ID -eq $REQUIRED_RELEASE ] && [ "$ARCHI" == "$REQUIRED_ARCH" ];then
+	TEST=0
+fi
+
+#printf "MODEL:\n"
+for REQ in ${REQUIRED_MODEL}
+do
+	local R=`echo ${REQ} | sed s/\"//`
+	if [ "$MODEL" == "$R" ];then
+		MOD=0 && break
+	else
+		MOD=1
+	fi
+done
+
+RES=$(( $TEST + $MOD ))
+if [[ $RES -eq 0 ]];then
+	info "$MSG"
 else
 	alert "PiSiN Desktop should not be installed without $REQUIRED_OS ${REQUIRED_RELEASE}.\nNor without Arm64 processor.\nIt has been conceived on and for a Raspberry Pi SBC.\nAborting!\n"
+	exit 1
+fi
+}
+#############################################
+### Is GNUstep already built ?
+function not_again
+{
+### We should not reinstall GNUstep
+### To avoid side effects...
+GSPATH=/usr/GNUstep/System
+if [ -d /usr/GNUstep ];then
+	alert "GNUstep has been already built. DO NOT try to build again. You risk to BREAK PiSiN Desktop!"
+	info "To install apps, use instead the script:"
+	cli "./5_install_PISI.sh"
 	exit 1
 fi
 }
 
 #############################################
 ### Debian update
-function debian_update()
+function debian_update
 {
 
 info "It is time to have a first cup of coffee. ;-)"
@@ -59,11 +93,22 @@ ok "\r\rDone"
 #############################################
 ### Core dependencies for GNUstep
 ### and Window Maker Desktop
-function install_deps()
+### Use: LIST="name" && install_deps
+### See in RESOURCES available lists of deps
+function install_deps
 {
-title "Installation of the Dependencies"
-sleep 1
+REF="${LIST:-build}"
+OPTIONS="--no-show-upgraded --no-upgrade --yes"
+title "Installing Dependencies"
+. /etc/os-release
 prefix="#"
+local STATUS=0
+
+FILE="${PISIN}/RESOURCES/dep_${REF}_debian_${VERSION_ID}.txt"
+if ! [ -f $FILE ];then
+	alert "The file ${FILE} was not found."
+	exit 1
+fi
 
 while read DEP
 do
@@ -77,7 +122,7 @@ if [ $? -eq 0 ];then
 	continue
 else
 	printf "${DEP}... "
-	sudo apt install "$DEP" --yes &>>$LOG
+	sudo apt-get ${OPTIONS} install ${DEP} &>>$LOG
 	if [ $? -ne 0 ];then
 		alert "ERROR: this dependency: ${DEP} was not resolved.\nAborting!!!" | tee -a $LOG
 		STATUS=1;break
@@ -85,7 +130,7 @@ else
 		ok " Done"
 	fi
 fi
-done < RESOURCES/debian12_deps.txt
+done < $FILE
 
 if [ $STATUS -ne 0 ];then
 	warning "You must resolve this dependency trap.\nSee and fix RESOURCES/debian12_deps.txt\nThen execute again:\n\n\t ${0}\n\n"
@@ -95,12 +140,9 @@ fi
 
 #############################################
 ### A more up to date CMAKE
-function install_cmake()
+function install_cmake
 {
 
-title "A more up to date CMAKE"
-
-_PWD=`pwd`
 TARGET=$HOME/.local
 BUILD=../build
 
@@ -111,25 +153,46 @@ do
 	fi
 done
 
-
 cd ../build || exit 1
 
-if [ -f cmake-4.0.2-linux-aarch64.sh ];then
-	printf "\ncmake 4 installation script has been yet downloaded.\n"
-	if [ -f $HOME/.local/bin/cmake ];then
-		CMAKE_VER=`$HOME/.local/bin/cmake --version`
-		info "cmake 4 is installed.\n${CMAKE_VER}"
-	else
-		printf "The following script will install cmake.\n"
-		sleep 1
-		bash ./cmake-4.0.2-linux-aarch64.sh --skip-license --exclude-subdir --prefix="$TARGET"
-		cd $_PWD
-	fi
-else
+if ! [ -f cmake-4.0.2-linux-aarch64.sh ];then
 	printf "\nfetching: CMake-4.0.2...\n"
 	wget --quiet https://github.com/Kitware/CMake/releases/download/v4.0.2/cmake-4.0.2-linux-aarch64.sh
-	install_cmake # recursive call
 fi
+
+printf "Installing...\n"
+bash ./cmake-4.0.2-linux-aarch64.sh --skip-license --exclude-subdir --prefix="$TARGET" &>/dev/null &
+PID=$!
+spinner
+
+ok "\rDone"
 }
 ### End of up to date CMake
 #############################################
+
+################################
+### test of CMake release
+################################
+
+function test_cmake
+{
+CMV=`cmake --version | grep -e "version"`
+MAJOR=`echo $CMV | awk '{print $3}' | awk -F. '{print $1}'`
+if [ $MAJOR -eq 4 ];then
+	info "Cmake version is ok:\n `cmake --version`"
+else
+	warning "Cmake is too old. Maybe a path issue..."
+	sleep 1
+	echo $PATH | grep -e ".local/bin" &>/dev/null
+	if ! [ $? -eq 0 ];then
+		export PATH=$HOME/.local/bin:$PATH
+		### recursive call
+		testcmake
+	else
+		alert "Cmake version could not been solved. Aborting. Please report this issue."
+		exit 1
+	fi
+fi
+
+}
+
