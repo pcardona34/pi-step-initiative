@@ -57,8 +57,8 @@ function not_again
 {
 ### We should not reinstall GNUstep
 ### To avoid side effects...
-GSPATH=/usr/GNUstep/System
-if [ -d /usr/GNUstep ];then
+GSPATH=/System
+if [ -d $GSPATH ];then
 	alert "GNUstep has been already built. DO NOT try to build again. You risk to BREAK PiSiN Desktop!"
 	info "To install apps, use instead the script:"
 	cli "./5_install_PISI.sh"
@@ -71,7 +71,7 @@ fi
 function debian_update
 {
 
-info "It is time to have a first cup of coffee. ;-)"
+info "It is time to have a cup of tea or coffee. ;-)"
 
 title "Updating Debian Lite OS"
 
@@ -109,7 +109,7 @@ if ! [ -f $FILE ];then
 	alert "The file ${FILE} was not found."
 	exit 1
 fi
-
+STRING=""
 while read DEP
 do
 if [ -z "$DEP" ];then
@@ -121,21 +121,24 @@ if [ $? -eq 0 ];then
 	# This line is commented out...
 	continue
 else
-	printf "${DEP}... "
-	sudo apt-get ${OPTIONS} install ${DEP} &>>$LOG
-	if [ $? -ne 0 ];then
-		alert "ERROR: this dependency: ${DEP} was not resolved.\nAborting!!!" | tee -a $LOG
-		STATUS=1;break
-	else
-		ok " Done"
-	fi
+	STRING="${DEP} ${STRING}"
 fi
 done < $FILE
 
-if [ $STATUS -ne 0 ];then
-	warning "You must resolve this dependency trap.\nSee and fix RESOURCES/debian12_deps.txt\nThen execute again:\n\n\t ${0}\n\n"
+if [ ! -z "STRING" ];then
+	sudo apt-get ${OPTIONS} install ${STRING}
+	if [ $? -ne 0 ];then
+		alert "ERROR: a dependency was not resolved.\nAborting!!!" | tee -a $LOG
+		warning "You must resolve this dependency trap.\nSee and fix ${FILE}. Then execute again:\n\n\t ${0}\n\n"
+	else
+		ok "\nDone"
+	fi
+else
+	alert "The dependency list was empty."
+	warning "You must check ${FILE}."
 	exit 1
 fi
+
 }
 
 #############################################

@@ -21,12 +21,14 @@ autoconf
 automake
 bison
 build-essential
-#cmake
+cmake
 flex
+gobjc
+gobjc++
 gdb
 # Libtool >= 1.4.2: it is 2.4.7
 libtool
-lld
+#lld
 m4
 make
 pkg-config

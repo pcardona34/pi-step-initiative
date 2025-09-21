@@ -1,34 +1,39 @@
 Pi-STEP initiative Desktop / PiSiN
 ==========================
 
-- **Release**: 0.7.1
+- **Release**: 0.7.2
 - **Status**: Alpha (still in heavy development: do not try to install yet)
+- Windowmaker 0.96.0 is broken: "symbol lookup error: wuserdatapath" (unresolved until now)
 
 ### The Desktop Components
 
 - Operating System: Raspberry Pi OS Lite release (it is now Debian Bookworm 12). Not yet tested on Trixie.
 - Window Manager: Window Maker 0.96.0 with PISIN.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Wondow Maker.
 
-- GNUstep: until now, the Runtime (GNU vs OBJC2) has not been definitely chosen. Work in progress. In the future, use: `pisi --info`
+- GNUstep: until now, the Runtime (GNU vs OBJC2) has not been definitely chosen. Work in progress. In the future, use: `pisi --info` (not yer updated)
 
 - Preferences Manager: SystemPreferences
 - Workspace: GWorkspace and Recycler: 1.1.0 (02 2025) - Its own Desktop layer and its Dock (modern flavour) are shown. The Wallpaper is shown on this layer. It is a mandatory set to manage mounted removable devices on the Desktop and to unmount those by DND on the Recycler Icon.
-- Theme: PISIN (mostly inspired by Papirus Icon theme and GNUstep Sleek Theme)
+- Theme: PISIN mostly inspired by Papirus Icon theme and GNUstep Sleek Theme: not yet finished.
 
-- Session: DBus (but the DBusKit does not build)
+- Session: DBus (but the DBusKit does not build: todo...)
 
-- Notifyer: dunst
+- Notifyer: dunst - SimpleAgenda seems to need more like lib-notify...
 - Compositing: compton
 - Sys Infos: conky. Weather data is fetched from Wttr.in. The system monitoring is upon: date, time, uptime, CPU, Memory, Storage and Networking.
 - Alsa compliant Audio Mixer: see VolumeControl below.
 
 ===========================================
 
-### Applications and Tools for the average User and The Developer
+### Applications and Tools for the End-User and The Developer
 
 - All-in-One install script is now available: './enjoy.sh'
 
 It installs all the following...
+
+===========================================
+
+This is the steps accomplished by 'enjoy.sh': DO NOT execute again unless you need to debug any step.
 
 For the average User: 
 - Installation option is 'apps': `./3_install_PISIN.sh apps`
@@ -43,6 +48,10 @@ Note-3: Non GNUstep Application Wrapper item has a "(W)" mention in the list bel
 
 Note-4: Devel GNUstep Application item has a "(D)" mention in the list below.
 - Installation option is 'devel': `./3_install_PISIN.sh devel`.
+
+===========================================
+
+The complete list:
 
 
 - AddressManager: contacts

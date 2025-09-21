@@ -58,7 +58,8 @@ TITLE="Window Maker 0.96"
 echo "$TITLE" >> $LOG
 
 LIST="wmaker" && install_deps
-install_wmaker
+check_LD_LIB_PATH
+install_wmaker || exit 1
 
 sudo ldconfig
 

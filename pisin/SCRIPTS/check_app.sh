@@ -20,13 +20,14 @@ function check()
 ### VARS ENV
 __PWD=`pwd`
 if [ -z "$INSTALL_DIR" ];then
-	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_DOMAIN_APPS)
+	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 fi
 GNUSTEP_APPS_DIR=$INSTALL_DIR
 ISSUES=https://github.com/pcardona34/pi-step-initiative/issues
 
 if ! [ -d $GNUSTEP_APPS_DIR ];then
-	sudo mkdir -p $GNUSTEP_APPS_DIR
+	alert "$GNUSTEP_APPS_DIR was not found!"
+	exit 1
 fi
 
 if [ -n "$1" ];then
@@ -60,12 +61,12 @@ function check_FW()
 __PWD=`pwd`
 if [ -z "$INSTALL_DIR" ];then
 	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_LIBRARY)
+	INSTALL_DIR=${INSTALL_DIR}/Frameworks
 fi
-GNUSTEP_FW_DIR=$INSTALL_DIR/Frameworks
 ISSUES=https://github.com/pcardona34/pi-step-initiative/issues
 
-if ! [ -d $GNUSTEP_FW_DIR ];then
-	printf "\nError: $GNUSTEP_FW_DIR was not found.\n";exit 1
+if ! [ -d ${INSTALL_DIR} ];then
+	printf "\nError: ${INSTALL_DIR} was not found.\n";exit 1
 fi
 
 if [ -n "$1" ];then
@@ -77,7 +78,7 @@ else
 	exit 1
 fi
 
-cd $GNUSTEP_FW_DIR || exit 1
+cd ${INSTALL_DIR} || exit 1
 if [ -d "${APP}.framework" ];then
 	info "The Framework ${APP} has been found: ok."
 else
@@ -99,7 +100,7 @@ ISSUES=https://github.com/pcardona34/pi-step-initiative/issues
 
 
 if [ -z "$INCLUDE_DIR" ];then
-	INCLUDE_DIR=/usr/local/include
+	INCLUDE_DIR=$(gnustep-config --variable=GNUSTEP_SYSTEM_INCLUDE)
 fi
 
 cd $INCLUDE_DIR || exit 1

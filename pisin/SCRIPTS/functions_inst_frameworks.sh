@@ -450,7 +450,7 @@ sudo ldconfig
 
 ######################################################
 ### Dependencies
-sudo apt install -y libdbus-1-dev libdbus-1-3 libclang1-19 libclang-19-dev
+#sudo apt install -y libdbus-1-dev libdbus-1-3 libclang1-19 libclang-19-dev
 
 cd $_PWD
 
@@ -463,16 +463,6 @@ git checkout 5d69a35357f6e32fc2e1194194e176bf48588120
 
 curl -o config.guess "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD"
 curl -o config.sub "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD"
-
-export CPATH=$CPATH:/usr/lib/llvm-19/include/clang:/usr/include/dbus-1.0/dbus/:/usr/lib/aarch64-linux-gnu/dbus-1.0/include:/usr/GNUstep/Local/Library/Headers
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu:/usr/lib/llvm-19/lib/
-# Use clang
-export CC=clang-19
-export CXX=clang++-19
-export RUNTIME_VERSION=gnustep-2.1
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-export LD=/usr/bin/ld.gold
-export LDFLAGS="-fuse-ld=gold -L/usr/local/lib"
 
 ##################################################
 ### Dirty BIS...

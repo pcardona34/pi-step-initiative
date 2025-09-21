@@ -39,7 +39,7 @@ sudo -E make ${INSTALL_ARGS} install &>>$LOG &
 PID=$!
 spinner
 
-make_services
+#make_services
 
 ### Cleaning
 sudo chown -fR $USER:$USER . &>/dev/null
@@ -83,8 +83,6 @@ sudo -E make ${INSTALL_ARGS} install &>>$LOG &
 PID=$!
 spinner
 
-make_services
-
 ### Cleaning
 sudo chown -fR $USER:$USER . &>/dev/null
 make clean &>/dev/null
@@ -101,6 +99,7 @@ if [ "${FWNAME}" == "Renaissance" ] || [ "${FWNAME}" == "Performance" ] || [ "${
 else
 	check_FW ${FWNAME}
 fi
+
 }
 
 ###################################################

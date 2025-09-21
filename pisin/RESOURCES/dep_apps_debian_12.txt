@@ -40,6 +40,8 @@ libasound2
 libasound2-dev
 libid3tag0
 libid3tag0-dev
+libtagc0
+libtagc0-dev
 libmad0
 libmad0-dev
 libmusicbrainz5-2
@@ -70,6 +72,7 @@ ghostscript
 gsfonts
 poppler-utils
 sqlite3
+libsqlite3-dev
 tzdata
 
 ###########################################
@@ -106,3 +109,4 @@ recollcmd
 
 #### SceenShot
 scrot
+#libsqlclient-dev

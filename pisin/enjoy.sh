@@ -57,12 +57,16 @@ echo "PiSiN: Begining of script $0 at: $BEG" > $LOGENJ
 ####################################################
 
 ./1_prep.sh || exit 1
+
 cd ${PISIN}
 ./2_install_wmaker.sh || exit 1
+
 cd ${PISIN}
 ./3_install_gnustep.sh || exit 1
+
 cd ${PISIN}
 ./4_install_frameworks.sh || exit 1
+
 cd ${PISIN}
 ./5_install_PISIN.sh apps || exit 1
 

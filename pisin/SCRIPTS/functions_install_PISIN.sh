@@ -78,9 +78,9 @@ printf "\n- OPTION could be one of: apps, devel, extra, games"
 MESSAGE="- apps: means GWorkspace, Terminal, TextEdit, GNUMail, etc.\n \
 (i) - You must use these options: 'apps' (mandatory) for a daily use. \n \
 (i) - 'devel' for a GNUstep Workshop. \n \
-(i) - 'extra' for more apps. \n \ 
+(i) - 'extra' for more apps. \n \
 (i) - 'Games' for the fun.\n \
-(i) - Read RELEASE for a detailed explanation."
+(i) - Read 'RELEASE' for a detailed explanation."
 info "$MESSAGE"
 }
 ### end of help

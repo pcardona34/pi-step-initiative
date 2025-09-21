@@ -21,6 +21,15 @@
 ### End of include functions
 #######################################
 
+function check_LD_LIB_PATH
+{
+echo ${LD_LIBRARY_PATH} | grep -e "/usr/local/lib" &>/dev/null
+if [ $? -ne 0 ];then
+	export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+fi
+}
+
+
 #####################################
 ## Window Maker
 ### Repo: windowmaker.org
@@ -41,13 +50,16 @@ RELEASE="0.96.0"
 #RELEASE="0.95.9"
 #####################################################
 
-CONFIG_ARGS="--disable-xinerama --disable-magick --with-gnustepdir=/usr/GNUstep/Local"
+CONFIG_ARGS="--disable-xinerama"
+## --disable-magick
+## --with-gnustepdir=/usr/GNUstep/Local
 EXT=".tar.gz"
 DIR="${APP}-${RELEASE}"
 ARCHIVE="${DIR}${EXT}"
-LINGUAS="fr uk"
+#LINGUAS="fr uk"
 
-title "$APPNAME $RELEASE" | tee -a $LOG
+title "$APPNAME $RELEASE"
+echo "$APPNAME $RELEASE" >>$LOG
 
 cd ../build || exit 1
 
@@ -61,9 +73,9 @@ else
 	cd $DIR || exit 1
 fi
 
-if ! [ -d /usr/GNUstep/System/Applications ];then
-	sudo mkdir -p /usr/GNUstep/System/Applications
-fi
+#if ! [ -d /usr/GNUstep/System/Applications ];then
+#	sudo mkdir -p /usr/GNUstep/System/Applications
+#fi
 
 printf "Configuring...\n"
 ./autogen.sh ${CONFIG_ARGS} &>>$LOG
@@ -98,6 +110,7 @@ else
 	alert "Window Maker was not successfully installed. This is a major issue. Read $LOG.\nAnd report this issue to:\nhttps://github.com/pcardona34/pi-step-initiative/issues" && exit 1
 fi
 }
+
 ### End of Wmaker
 ######################################
 
@@ -106,7 +119,7 @@ fi
 ### AlsaMixer.app
 ### Release: 1.8
 #
-### launch: 
+### launch:
 ### /Applications/AlsaMixer.app/AlsaMixer -L -S --card UC02 &
 ##############################################
 

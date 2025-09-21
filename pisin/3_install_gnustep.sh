@@ -95,7 +95,7 @@ fi
 
 grep -e "$GS_SCRIPT" ~/.bashrc &>/dev/null
 if [ $? -ne 0 ];then
-	echo "export PATH=/Local/Tools:$PATH" >> ~/.bashrc
+	echo "export PATH=/System/Tools:$PATH" >> ~/.bashrc
 	echo ". $GS_SCRIPT" >> ~/.bashrc
 fi
 

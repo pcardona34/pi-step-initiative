@@ -105,8 +105,8 @@ info "Back to the main app"
 
 _build
 
-check "Recycler"
-check "MDFinder"
+#check "Recycler"
+#check "MDFinder"
 }
 
 #############################################
