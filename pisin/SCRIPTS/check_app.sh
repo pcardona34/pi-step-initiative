@@ -90,7 +90,7 @@ cd $__PWD
 }
 
 #####################################
-### Case of renaissance, performance
+### Case of Renaissance, Performance
 function check_LIB()
 {
 ### VARS ENV
@@ -99,15 +99,16 @@ __PWD=`pwd`
 ISSUES=https://github.com/pcardona34/pi-step-initiative/issues
 
 
-if [ -z "$INCLUDE_DIR" ];then
-	INCLUDE_DIR=$(gnustep-config --variable=GNUSTEP_SYSTEM_INCLUDE)
+if [ -z "$LIB_DIR" ];then
+	LIB_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_LIBRARY)
+	LIB_DIR=${LIB_DIR}/Libraries
 fi
 
-cd $INCLUDE_DIR || exit 1
-if [ -d "${LIB}" ];then
+cd ${LIB_DIR} || exit 1
+if [ -f "lib${LIB}.so" ];then
 	info "The lib ${LIB} has been found: ok."
 else
-	alert "ERROR! The lib ${LIB} was not found in ${INCLUDE_DIR}.\nPlease, report this issue at:\n${ISSUES}"
+	alert "ERROR! The lib ${LIB} was not found in ${LIB_DIR}.\nPlease, report this issue at:\n${ISSUES}"
 	exit 1
 fi
 

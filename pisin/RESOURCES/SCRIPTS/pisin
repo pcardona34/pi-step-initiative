@@ -18,7 +18,14 @@ if [ "$ARG" == "" ];then
 	ARG="--help"
 fi
 
+echo $PATH | grep -e "/System/Tools" &>/dev/null
+if [ $? -ne 0 ];then
+	export PATH=/System/Tools:$PATH
+fi
+LIB_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_LIBRARY)
+
 . $HOME/.local/bin/colors.sh
+. $HOME/.local/etc/release.info
 
 #######################################################""
 ### System Infos
@@ -31,13 +38,13 @@ RELEASE=$(cat /etc/debian_version)
 KERNEL=$(uname -s -r -m)
 WM=$(wmaker --version)
 WS=$(defaults read org.gnustep.GWorkspace GSWorkspaceApplication | awk '{print $3}')
-GSBASE=$(ls /usr/local/lib/GNUstep/Libraries/gnustep-base/Versions)
-GSGUI=$(ls /usr/local/lib/GNUstep/Libraries/gnustep-gui/Versions)
+GSBASE=$(ls ${LIB_DIR}/Libraries/gnustep-base/Versions)
+GSGUI=$(ls ${LIB_DIR}/Libraries/gnustep-gui/Versions)
 THEME=$(defaults read NSGlobalDomain GSTheme | awk '{print $3}')
 
 TRANS=`echo ${LANG%.UTF-8} | awk -F_ '{print $1}'`
 
-title "PiSiN: Infos"
+title "${DESKTOP}: ${REL} - ${STATUS}"
 
 case "$TRANS" in
 	"fr")

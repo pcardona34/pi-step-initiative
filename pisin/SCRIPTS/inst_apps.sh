@@ -22,6 +22,10 @@
 
 _PWD=`pwd`
 #. SCRIPTS/environ.sh
+echo $PATH | grep -e "/System/Tools" &>/dev/null
+if [ $? -ne 0 ];then
+	export PATH=/System/Tools:$PATH
+fi
 GSMAKE=$(gnustep-config --variable=GNUSTEP_MAKEFILES)
 . ${GSMAKE}/GNUstep.sh
 LOG="$HOME/PISIN_BUILD_APPS.log"
@@ -94,7 +98,7 @@ install_scanimage
 install_screenshot
 install_volumecontrol
 install_ink
-#install_wrappers
+install_wrappers
 
 ##################
 ### Removed

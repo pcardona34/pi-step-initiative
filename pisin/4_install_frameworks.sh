@@ -16,17 +16,33 @@
 ################################
 ### VARS
 
-export PATH=/System/Tools:$PATH
+#echo "PATH (0) is: $PATH";sleep 5
+
+echo $PATH | grep -e "/System/Tools" &>/dev/null
+if [ $? -ne 0 ];then
+	export PATH=/System/Tools:$PATH
+fi
 LOG=$HOME/PISIN_BUILD_FW.log
 PISIN=`pwd`
 _PWD=`pwd`
 SPIN='/-\|'
 . /etc/os-release
 #. SCRIPTS/environ.sh
-GSMAKE=$(gnutep-config --variable=GNUSTEP_MAKEFILES)
+GSMAKE=$(gnustep-config --variable=GNUSTEP_MAKEFILES)
+#echo "GSMAKE is: $GSMAKE";sleep 5
 . ${GSMAKE}/GNUstep.sh
-#INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_LIBRARY)
-#INSTALL_DIR=${INSTALL_DIR}/Frameworks
+#|| alert "No $GSMAKE found";exit 1
+
+#echo "PATH (1) is: $PATH";sleep 5
+
+INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_LIBRARY)
+INSTALL_DIR=${INSTALL_DIR}/Frameworks
+
+#echo "INSTALL_DIR is: $INSTALL_DIR";sleep 5
+
+if [ ! -d $INSTALL_DIR ];then
+	sudo mkdir -p $INSTALL_DIR
+fi
 
 ################################
 ### Include functions
@@ -34,9 +50,16 @@ GSMAKE=$(gnutep-config --variable=GNUSTEP_MAKEFILES)
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
 . SCRIPTS/functions_prep.sh
+
+#echo ".."
 . SCRIPTS/std_build.sh
+
+#echo "..."
+
 . SCRIPTS/check_app.sh
+#echo "...."
 . SCRIPTS/functions_inst_frameworks.sh
+#echo "....."
 
 ### End of Include functions
 ################################
@@ -54,11 +77,10 @@ if ! [ -d ../build ];then
 	mkdir -p ../build
 fi
 
-if ! [ -d ${INSTALL_DIR} ];then
-	sudo mkdir -p $INSTALL_DIR
-fi
-
+echo "......"
 install_pdfkit
+
+
 install_fw_addresses
 install_fw_addressview
 install_pantomime

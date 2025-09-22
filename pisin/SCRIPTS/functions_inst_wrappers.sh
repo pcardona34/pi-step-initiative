@@ -28,7 +28,7 @@ do
 	echo "$APPNAME" >> $LOG
 	title "Installing the wrapper for $APPNAME"
 
-	sudo cp -r ${APPNAME}.app $INSTALL_DIR/
+	sudo cp -a ${APPNAME}.app $INSTALL_DIR/
 	check $APPNAME
 done
 
@@ -38,17 +38,3 @@ cd $_PWD
 ##############################################
 ### End of functions
 ##############################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-

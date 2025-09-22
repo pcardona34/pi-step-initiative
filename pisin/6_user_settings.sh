@@ -78,7 +78,7 @@ ok "Done"
 ### Autostart
 title "Autostart"
 cd $_PWD/RESOURCES/SCRIPTS
-cp --force autostart $HOME/GNUstep/Library/WindowMaker/
+cp --remove-destination autostart $HOME/GNUstep/Library/WindowMaker/
 printf "Autostart for Window Maker has been updated.\n"
 cd $_PWD
 ok "Done"
@@ -128,7 +128,7 @@ cd $_PWD/TOOLS/pisin_conky || exit 1
 cd $_PWD
 ok "Done"
 
-### Installing Tools and confs...
+### Installing Tools and confs... Compton
 title "Compton Compositing"
 cd $_PWD/TOOLS/pisin_compton || exit 1
 . ./install_pisin_compton.sh
@@ -200,7 +200,28 @@ done
 cd $_PWD
 ok "Done"
 
+###########################################
+### Info release
+RELEASE=$(grep -e "Release" RELEASE | awk '{print $3}')
+STATUS=$(grep -e "Status" RELEASE | awk '{print $3}')
+
+if [ ! -d $HOME/.local/etc ];then
+	mkdir -p $HOME/.local/etc
+fi
+echo "DESKTOP=PiSiN" > $HOME/.local/etc/release.info
+echo "REL=$RELEASE" >> $HOME/.local/etc/release.info
+echo "STATUS=$STATUS" >> $HOME/.local/etc/release.info
+
+###########################################
+### Installation LOGS
+title "Installation Logs"
+
 cd
+for LOG in *.log
+do
+	mv $LOG Documents/
+done
+info "All the logs were moved into the Documents Folder."
 
 ###########################################
 ### Uncomment below if you use a Display Manager like XDM, Login.app...

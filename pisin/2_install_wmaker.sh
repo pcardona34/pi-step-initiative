@@ -54,14 +54,16 @@ echo "$0" >$LOG
 
 ### The DockApps must be built after wmaker and Wings libs.
 clear
-TITLE="Window Maker 0.96"
+TITLE="Window Maker"
 echo "$TITLE" >> $LOG
+title "$TITLE"
 
-LIST="wmaker" && install_deps
-check_LD_LIB_PATH
-install_wmaker || exit 1
+#LIST="wmaker" && install_deps
+#check_LD_LIB_PATH
+#install_wmaker || exit 1
 
-sudo ldconfig
+sudo apt -y install wmaker wmaker-utils
+#sudo ldconfig
 
 ###############
 

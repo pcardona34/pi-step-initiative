@@ -135,7 +135,7 @@
 		<integer>3</integer>
 		<key>paths</key>
 		<array>
-		    <string>/usr/local/lib/GNUstep/Applications</string>
+		    <string>/Local/Applications</string>
 		</array>
 	    </dict>
 	</array>
@@ -169,7 +169,7 @@
 			    <integer>0</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/AddressManager.app</string>
+				<string>/Local/Applications/AddressManager.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -177,7 +177,7 @@
 			    <integer>1</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Calculator.app</string>
+				<string>/Local/Applications/Calculator.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -185,7 +185,7 @@
 			    <integer>2</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Dictionary.app</string>
+				<string>/Local/Applications/Dictionary.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -193,7 +193,7 @@
 			    <integer>3</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/FontManager.app</string>
+				<string>/Local/Applications/FontManager.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -201,7 +201,7 @@
 			    <integer>4</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/HelpViewer.app</string>
+				<string>/Local/Applications/HelpViewer.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -209,7 +209,7 @@
 			    <integer>5</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/ScanImage.app</string>
+				<string>/Local/Applications/ScanImage.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -217,7 +217,7 @@
 			    <integer>6</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/ScreenShot.app</string>
+				<string>/Local/Applications/ScreenShot.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -225,7 +225,7 @@
 			    <integer>7</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/SystemPreferences.app</string>
+				<string>/Local/Applications/SystemPreferences.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -233,7 +233,7 @@
 			    <integer>8</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/VolumeControl.app</string>
+				<string>/Local/Applications/VolumeControl.app</string>
 			    </array>
 			</dict>
 		    </array>
@@ -251,7 +251,7 @@
 			    <integer>0</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/EasyDiff.app</string>
+				<string>/Local/Applications/EasyDiff.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -259,7 +259,7 @@
 			    <integer>1</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Gemas.app</string>
+				<string>Local/Applications/Gemas.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -267,7 +267,7 @@
 			    <integer>2</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Gorm.app</string>
+				<string>/Local/Applications/Gorm.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -275,7 +275,7 @@
 			    <integer>3</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/GSMarkupBrowser.app</string>
+				<string>/Local/Applications/GSMarkupBrowser.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -283,7 +283,7 @@
 			    <integer>4</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/GSMarkupLocalizableStrings.app</string>
+				<string>/Local/Applications/GSMarkupLocalizableStrings.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -291,7 +291,7 @@
 			    <integer>5</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/ProjectCenter.app</string>
+				<string>/Local/Applications/ProjectCenter.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -299,7 +299,7 @@
 			    <integer>6</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Thematic.app</string>
+				<string>/Local/Applications/Thematic.app</string>
 			    </array>
 			</dict>
 		    </array>
@@ -317,7 +317,7 @@
 			    <integer>0</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Chess.app</string>
+				<string>/Local/Applications/Chess.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -325,7 +325,7 @@
 			    <integer>1</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Freecell.app</string>
+				<string>/Local/Applications/Freecell.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -333,7 +333,7 @@
 			    <integer>2</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/Gomoku.app</string>
+				<string>/Local/Applications/Gomoku.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -341,7 +341,7 @@
 			    <integer>3</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/GShisen.app</string>
+				<string>/Local/Applications/GShisen.app</string>
 			    </array>
 			</dict>
 			<dict>
@@ -349,7 +349,7 @@
 			    <integer>4</integer>
 			    <key>paths</key>
 			    <array>
-				<string>/usr/local/lib/GNUstep/Applications/LapisPuzzle.app</string>
+				<string>/Local/Applications/LapisPuzzle.app</string>
 			    </array>
 			</dict>
 		    </array>

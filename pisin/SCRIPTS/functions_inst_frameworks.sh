@@ -19,7 +19,7 @@ function install_pdfkit()
 {
 
 FWNAME="PDFKit"
-CONFIG_ARGS="--enable-a4-paper"
+#CONFIG_ARGS="--enable-a4-paper"
 
 cd ../build || exit 1
 
