@@ -1,25 +1,24 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.7.3
-- **Status**: Alpha
- (still in heavy development: do not try to install yet)
+- **Release**: 0.7.4
+- **Status**: Beta
 
 ### The Desktop Components
 
 - Operating System: Raspberry Pi OS Lite release (it is now Debian Bookworm 12). Not yet tested on Trixie.
 - Window Manager: this is Window Maker 0.95.9 (debian default package version) with PISIN.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Window Maker.
-	 (0.96.0 was broken: "symbol lookup error: wuserdatapath": unresolved until now)
+	 (MEMO: 0.96.0 was broken: "symbol lookup error: wuserdatapath": unresolved until now, so we reverted to previous stable version)
 - Notifyer: dunst - SimpleAgenda seems to need more like lib-notify...
 - Compositing: compton.
 - Sys Infos: conky. Weather data is fetched from Wttr.in. The system monitoring is upon: date, time, uptime, CPU, Memory, Storage and Networking.
-
+	(Conky Panel is localized in French and in English)
 
 - GNUstep: latest built from sources with GNU Runtime (not OBJC2). Use: `pisin --info` for a more complete release info.
 All the apps below were built from sources and so are the latest.
 - Preferences Manager: SystemPreferences
 - Workspace: GWorkspace and Recycler: 1.1.0 (02 2025) - Its own Desktop layer and its Dock (modern flavour) are shown. The Wallpaper is shown on this layer. It is a mandatory set to manage mounted removable devices on the Desktop and to unmount those by DND on the Recycler Icon.
-- Theme: PISIN mostly inspired by Papirus Icon theme and GNUstep Sleek Theme: not yet finished.
+- Theme: PISIN mostly inspired by Papirus Icon theme and GNUstep Sleek Theme: finished.
 - Session: DBus (but the DBusKit does not build: todo...)
 - Alsa compliant Audio Mixer: see VolumeControl below.
 

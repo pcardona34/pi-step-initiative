@@ -39,14 +39,14 @@ short_units = true,
 pad_percents  = 2,
 top_name_width = 30,
 default_color = FFFFFF,
-color1 = 'gold',
-color2 = 'orange',
-color3 = '5500FF',
-color4 = 'cyan',
+color1 = 'gray',
+color2 = 'D7D7FF',
+color3 = '3A3A56',
+color4 = '8686BF',
 color5 = 'DCDCDC',
 color6 = 'pink',
-color7 = 'yellow',
-color8 = 'green'
+color7 = 'DCDCDC',
+color8 = 'D7D7FF'
 }
 
 conky.text = [[
@@ -56,7 +56,7 @@ ${font}${color}
 ${voffset -40}
 ${alignc}${color4}${font SansSerif:size=28}${exec date +"%H"}${color}:${color4}${exec date +"%M"}
 ${font}${color}
-${alignc}Uptime: ${uptime}
+${alignc}Durée: ${uptime}
 ${hr}
 ${alignc}${font ConkySymbols:size=24}H${voffset -10}${font}${font SansSerif:size=14}${color1} Météo ${font}${color}
 ${voffset 2}
@@ -71,7 +71,7 @@ ${hr}
 ${alignc}${font ConkySymbols:size=24}J${voffset -10}${font SansSerif:size=14}${color1} Mémoire vive ${font}${color}
 
 ${color3}${membar 16}$color
-${voffset -22}${goto 40}Mém: ${memperc}% ${alignr 39}${color cyan}$mem${color} / $memmax
+${voffset -22}${goto 40}Mém: ${memperc}% ${alignr 39}${color 8686BF}$mem${color} / $memmax
 
 ${alignc}${font ConkySymbols:size=24}K${voffset -10}${font SansSerif:size=14}${color1}${color1}${font sans:size=14} Stockage ${font}
 ${voffset 6}${color3}${fs_bar 16,280 /}${color}
@@ -81,14 +81,14 @@ ${hr}
 ${alignc}${font ConkySymbols:size=24}I${voffset -10}${font SansSerif:size=14}${color1} Réseau ${font}${color}
 ${if_existing /proc/net/route wlan0}
 ${goto 40}${upspeedgraph wlan0 26,80 00FFFF 00FFFF}${goto 150}${downspeedgraph wlan0 26,80 FFFFFF FFFFFF}
-${goto 40}${color5}Up: ${color4}${upspeed wlan0}${color5}${goto 150}Down: ${color2}${downspeed wlan0}
-${goto 40}${color5}Sent: ${color4}${totalup wlan0}${color5}${goto 150}Received: ${color2}${totaldown wlan0}
+${goto 40}${color5}Haut: ${color4}${upspeed wlan0}${color5}${goto 150}Desc.: ${color2}${downspeed wlan0}
+${goto 40}${color5}Env.: ${color4}${totalup wlan0}${color5}${goto 150}Recus: ${color2}${totaldown wlan0}
 ${endif}
 ${if_existing /proc/net/route eth0}
 ${alignc}IP: ${addr eth0}
-${goto 40}${upspeedgraph eth0 26,80 FFB7C5 FFB7C5}${goto 150}${downspeedgraph eth0 26,80 00AA00 00AA00}
-${goto 40}${color5}Up: ${color7}${upspeed eth0}${color5}${goto 150}Down: ${color2}${downspeed eth0}
-${goto 40}${color5}Sent: ${color7}${totalup eth0}${color5}${goto 150}Received: ${color2}${totaldown eth0}
+${goto 40}${upspeedgraph eth0 26,80 FFB7C5 FFB7C5}${goto 150}${downspeedgraph eth0 26,80 3A3A56 D7D7FF}
+${goto 40}${color5}Montée: ${color7}${upspeed eth0}${color5}${goto 150}Descente: ${color2}${downspeed eth0}
+${goto 40}${color5}Envoyés: ${color7}${totalup eth0}${color5}${goto 150}Reçus: ${color2}${totaldown eth0}
 ${endif}${color}
 
 ]]

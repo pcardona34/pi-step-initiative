@@ -39,14 +39,14 @@ short_units = true,
 pad_percents  = 2,
 top_name_width = 30,
 default_color = FFFFFF,
-color1 = 'gold',
-color2 = 'orange',
-color3 = '5500FF',
-color4 = 'cyan',
+color1 = 'gray',
+color2 = 'D7D7FF',
+color3 = '3A3A56',
+color4 = '8686BF',
 color5 = 'DCDCDC',
 color6 = 'pink',
-color7 = 'yellow',
-color8 = 'green'
+color7 = 'DCDCDC',
+color8 = 'D7D7FF'
 }
 
 conky.text = [[
@@ -58,7 +58,7 @@ ${alignc}${color4}${font SansSerif:size=28}${exec date +"%H"}${color}:${color4}$
 ${font}${color}
 ${alignc}Uptime: ${uptime}
 ${hr}
-${alignc}${font ConkySymbols:size=24}H${voffset -10}${font}${font SansSerif:size=14}${color1} Weather ${font}${color}
+${alignc}${font ConkySymbols:size=24}H${voffset -10}${font}${font SansSerif:size=14}${color1} Météo ${font}${color}
 ${voffset 2}
 ${goto 40}${font SansSerif:size=12}Grandrieu: ${color8}${execi 3600 curl 'wttr.in/Grandrieu,Lozère,France?m&format=1' | awk '{print $2}'}
 ${font}${color}
@@ -71,7 +71,7 @@ ${hr}
 ${alignc}${font ConkySymbols:size=24}J${voffset -10}${font SansSerif:size=14}${color1} Memory ${font}${color}
 
 ${color3}${membar 16}$color
-${voffset -22}${goto 40}Mém: ${memperc}% ${alignr 39}${color cyan}$mem${color} / $memmax
+${voffset -22}${goto 40}Mém: ${memperc}% ${alignr 39}${color 8686BF}$mem${color} / $memmax
 
 ${alignc}${font ConkySymbols:size=24}K${voffset -10}${font SansSerif:size=14}${color1}${color1}${font sans:size=14} Storage ${font}
 ${voffset 6}${color3}${fs_bar 16,280 /}${color}
@@ -86,7 +86,7 @@ ${goto 40}${color5}Sent: ${color4}${totalup wlan0}${color5}${goto 150}Received: 
 ${endif}
 ${if_existing /proc/net/route eth0}
 ${alignc}IP: ${addr eth0}
-${goto 40}${upspeedgraph eth0 26,80 FFB7C5 FFB7C5}${goto 150}${downspeedgraph eth0 26,80 00AA00 00AA00}
+${goto 40}${upspeedgraph eth0 26,80 FFB7C5 FFB7C5}${goto 150}${downspeedgraph eth0 26,80 3A3A56 D7D7FF}
 ${goto 40}${color5}Up: ${color7}${upspeed eth0}${color5}${goto 150}Down: ${color2}${downspeed eth0}
 ${goto 40}${color5}Sent: ${color7}${totalup eth0}${color5}${goto 150}Received: ${color2}${totaldown eth0}
 ${endif}${color}

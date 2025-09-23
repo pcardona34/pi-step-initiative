@@ -107,9 +107,7 @@ ok "Done"
 title "Wallpaper"
 WP=fond_pi_step_initiative.png
 WP_FOLDER=$HOME/GNUstep/Library/WindowMaker/Backgrounds
-if ! [ -f $WP_FOLDER/$WP ];then
-	cd RESOURCES/WALLPAPERS && cp $WP $WP_FOLDER/
-fi
+cd RESOURCES/WALLPAPERS && cp --remove-destination $WP $WP_FOLDER/$WP
 cd $_PWD
 ok "Done"
 
