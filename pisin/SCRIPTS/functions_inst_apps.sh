@@ -75,33 +75,33 @@ fi
 #####################################
 ### GWmetadata submodule
 
-info "Submodules of GWorkspace: GWMetadata and MDFinder"
+#info "Submodules of GWorkspace: GWMetadata and MDFinder"
 
-cd GWMetadata || exit 1
+#cd GWMetadata || exit 1
 
-printf "Configuring...\n"
-./configure &>>$LOG &
-PID=$!
-spinner
+#printf "Configuring...\n"
+#./configure &>>$LOG &
+#PID=$!
+#spinner
 
-printf "\rBuilding...\n"
-make &>>$LOG &
-PID=$!
-spinner
+#printf "\rBuilding...\n"
+#make &>>$LOG &
+#PID=$!
+#spinner
 
-printf "\rInstalling...\n"
-sudo -E make install &>>$LOG &
-PID=$!
-spinner
+#printf "\rInstalling...\n"
+#sudo -E make install &>>$LOG &
+#PID=$!
+#spinner
 
-printf "\rSubmodule: "
-ok "Done"
+#printf "\rSubmodule: "
+#ok "Done"
 
-cd ..
+#cd ..
 ## End of submodule
 ####################################
 
-info "Back to the main app"
+#info "Back to the main app"
 
 _build
 

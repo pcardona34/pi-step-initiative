@@ -58,7 +58,7 @@ ${alignc}${color4}${font SansSerif:size=28}${exec date +"%H"}${color}:${color4}$
 ${font}${color}
 ${alignc}Uptime: ${uptime}
 ${hr}
-${alignc}${font ConkySymbols:size=24}H${voffset -10}${font}${font SansSerif:size=14}${color1} Météo ${font}${color}
+${alignc}${font ConkySymbols:size=24}H${voffset -10}${font}${font SansSerif:size=14}${color1} Weather ${font}${color}
 ${voffset 2}
 ${goto 40}${font SansSerif:size=12}Grandrieu: ${color8}${execi 3600 curl 'wttr.in/Grandrieu,Lozère,France?m&format=1' | awk '{print $2}'}
 ${font}${color}

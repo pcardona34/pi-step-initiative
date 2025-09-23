@@ -60,8 +60,6 @@ fi
 
 echo "$0" > $LOG
 
-
-
 #################################################
 ### If you do not want any app to install
 ### comment the relevent install script below
@@ -72,7 +70,7 @@ install_powerpaint
 install_stepsync
 install_graphos
 install_dictionaryreader
-install_cenon
+#install_cenon
 install_flexisheet
 install_pikopixel
 install_price

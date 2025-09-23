@@ -15,7 +15,7 @@
     GSMainMarkupFile = "";
     NOTE = "Automatically generated, do not edit!";
     NSExecutable = Thematic;
-    NSIcon = "Thematic.png";
+    NSIcon = "Thematic.tiff";
     NSMainNibFile = "Thematic.gorm";
     NSMainStoryboardFile = "";
     NSPrincipalClass = NSApplication;

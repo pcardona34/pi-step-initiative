@@ -1,7 +1,7 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.7.4
+- **Release**: 0.7.5
 - **Status**: Beta
 
 ### The Desktop Components
@@ -55,7 +55,6 @@ The complete list:
 
 - AddressManager: contacts
 - Calculator (E)
-- Cenon (E): Desktop Publishing
 - Chess (G)
 - Chromium (W): a wrapper for the Chromium Web Browser
 - Cynthiune: Music Player
@@ -75,6 +74,7 @@ The complete list:
 - GSMarkupBrowser: it is a Devel tool, but it was installed within libs-renaissance at stage 1 (Frameworks and Libs).
 - GSMarkupLocalizableStrings: idem.
 - GSPdf: PS and PDF reader/viewer
+- GSSpeechServer: Vocal Synthesis
 - GWorkspace: the Workspace manager: see above.
 - HelpViewer: .help reader (Help Files have a .help extension).
 - ImageViewer
@@ -101,3 +101,11 @@ The complete list:
 - Thematic (D): a Theme Editor for GNUstep
 - VolumeControl: AlsaMixer compliant mixer
 - Writer (W): a wrapper for Focuswriter
+
+Removed (R)
+=================
+
+Some apps or frameworks won't build with the GNU Runtime:
+
+- Cenon (ER): Desktop Publishing
+- DBusKit (R): DBus framework

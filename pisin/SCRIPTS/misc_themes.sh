@@ -17,6 +17,10 @@
 ### ENV
 
 LOG="$HOME/PISIN_MISC_THEMES.log"
+echo $PATH | grep -e "/System/Tools" &>/dev/null
+if [ $? -ne 0 ];then
+	export PATH=/System/Tools:$PATH
+fi
 LOCAL_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 _PWD=`pwd`
 SPIN='/-\|'

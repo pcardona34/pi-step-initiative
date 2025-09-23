@@ -50,7 +50,7 @@ sleep 1
 
 #not_again || exit 1
 sanity_check || exit 1
-debian_update
+debian_update || exit 1
 sudo apt autoremove -y &>/dev/null
 
 LIST="build" && install_deps

@@ -20,6 +20,12 @@
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
 
+function stop
+{
+echo "Stop: type <Enter> to continue."
+read R
+}
+
 ### End of include functions
 ####################################################
 
@@ -43,10 +49,14 @@ done
 ### Set misc folders (non standard ones)
 . SCRIPTS/misc_folders.sh
 
+#stop
+
 ### Target of Tools
 if ! [ -d $HOME/.local/bin ];then
 	mkdir -p $HOME/.local/bin
 fi
+
+#stop
 
 ###################################################
 ### Prevent .cache issue
@@ -59,6 +69,8 @@ else
 	cat RESOURCES/SCRIPTS/_bashrc >> $HOME/.bashrc
 fi
 ok "Done"
+
+#stop
 
 ###################################################
 ### User WindowMaker profile
@@ -74,6 +86,8 @@ else
 fi
 ok "Done"
 
+#stop
+
 ###################################################
 ### Autostart
 title "Autostart"
@@ -82,6 +96,8 @@ cp --remove-destination autostart $HOME/GNUstep/Library/WindowMaker/
 printf "Autostart for Window Maker has been updated.\n"
 cd $_PWD
 ok "Done"
+
+#stop
 
 ###################################################
 ### .xinitrc
@@ -102,6 +118,8 @@ fi
 cd $_PWD
 ok "Done"
 
+#stop
+
 #################################################
 ### Wallpaper
 title "Wallpaper"
@@ -111,6 +129,8 @@ cd RESOURCES/WALLPAPERS && cp --remove-destination $WP $WP_FOLDER/$WP
 cd $_PWD
 ok "Done"
 
+#stop
+
 #################################################
 ### Installing Tools and confs... Updater
 title "Updater tool"
@@ -119,6 +139,8 @@ cd $_PWD/TOOLS/pisin_updater || exit 1
 cd $_PWD
 ok "Done"
 
+#stop
+
 ### Installing Tools and confs... Conky
 title "Conky Monitoring Board"
 cd $_PWD/TOOLS/pisin_conky || exit 1
@@ -126,12 +148,16 @@ cd $_PWD/TOOLS/pisin_conky || exit 1
 cd $_PWD
 ok "Done"
 
+#stop
+
 ### Installing Tools and confs... Compton
 title "Compton Compositing"
 cd $_PWD/TOOLS/pisin_compton || exit 1
 . ./install_pisin_compton.sh
 cd $_PWD
 ok "Done"
+
+#stop
 
 ###########################################
 ### Installing the theme
@@ -144,12 +170,16 @@ cd $_PWD
 . SCRIPTS/misc_themes.sh
 cd $_PWD
 
+#stop
+
 ###########################################
 ### Setting the Defaults...
 title "GNUstep Defaults Setting"
 . SCRIPTS/prep_defaults.sh
 . SCRIPTS/set_defaults.sh
 cd $_PWD
+
+#stop
 
 ###########################################
 ### Installing Tools
@@ -160,14 +190,20 @@ do
 	cp -u $TOOL $HOME/.local/bin/
 done
 
+#stop
+
 cd $_PWD/SCRIPTS || exit 1
 for TOOL in colors.sh spinner.sh
 do
 	cp -u $TOOL $HOME/.local/bin/
 done
 
+
+
 cd $_PWD
 ok "Done"
+
+#stop
 
 ###########################################
 ### Samples
@@ -186,6 +222,8 @@ for FIC in *.epub *.pdf; do cp --force "$FIC" $HOME/Books/ ;done
 cd $_PWD
 ok "Done"
 
+#stop
+
 ###########################################
 ### Help
 title "Help Files"
@@ -197,6 +235,8 @@ done
 
 cd $_PWD
 ok "Done"
+
+#stop
 
 ###########################################
 ### Info release
@@ -210,6 +250,8 @@ echo "DESKTOP=PiSiN" > $HOME/.local/etc/release.info
 echo "REL=$RELEASE" >> $HOME/.local/etc/release.info
 echo "STATUS=$STATUS" >> $HOME/.local/etc/release.info
 
+#stop
+
 ###########################################
 ### Installation LOGS
 title "Installation Logs"
@@ -220,6 +262,8 @@ do
 	mv $LOG Documents/
 done
 info "All the logs were moved into the Documents Folder."
+
+#stop
 
 ###########################################
 ### Uncomment below if you use a Display Manager like XDM, Login.app...

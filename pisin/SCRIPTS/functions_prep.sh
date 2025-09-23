@@ -77,15 +77,17 @@ title "Updating Debian Lite OS"
 
 printf "Updating...\n"
 
-sudo apt update &>>$LOG &
-PID=$!
-spinner
+sudo apt update
+# &>>$LOG &
+#PID=$!
+#spinner
 
-sudo apt full-upgrade --yes &>>$LOG &
-PID=$!
-spinner
+sudo apt -y full-upgrade
+#&>>$LOG &
+#PID=$!
+#spinner
 
-ok "\r\rDone"
+ok "Done"
 }
 ### End of Debian update
 #############################################

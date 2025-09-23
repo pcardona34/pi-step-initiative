@@ -14,8 +14,8 @@
 LOGENJ="$HOME/ENJOY.log"
 IS_OK=0
 ### LITE=0 means full install - LITE=1 means lite install: only basic apps
-#LITE=0
-LITE=1
+LITE=0
+#LITE=1
 _PWD=`pwd`
 PISIN=${_PWD}
 ####################################################

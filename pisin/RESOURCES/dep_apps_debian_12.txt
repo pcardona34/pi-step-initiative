@@ -23,6 +23,7 @@ conky
 sane-utils
 
 inkscape
+python3-willow
 chromium
 rpi-chromium-mods
 dict

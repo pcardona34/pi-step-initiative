@@ -259,7 +259,7 @@
 			    <integer>1</integer>
 			    <key>paths</key>
 			    <array>
-				<string>Local/Applications/Gemas.app</string>
+				<string>/Local/Applications/Gemas.app</string>
 			    </array>
 			</dict>
 			<dict>
