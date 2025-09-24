@@ -222,7 +222,11 @@ _build
 
 ################################
 ## Cenon
-### Repo/Release: cenon: 4.0.2
+### Repo/Release: cenon: 4.0.6
+### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+### WARNING! None of the available versions
+### build with GNU runtime
+### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ################################
 
 function install_cenon()
@@ -231,7 +235,7 @@ function install_cenon()
 cd ../build || exit 1
 
 APPNAME="Cenon"
-RELEASE="4.0.2"
+RELEASE="4.0.6"
 EXT=".tar.bz2"
 HUB=https://cenon.download/source
 TARGET="${APPLICATIONS}"

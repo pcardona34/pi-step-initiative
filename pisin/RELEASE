@@ -1,7 +1,7 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.7.6
+- **Release**: 0.7.7
 - **Status**: Beta
 
 ### The Desktop Components
@@ -108,4 +108,4 @@ Removed (R)
 Some apps or frameworks won't build with the GNU Runtime:
 
 - Cenon (ER): Desktop Publishing
-- DBusKit (R): DBus framework
+- DBusKit (R): DBus framework (to be checked again)

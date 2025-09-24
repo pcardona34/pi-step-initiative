@@ -43,7 +43,7 @@ INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 #################################################
 
 clear
-title "PISI - Extra applications"
+title "PISIN - Extra applications"
 
 #################################################
 ### Is there a Build Folder?
@@ -74,7 +74,6 @@ install_powerpaint
 install_stepsync
 install_graphos
 install_dictionaryreader
-#install_cenon
 install_flexisheet
 install_pikopixel
 install_price
@@ -86,6 +85,7 @@ install_fontmanager
 #install_vespucci
 #install_notebook
 #install_netsurf
+# install_cenon ## Needs objc2 runtime?
 
 ################################################
 

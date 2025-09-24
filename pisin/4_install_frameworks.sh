@@ -77,10 +77,7 @@ if ! [ -d ../build ];then
 	mkdir -p ../build
 fi
 
-echo "......"
 install_pdfkit
-
-
 install_fw_addresses
 install_fw_addressview
 install_pantomime
@@ -95,8 +92,7 @@ install_steptalk
 
 ####################################
 ### Removed: not building...
-
-### install_dbuskit
+### install_dbuskit ### needs libobjc2
 ####################################
 
 sudo ldconfig
