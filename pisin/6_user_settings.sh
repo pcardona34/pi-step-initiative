@@ -22,8 +22,8 @@
 
 function stop
 {
-echo "Stop: type <Enter> to continue."
-read R
+MSG="Stop: type <Enter> to continue."
+#read -p "$MSG" R
 }
 
 ### End of include functions
@@ -86,18 +86,18 @@ else
 fi
 ok "Done"
 
-#stop
+stop
 
 ###################################################
 ### Autostart
 title "Autostart"
 cd $_PWD/RESOURCES/SCRIPTS
-cp --remove-destination autostart $HOME/GNUstep/Library/WindowMaker/
+cp --remove-destination autostart $HOME/GNUstep/Library/WindowMaker/autostart
 printf "Autostart for Window Maker has been updated.\n"
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 ###################################################
 ### .xinitrc
@@ -111,14 +111,14 @@ else
 	if [ $? -eq 0 ];then
 		info "It seems correct and it will be unchanged."
 	else
-		info "It is not compliant, so you should change it."
-		cp -i RESOURCES/SCRIPTS/_xinitrc $HOME/.xinitrc
+		info "It is not compliant, so we replace it."
+		cp --remove-destination RESOURCES/SCRIPTS/_xinitrc $HOME/.xinitrc
 	fi
 fi
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 #################################################
 ### Wallpaper
@@ -129,7 +129,7 @@ cd RESOURCES/WALLPAPERS && cp --remove-destination $WP $WP_FOLDER/$WP
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 #################################################
 ### Installing Tools and confs... Updater
@@ -139,7 +139,7 @@ cd $_PWD/TOOLS/pisin_updater || exit 1
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 ### Installing Tools and confs... Conky
 title "Conky Monitoring Board"
@@ -148,7 +148,7 @@ cd $_PWD/TOOLS/pisin_conky || exit 1
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 ### Installing Tools and confs... Compton
 title "Compton Compositing"
@@ -157,7 +157,7 @@ cd $_PWD/TOOLS/pisin_compton || exit 1
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 ###########################################
 ### Installing the theme
@@ -170,7 +170,7 @@ cd $_PWD
 . SCRIPTS/misc_themes.sh
 cd $_PWD
 
-#stop
+stop
 
 ###########################################
 ### Setting the Defaults...
@@ -179,7 +179,7 @@ title "GNUstep Defaults Setting"
 . SCRIPTS/set_defaults.sh
 cd $_PWD
 
-#stop
+stop
 
 ###########################################
 ### Installing Tools
@@ -190,7 +190,7 @@ do
 	cp -u $TOOL $HOME/.local/bin/
 done
 
-#stop
+stop
 
 cd $_PWD/SCRIPTS || exit 1
 for TOOL in colors.sh spinner.sh
@@ -203,7 +203,7 @@ done
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 ###########################################
 ### Samples
@@ -222,7 +222,7 @@ for FIC in *.epub *.pdf; do cp --force "$FIC" $HOME/Books/ ;done
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 ###########################################
 ### Help
@@ -236,7 +236,7 @@ done
 cd $_PWD
 ok "Done"
 
-#stop
+stop
 
 ###########################################
 ### Info release
@@ -250,7 +250,7 @@ echo "DESKTOP=PiSiN" > $HOME/.local/etc/release.info
 echo "REL=$RELEASE" >> $HOME/.local/etc/release.info
 echo "STATUS=$STATUS" >> $HOME/.local/etc/release.info
 
-#stop
+stop
 
 ###########################################
 ### Installation LOGS

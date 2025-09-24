@@ -19,6 +19,10 @@ function check()
 {
 ### VARS ENV
 __PWD=`pwd`
+echo $PATH | grep -e "/System/Tools" &>/dev/null
+if [ $? -ne 0 ];then
+	export PATH=/System/Tools:$PATH
+fi
 if [ -z "$INSTALL_DIR" ];then
 	INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 fi

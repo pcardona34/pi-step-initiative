@@ -17,12 +17,16 @@
 ### ENV
 _PWD=`pwd`
 #. ./SCRIPTS/environ.sh
+echo $PATH | grep -e "/System/Tools" &>/dev/null
+if [ $? -ne 0 ];then
+	export PATH=System/Tools:$PATH
+fi
 GSMAKE=$(gnustep-config --variable=GNUSTEP_STSTEM_MAKEFILES)
 . ${GSMAKE}/GNUstep.sh
 LOG="$HOME/PISIN_BUILD_EXTRA.log"
 SPIN='/-\|'
 INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
-INSTALL_ARGS="GNUSTEP_INSTALLATION_DOMAIN=LOCAL"
+#INSTALL_ARGS="GNUSTEP_INSTALLATION_DOMAIN=LOCAL"
 #################################################
 
 ################################################
@@ -52,7 +56,7 @@ fi
 ### Is there a USER APPS Folder?
 
 if ! [ -d $INSTALL_DIR ];then
-	mkdir $INSTALL_DIR
+	alert "$INSTALL_DIR was not found!" && exit 1
 fi
 
 #################################################

@@ -35,7 +35,7 @@ HUB="https://github.com"
 BRANCH="master"
 BUILD_DIR="gui" # "system-apps" | "ported-apps"
 CONFIG_ARGS=""
-INSTALL_ARGS=""
+INSTALL_DIR="/Local/Applications"
 
 echo "$APPNAME - $RELEASE" >> $LOG
 title "$APPNAME $RELEASE"
@@ -72,7 +72,7 @@ HUB="https://github.com"
 BRANCH="master"
 BUILD_DIR="gui" # "system-apps" | "ported-apps"
 CONFIG_ARGS=""
-INSTALL_ARGS=""
+INSTALL_DIR="/Local/Applications"
 
 echo "$APPNAME - $RELEASE" >> $LOG
 title "$APPNAME $RELEASE"

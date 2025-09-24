@@ -53,6 +53,52 @@ check ${APPNAME}
 
 }
 
+##################################################
+## Special case: test apps
+## Those lack of a 'make install'
+##################################################
+
+function _build_test()
+{
+
+if [ -z ${APPNAME} ];then
+	alert "The application is misconfigured. Aborting!"
+fi
+
+if [ -f configure ];then
+        printf "Configuring...\n"
+        ./configure ${CONFIG_ARGS} &>>$LOG &
+        PID=$!
+        spinner
+        printf "\rBuilding...\n"
+else
+        printf "Building...\n"
+fi
+
+make ${BUILD_ARGS} &>>$LOG &
+PID=$!
+spinner
+
+printf "\rInstalling...\n"
+sudo -E cp -a ${APPNAME} ${INSTALL_DIR}/ &>>$LOG &
+PID=$!
+spinner
+
+#make_services
+
+### Cleaning
+sudo chown -fR $USER:$USER . &>/dev/null
+make clean &>/dev/null
+
+ok "\rDone"
+
+cd $_PWD
+
+check ${APPNAME}
+
+}
+
+
 ###################################################
 ### Building Frameworks / Libs
 ###################################################
