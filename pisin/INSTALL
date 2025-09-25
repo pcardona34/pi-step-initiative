@@ -4,13 +4,17 @@
 
 ### Base OS and Locale
 
-1) On an SD card (16 GB required) copy the '64-bit Raspberry Pi OS Lite' (without desktop) --- i.e.: Debian Bookworm (12) --- You should customize the keyboard layout, the user name and its password...   
+1) With the 'rpi-imager' tool, copy the '64-bit Raspberry Pi OS Lite' (without desktop) on an SD card (16 GB required): i.e.: Debian Bookworm (12) --- You should customize the keyboard layout, the user name and its password...   
 
-2) Boot your Pi with this Operating System.
+2) Plug the SD card, remove any USB connected device and boot your Pi with this Operating System. 
 
-3) Update the Debian OS:
+3) After the usual SSH key generation and first auto-reboot, log in and update the Debian OS:
 
-	sudo apt update && sudo apt full-upgrade
+	sudo apt update && sudo apt upgrade
+
+You should get the latest Bookworm release: 12.12 as shown by:
+	
+	cat /etc/debian_version
 
 4) Enable and install your desired locale:
 
@@ -53,50 +57,69 @@
 
 This script should work on well tested Pi's SBC: Models 3B, 400, 4B.
 
-./enjoy.sh
+	./enjoy.sh
 
-After several minutes, you should see the PiSiN Desktop on your screen. You can see progress and info messages while PiSiN is installing.
+You can see progress and info messages while PiSiN is installing.
+After several minutes, you should be able to start the PiSiN Desktop with 'startx'. 
 
+
+If all is ok, logout and install the launcher:
+
+	./7_install_launcher.sh
+
+Now, after every login, the Desktop will be launched.
+
+If you need to use CLI again, use TTY2 to login to the console: CTRL-ALT-F2.
+	
 ---
 
-If the above 'enjoy.sh' script failed for some reason, try the following steps to note the step and the issue concerned:
+If the above 'enjoy.sh' script failed for some reason, try the following manual steps to note the issue concerned:
 
-### a) Prepare the installation (mainly debian dependencies)
+### Prepare the installation (mainly build tools on debian dependencies)
 	
 (i) Tip: the point './' below means to search and execute the script in the current directory:
 
 	./1_prep.sh
 
-### b) Install the Core GNUstep
+### Install Window Maker
 
-	./2_install_GNUstep.sh	
+	./2_install_wmaker.sh
+
+### Install the Core GNUstep
+
+	./3_install_gnustep.sh	
 	
-### c) Start the main installation script
+### Install the Frameworks
 
-	./3_install_PISIN.sh
+	./4_install_frameworks.sh
 
-This will show you an help message to select your OPTION installation: 'desktop', then 'apps' are mandatory.
+### Start the main installation script with the 'apps' option.
 
-### d) Set the current user's environment and PISI theme
+	./5_install_PISIN.sh apps
 
-	./4_user_settings.sh
-		
-### e) Start the X server and PiSiN Desktop:
+If all is ok, you can run the same command with each option: 'devel', 'extra' and 'games'.
+
+### Set the current user's environment and PISI theme
+
+	./6_user_settings.sh
+
+IMPORTANT! Step 6 must be run after every new step 5.
+	
+### Start the X server and PiSiN Desktop:
 	
 	cd && startx
 
 ## CAUTION!
 
-/!\ Until now, there is no Graphic GNUstep Login Manager.
-!!! DO NOT install 'wdm' session manager, because the WINGS libs dependencies 
-would conflict with those already installed by PiSiN Desktop.
-And do not install any GNUstep deb package for the same reason.
+/!\ Do not install any GNUstep deb package: this would conflict with the GNUstep built by PiSiN and break your Desktop.
 
 ### Notes
 
 - If you want to regenerate your default user's setting, log out the Desktop and do that:
 	cd && rm -fR GNUstep
 	cd SOURCES/pi-step_initiative/pisin
-	./4_user_settings.sh
+	./6_user_settings.sh
 
-- Step 4 must be run after every new step 3.
+### If all is right, logout and install the launcher:
+
+	./7_install_launcher.sh

@@ -1,15 +1,15 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.7.7
+- **Release**: 0.7.8
 - **Status**: Beta
 
 ### The Desktop Components
 
-- Operating System: Raspberry Pi OS Lite release (it is now Debian Bookworm 12). Not yet tested on Trixie.
+- Operating System: Raspberry Pi OS Lite release (it is now Debian Bookworm 12.12). Not yet tested on Trixie.
 - Window Manager: this is Window Maker 0.95.9 (debian default package version) with PISIN.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Window Maker.
 	 (MEMO: 0.96.0 was broken: "symbol lookup error: wuserdatapath": unresolved until now, so we reverted to previous stable version)
-- Notifyer: dunst - SimpleAgenda seems to need more like lib-notify...
+- Notifyer: dunst - SimpleAgenda won't use it because libDBUSKit is not installed.
 - Compositing: compton.
 - Sys Infos: conky. Weather data is fetched from Wttr.in. The system monitoring is upon: date, time, uptime, CPU, Memory, Storage and Networking.
 	(Conky Panel is localized in French and in English)
@@ -19,7 +19,7 @@ All the apps below were built from sources and so are the latest.
 - Preferences Manager: SystemPreferences
 - Workspace: GWorkspace and Recycler: 1.1.0 (02 2025) - Its own Desktop layer and its Dock (modern flavour) are shown. The Wallpaper is shown on this layer. It is a mandatory set to manage mounted removable devices on the Desktop and to unmount those by DND on the Recycler Icon.
 - Theme: PISIN mostly inspired by Papirus Icon theme and GNUstep Sleek Theme: finished.
-- Session: DBus (but the DBusKit does not build: todo...)
+- Session: DBus (but without DBUSKit) and auto-launching after the login using .bash_profile hack.
 - Alsa compliant Audio Mixer: see VolumeControl below.
 
 ===========================================
@@ -28,30 +28,28 @@ All the apps below were built from sources and so are the latest.
 
 - All-in-One install script is now available: './enjoy.sh'
 
-It installs all the following...
+- See INSTALL to understand the steps.
 
 ===========================================
 
-This is the steps accomplished by 'enjoy.sh': DO NOT execute again unless you need to debug any step.
 
-For the average User: 
-- Installation option is 'apps': `./3_install_PISIN.sh apps`
+For the End-User: 
+- Main installation option is 'apps'.
 
-Note-1: Extra GNUstep Application item has a "(E)" mention in the list below.
-- Installation option is 'extra': `./3_install_PISIN.sh extra`
+Note-1: Extra GNUstep Applications have a "(E)" mention in the list below.
+- Installation option is 'extra'.
 
-Note-2: GNUstep Game item has a "(G)" mention in the list below.
-- Installation option is 'games': `./3_install_PISIN.sh games`
+Note-2: GNUstep Games have "(G)" mention in the list below.
+- Installation option is 'games'.
 
-Note-3: Non GNUstep Application Wrapper item has a "(W)" mention in the list below. Those have been installed with the 'apps' option.
+Note-3: Non GNUstep Application Wrappers have a "(W)" mention in the list below. Those have been installed with the 'apps' option.
 
-Note-4: Devel GNUstep Application item has a "(D)" mention in the list below.
-- Installation option is 'devel': `./3_install_PISIN.sh devel`.
+Note-4: Devel GNUstep Applications have a "(D)" mention in the list below.
+- Installation option is 'devel'.
 
 ===========================================
 
 The complete list:
-
 
 - AddressManager: contacts
 - Calculator (E)
@@ -105,7 +103,7 @@ The complete list:
 Removed (R)
 =================
 
-Some apps or frameworks won't build with the GNU Runtime:
+Some apps or frameworks won't build with the GNU Runtime: so we needed to remove those until we do not use libobjc2.
 
 - Cenon (ER): Desktop Publishing
 - DBusKit (R): DBus framework (to be checked again)

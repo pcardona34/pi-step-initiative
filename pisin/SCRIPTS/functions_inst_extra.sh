@@ -33,9 +33,10 @@ REPO="tests-examples"
 OWNER="gnustep"
 HUB="https://github.com"
 BRANCH="master"
-BUILD_DIR="gui" # "system-apps" | "ported-apps"
+BUILD_DIR="gui"
 CONFIG_ARGS=""
 INSTALL_DIR="/Local/Applications"
+INSTALL_ARGS="GNUSTEP_INSTALLATION_DOMAIN=LOCAL"
 
 echo "$APPNAME - $RELEASE" >> $LOG
 title "$APPNAME $RELEASE"

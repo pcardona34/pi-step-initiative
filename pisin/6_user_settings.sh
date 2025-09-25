@@ -14,29 +14,48 @@
 ### This set GNUstep Library, defaults, .xinitrc...
 ####################################################
 
+_PWD=`pwd`
+SPIN='\-/|'
+STOP=0 # Set to 0 to avoid stops; to 1 to make stops
+MSG_STOP="Stop: type <Enter> to continue."
+LOG=$HOME/PISIN_USER_SETTINGS.log
+GWDEF="org.gnustep.GWorkspace"
+DEFDIR=RESOURCES/DEFAULTS
+
+echo $PATH | grep -e "/System/Tools" &>/dev/null
+if [ $? -ne 0 ];then
+	export PATH=/System/Tools:$PATH
+fi
+LOCAL_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
+
 ####################################################
 ### Include functions
 
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
+. SCRIPTS/functions_misc_folders.sh
+. SCRIPTS/functions_inst_themes.sh
+. SCRIPTS/functions_misc_themes.sh
 
 function stop
 {
-MSG="Stop: type <Enter> to continue."
-#read -p "$MSG" R
+if [ $STOP -ne 0 ];then
+	read -p "$MSG_STOP" R
+fi
 }
 
-### End of include functions
+### End of functions
 ####################################################
-
-_PWD=`pwd`
 
 clear
 
 ####################################################
 ### FreeDesktop User filesystem
 
-title "Customizing the User Home folder"
+TITLE="Customizing the User Home folder"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
 ### Set or restore standard $HOME filesystem
 ### Do NOT use xdg-user-dirs-update!!!
 for FOLD in Books Desktop Documents Downloads Favorites Images Mailboxes Music Samples Videos
@@ -46,22 +65,39 @@ do
 	fi
 done
 
-### Set misc folders (non standard ones)
-. SCRIPTS/misc_folders.sh
+################################
+### Miscellaneous for Home Folders
+################################
 
-#stop
+################################
+### ENV
+
+TITLE="Miscellaneous for Home Folders"
+echo $"$TITLE" >>$LOG
+title "$TITLE"
+
+###############################################
+for FOLD in Books Favorites GNUstep Mailboxes Samples SOURCES
+do
+	printf "Setting Folder ${FOLD}\n"
+	icon_folder $FOLD
+	ok "Done"
+done
+
+stop
 
 ### Target of Tools
 if ! [ -d $HOME/.local/bin ];then
 	mkdir -p $HOME/.local/bin
 fi
 
-#stop
-
 ###################################################
 ### Prevent .cache issue
 
-title "Fixing cache issue"
+TITLE="Fixing cache issue"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
 grep -e ".cache" $HOME/.bashrc &>/dev/null
 if [ $? -eq 0 ];then
 	info "$HOME/.bashrc already fixes the '.cache' issue."
@@ -74,7 +110,9 @@ ok "Done"
 
 ###################################################
 ### User WindowMaker profile
-title "User's WindowMaker profile"
+TITLE="User's WindowMaker profile"
+echo "$TITLE" >>$LOG
+title "$TITLE"
 
 ### We set standard first
 if [ -d $HOME/GNUstep/Library/WindowMaker ];then
@@ -82,16 +120,20 @@ if [ -d $HOME/GNUstep/Library/WindowMaker ];then
 else
 	cd
 	wmaker.inst
-	cd $_PWD
 fi
+cd $_PWD
 ok "Done"
 
 stop
 
 ###################################################
 ### Autostart
-title "Autostart"
-cd $_PWD/RESOURCES/SCRIPTS
+
+TITLE="Autostart"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd RESOURCES/SCRIPTS
 cp --remove-destination autostart $HOME/GNUstep/Library/WindowMaker/autostart
 printf "Autostart for Window Maker has been updated.\n"
 cd $_PWD
@@ -101,18 +143,22 @@ stop
 
 ###################################################
 ### .xinitrc
-title "Xinit"
+TITLE="Xinit"
+echo "$TITLE" >>$LOG
+title "$TITLE"
 
 if ! [ -f $HOME/.xinitrc ];then
-	cd RESOURCES/SCRIPTS && cp _xinitrc $HOME/.xinitrc
+	cd RESOURCES/SCRIPTS || exit 1
+	cp _xinitrc $HOME/.xinitrc
 else
 	warning "A xinit script is already in the user directory."
-	IS_WMAKER=`grep -e "wmaker" $HOME/.xinitrc`
+	grep -e "wmaker" $HOME/.xinitrc &>/dev/null
 	if [ $? -eq 0 ];then
 		info "It seems correct and it will be unchanged."
 	else
 		info "It is not compliant, so we replace it."
-		cp --remove-destination RESOURCES/SCRIPTS/_xinitrc $HOME/.xinitrc
+		cd RESOURCES/SCRIPTS || exit 1
+		cp --remove-destination _xinitrc $HOME/.xinitrc
 	fi
 fi
 cd $_PWD
@@ -122,10 +168,14 @@ stop
 
 #################################################
 ### Wallpaper
-title "Wallpaper"
+TITLE="Wallpaper"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
 WP=fond_pi_step_initiative.png
 WP_FOLDER=$HOME/GNUstep/Library/WindowMaker/Backgrounds
-cd RESOURCES/WALLPAPERS && cp --remove-destination $WP $WP_FOLDER/$WP
+cd RESOURCES/WALLPAPERS || exit 1
+cp --remove-destination ${WP} ${WP_FOLDER}/${WP}
 cd $_PWD
 ok "Done"
 
@@ -133,8 +183,11 @@ stop
 
 #################################################
 ### Installing Tools and confs... Updater
-title "Updater tool"
-cd $_PWD/TOOLS/pisin_updater || exit 1
+TITLE="Updater tool"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd TOOLS/pisin_updater || exit 1
 . ./install_pisin_updater.sh
 cd $_PWD
 ok "Done"
@@ -142,8 +195,11 @@ ok "Done"
 stop
 
 ### Installing Tools and confs... Conky
-title "Conky Monitoring Board"
-cd $_PWD/TOOLS/pisin_conky || exit 1
+TITLE="Conky Monitoring Board"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd TOOLS/pisin_conky || exit 1
 . ./install_pisin_conky.sh
 cd $_PWD
 ok "Done"
@@ -151,8 +207,11 @@ ok "Done"
 stop
 
 ### Installing Tools and confs... Compton
-title "Compton Compositing"
-cd $_PWD/TOOLS/pisin_compton || exit 1
+TITLE="Compton Compositing"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd TOOLS/pisin_compton || exit 1
 . ./install_pisin_compton.sh
 cd $_PWD
 ok "Done"
@@ -161,44 +220,25 @@ stop
 
 ###########################################
 ### Installing the theme
-title "PISIN Theme"
+TITLE="PISIN Theme"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+printf "Window Maker Theme...\n"
+install_wm_theme
 cd $_PWD
-. SCRIPTS/inst_themes.sh
+ok "Done"
+
+printf "GNUstep Theme..."
+install_gs_theme
+cd $_PWD
+ok "Done"
+
 ### Some Apps known to not comply with Theme: workaround
 ### We need to update Info-gnustep.plist for these apps
 ### Adding 'CFBundleIdentifier' property in the Dictionary
-. SCRIPTS/misc_themes.sh
-cd $_PWD
 
-stop
-
-###########################################
-### Setting the Defaults...
-title "GNUstep Defaults Setting"
-. SCRIPTS/prep_defaults.sh
-. SCRIPTS/set_defaults.sh
-cd $_PWD
-
-stop
-
-###########################################
-### Installing Tools
-title "User Tools"
-cd $_PWD/RESOURCES/SCRIPTS || exit 1
-for TOOL in Setup_Printer.sh pisin
-do
-	cp -u $TOOL $HOME/.local/bin/
-done
-
-stop
-
-cd $_PWD/SCRIPTS || exit 1
-for TOOL in colors.sh spinner.sh
-do
-	cp -u $TOOL $HOME/.local/bin/
-done
-
-
+update_info
 
 cd $_PWD
 ok "Done"
@@ -206,9 +246,109 @@ ok "Done"
 stop
 
 ###########################################
+### Setting the Defaults...
+TITLE="GNUstep Defaults Setting"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+################################
+### Prep defaults...
+################################
+
+cd $DEFDIR || exit 1
+
+if [ "$USER" == "patrick" ];then
+	### Default user...
+	cp --force ${GWDEF}.TEMPLATE ${GWDEF}.plist
+else
+	cat ${GWDEF}.TEMPLATE | sed -e s/patrick/$USER/g > ${GWDEF}.plist
+fi
+
+cd $_PWD
+
+################################
+### Set the defaults
+### for a PiSiN Desktop
+################################
+
+############################################
+### Applying a theme for WMaker:
+printf "Applying a theme for WMaker..."
+#### Syntax: setstyle THEME-PACK
+#### (in our case: THEME-PACK is 'PISIN')
+
+WMSTYLE=$HOME/GNUstep/Library/WindowMaker/Themes/PISIN.themed
+if [ ! -d $WMSTYLE ];then
+	alert "$WMSTYLE was not found!\nThis is a major issue."
+	exit 1
+fi
+
+setstyle --no-cursors --no-fonts $WMSTYLE
+ok "Done"
+
+############################################
+#### Applying Defaults for GNUstep
+############################################
+
+DEST=$HOME/GNUstep/Defaults
+if ! [ -d $DEST ];then
+	alert "$DEST was not found!"
+	exit 1
+fi
+
+cd RESOURCES/DEFAULTS || exit 1
+
+for PLIST in "Addresses" "NSGlobalDomain" "org.gap.InnerSpace" "org.gap.Terminal" "org.gnustep.GNUMail" "org.gnustep.GWorkspace" "org.poroussel.SimpleAgenda"
+do
+	if [ -f ${PLIST}.plist ];then
+		printf "Setting Defaults for ${PLIST}\n"
+		cp --force ${PLIST}.plist $DEST/
+		if [ "$PLIST" == "org.gnustep.GWorkspace" ];then
+			rm -f ${PLIST}.plist
+		fi
+		ok "Done"
+	else
+		warning "The File ${PLIST}.plist was not found."
+	fi
+done
+
+cd $_PWD
+ok "Done"
+
+stop
+
+###########################################
+### Installing Tools
+TITLE="User Tools"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd RESOURCES/SCRIPTS || exit 1
+for TOOL in Setup_Printer.sh pisin
+do
+	cp -u $TOOL $HOME/.local/bin/
+done
+cd $_PWD
+stop
+
+cd SCRIPTS || exit 1
+for TOOL in colors.sh spinner.sh
+do
+	cp -u $TOOL $HOME/.local/bin/
+done
+cd $_PWD
+ok "Done"
+
+stop
+
+###########################################
 ### Samples
-title "Sample Files"
-cd $_PWD/RESOURCES && cp -u Samples.tar.gz $HOME/
+TITLE="Sample Files"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd RESOURCES || exit 1
+cp -u Samples.tar.gz $HOME/
 cd $HOME
 gunzip --force Samples.tar.gz
 tar -xf Samples.tar && rm Samples.tar
@@ -226,8 +366,11 @@ stop
 
 ###########################################
 ### Help
-title "Help Files"
-cd $_PWD/RESOURCES/HELP
+TITLE="Help Files"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd RESOURCES/HELP
 for HLP in *.help
 do
 	cp -ruf ${HLP} $HOME/Books/
@@ -240,6 +383,10 @@ stop
 
 ###########################################
 ### Info release
+TITLE="Info release"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
 RELEASE=$(grep -e "Release" RELEASE | awk '{print $3}')
 STATUS=$(grep -e "Status" RELEASE | awk '{print $3}')
 
@@ -254,16 +401,22 @@ stop
 
 ###########################################
 ### Installation LOGS
-title "Installation Logs"
+TITLE="Installation Logs"
+echo "$TITLE" >>$LOG
+title "$TITLE"
 
 cd
 for LOG in *.log
 do
-	mv $LOG Documents/
+	if [ "$LOG" == "ENJOY.log" ];then
+		continue;
+	else
+		mv $LOG Documents/
+	fi
 done
 info "All the logs were moved into the Documents Folder."
 
-#stop
+stop
 
 ###########################################
 ### Uncomment below if you use a Display Manager like XDM, Login.app...
@@ -276,4 +429,5 @@ info "$MESSAGE"
 cli "cd && startx"
 
 warning "Until now, no DM nor Login Manager... \nDO NOT use WDM, it could break PiSiN installation!"
+
 

@@ -6,7 +6,7 @@
 PID_XSESSION=$$
 
 ### Window Manager
-wmaker --no-dock --no-clip --static &
+/usr/bin/wmaker --no-dock --no-clip --static &
 ##########################################################
 ### See: $HOME/GNUstep/Library/WindowMaker/autostart
 ##########################################################
@@ -18,11 +18,11 @@ wmaker --no-dock --no-clip --static &
 
 
 sleep 1
-openapp SimpleAgenda &
+/System/Tools/openapp SimpleAgenda &
 
 ### GWorkspace within a DBus session
 sleep 2
-exec dbus-launch --sh-syntax --exit-with-session openapp GWorkspace
+exec dbus-launch --sh-syntax --exit-with-session /System/Tools/openapp GWorkspace
 
 ### This is a secure way in any case Dbus fails to kill the session:
 kill $PID_XSESSION

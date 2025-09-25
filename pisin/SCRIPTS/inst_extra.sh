@@ -21,7 +21,7 @@ echo $PATH | grep -e "/System/Tools" &>/dev/null
 if [ $? -ne 0 ];then
 	export PATH=System/Tools:$PATH
 fi
-GSMAKE=$(gnustep-config --variable=GNUSTEP_STSTEM_MAKEFILES)
+GSMAKE=$(gnustep-config --variable=GNUSTEP_MAKEFILES)
 . ${GSMAKE}/GNUstep.sh
 LOG="$HOME/PISIN_BUILD_EXTRA.log"
 SPIN='/-\|'
