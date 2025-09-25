@@ -37,9 +37,11 @@ sudo cp ${BG} /usr/share/wallpapers/
 cd ..
 ### Config
 sudo cp ${CONF} /etc/lightdm/
+cp $HOME/.xinitrc $HOME/.xsession
 
 sudo systemctl set-default graphical.target
-info "The Display Manager has bees set."
+info "The Display Manager ${DM} has been set."
+
 warning "The System will reboot in 5 seconds to apply the changes..."
 sleep 5
 sudo reboot
