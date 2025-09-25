@@ -40,7 +40,7 @@ Until now, steps 1 to 3 are mostly done.
 4) Adding helps and tutorials targeting the learning community of the Raspberry Pi 
  Foundation and new GNUstep incoming developers: (begun).
   - A 'PiSiN User Guide' and a 'GWorkspace User Guide' are provided in the 'Books' folder.
-  - **Roadmap**: a 'Developer User Guide' should be the next major Help contribution.
+  - **Roadmap**: a 'Developer User Guide' should be the next major Help contribution with a Coding samples Folder.
 
 ---
 

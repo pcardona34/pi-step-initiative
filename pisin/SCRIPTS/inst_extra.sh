@@ -19,14 +19,14 @@ _PWD=`pwd`
 #. ./SCRIPTS/environ.sh
 echo $PATH | grep -e "/System/Tools" &>/dev/null
 if [ $? -ne 0 ];then
-	export PATH=System/Tools:$PATH
+	export PATH=/System/Tools:$PATH
 fi
 GSMAKE=$(gnustep-config --variable=GNUSTEP_MAKEFILES)
 . ${GSMAKE}/GNUstep.sh
 LOG="$HOME/PISIN_BUILD_EXTRA.log"
 SPIN='/-\|'
 INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
-#INSTALL_ARGS="GNUSTEP_INSTALLATION_DOMAIN=LOCAL"
+INSTALL_ARGS="GNUSTEP_INSTALLATION_DOMAIN=LOCAL"
 #################################################
 
 ################################################
@@ -91,5 +91,5 @@ install_fontmanager
 
 make_services
 sudo ldconfig
-print_size
+#print_size
 

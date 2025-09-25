@@ -82,6 +82,6 @@ install_thematic
 sudo ldconfig
 make_services
 
-print_size
+#print_size
 
 ###############

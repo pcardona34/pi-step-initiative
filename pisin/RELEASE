@@ -1,7 +1,7 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.7.8
+- **Release**: 0.7.9
 - **Status**: Beta
 
 ### The Desktop Components
@@ -19,7 +19,7 @@ All the apps below were built from sources and so are the latest.
 - Preferences Manager: SystemPreferences
 - Workspace: GWorkspace and Recycler: 1.1.0 (02 2025) - Its own Desktop layer and its Dock (modern flavour) are shown. The Wallpaper is shown on this layer. It is a mandatory set to manage mounted removable devices on the Desktop and to unmount those by DND on the Recycler Icon.
 - Theme: PISIN mostly inspired by Papirus Icon theme and GNUstep Sleek Theme: finished.
-- Session: DBus (but without DBUSKit) and auto-launching after the login using .bash_profile hack.
+- Session: Display Manager (Lightdm) and DBus (but without DBUSKit).
 - Alsa compliant Audio Mixer: see VolumeControl below.
 
 ===========================================
@@ -27,7 +27,7 @@ All the apps below were built from sources and so are the latest.
 ### Applications and Tools for the End-User and The Developer
 
 - All-in-One install script is now available: './enjoy.sh'
-
+- Installation of a Display Manage is now available.
 - See INSTALL to understand the steps.
 
 ===========================================

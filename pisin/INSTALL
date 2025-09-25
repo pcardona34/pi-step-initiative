@@ -63,13 +63,13 @@ You can see progress and info messages while PiSiN is installing.
 After several minutes, you should be able to start the PiSiN Desktop with 'startx'. 
 
 
-If all is ok, logout and install the launcher:
+If all is ok, logout and install the Display Manager (lightdm):
 
-	./7_install_launcher.sh
+	./7_install_DM.sh
 
 Now, after every login, the Desktop will be launched.
 
-If you need to use CLI again, use TTY2 to login to the console: CTRL-ALT-F2.
+TIP: If you need to use CLI again, use TTY2 to login to the console: CTRL-ALT-F2.
 	
 ---
 
@@ -120,6 +120,6 @@ IMPORTANT! Step 6 must be run after every new step 5.
 	cd SOURCES/pi-step_initiative/pisin
 	./6_user_settings.sh
 
-### If all is right, logout and install the launcher:
+### If all is right, logout and install the Display Manager:
 
-	./7_install_launcher.sh
+	./7_install_DM.sh

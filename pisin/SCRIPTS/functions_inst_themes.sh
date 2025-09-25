@@ -19,6 +19,9 @@ function install_wm_theme
 title "PISIN Theme for WindowMaker"
 printf "Installing the theme...\n"
 cd RESOURCES/THEMES || exit 1
+if [ ! -d $HOME/GNUstep/Library/WindowMaker/Themes ];then
+	mkdir -p $HOME/GNUstep/Library/WindowMaker/Themes
+fi
 cp WMPISIN.tar.gz $HOME/GNUstep/Library/WindowMaker/Themes/
 cd $HOME/GNUstep/Library/WindowMaker/Themes || exit 1
 gunzip --force WMPISIN.tar.gz && tar -xf WMPISIN.tar

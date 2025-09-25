@@ -58,7 +58,7 @@ title "$TITLE"
 
 ### Set or restore standard $HOME filesystem
 ### Do NOT use xdg-user-dirs-update!!!
-for FOLD in Books Desktop Documents Downloads Favorites Images Mailboxes Music Samples Videos
+for FOLD in Books Desktop Documents Downloads Favorites GNUstep Images Mailboxes Music Samples Videos
 do
 	if ! [ -d $HOME/$FOLD ];then
 		mkdir -p $HOME/$FOLD
@@ -119,7 +119,7 @@ if [ -d $HOME/GNUstep/Library/WindowMaker ];then
 	printf "Already set.\n"
 else
 	cd
-	wmaker.inst
+	mkdir -p $HOME/GNUstep/Library/WindowMaker
 fi
 cd $_PWD
 ok "Done"
@@ -174,6 +174,9 @@ title "$TITLE"
 
 WP=fond_pi_step_initiative.png
 WP_FOLDER=$HOME/GNUstep/Library/WindowMaker/Backgrounds
+if [ ! -d $WP_FOLDER ];then
+	mkdir -p $WP_FOLDER
+fi
 cd RESOURCES/WALLPAPERS || exit 1
 cp --remove-destination ${WP} ${WP_FOLDER}/${WP}
 cd $_PWD

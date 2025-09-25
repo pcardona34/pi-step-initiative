@@ -76,4 +76,4 @@ install_gshisen
 
 make_services
 sudo ldconfig
-print_size
+#print_size
