@@ -244,7 +244,6 @@ ok "Done"
 update_info
 
 cd $_PWD
-ok "Done"
 
 stop
 
@@ -258,6 +257,11 @@ title "$TITLE"
 ### Prep defaults...
 ################################
 
+HOME_GNUSTEP_DEF=$HOME/GNUstep/Defaults
+if [ ! -d $HOME_GNUSTEP_DEF ];then
+	mkdir -p $HOME_GNUSTEP_DEF
+fi
+
 cd $DEFDIR || exit 1
 
 if [ "$USER" == "patrick" ];then
@@ -266,7 +270,10 @@ if [ "$USER" == "patrick" ];then
 else
 	cat ${GWDEF}.TEMPLATE | sed -e s/patrick/$USER/g > ${GWDEF}.plist
 fi
-
+cd $_PWD
+if [ ! -f $HOME_GNUSTEP_DEF/WindowMaker ];then
+	cd RESOURCES/DEFAULTS && cp WindowMaker $HOME_GNUSTEP_DEF/
+fi
 cd $_PWD
 
 ################################
@@ -276,7 +283,7 @@ cd $_PWD
 
 ############################################
 ### Applying a theme for WMaker:
-printf "Applying a theme for WMaker..."
+printf "Applying a theme for WMaker...\n"
 #### Syntax: setstyle THEME-PACK
 #### (in our case: THEME-PACK is 'PISIN')
 
@@ -316,7 +323,6 @@ do
 done
 
 cd $_PWD
-ok "Done"
 
 stop
 
@@ -426,11 +432,11 @@ stop
 ### Do not use WDM.
 #cp $HOME/.xinitrc $HOME/.xsession
 
-MESSAGE="The PiStep Initiative Desktop is ready to use now.\n \
+MESSAGE="The PiStep Initiative Desktop is ready to test now.\n \
 To start it, execute:\n"
 info "$MESSAGE"
 cli "cd && startx"
 
-warning "Until now, no DM nor Login Manager... \nDO NOT use WDM, it could break PiSiN installation!"
-
-
+info "Login/Display Manager: after testing the Desktop, log out and execute:"
+cli "cd SOURCES/pi-step-initiative/pisin"
+cli "./7_install_DM.sh"

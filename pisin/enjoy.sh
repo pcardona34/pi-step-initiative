@@ -9,6 +9,13 @@
 ### Read License in the root directory.
 ####################################################
 
+### Banniere
+clear
+cat RESOURCES/logo.txt
+printf "\n\t\t\tW e l c o m e   t o   t h e    P i S i N    W o r l d!\n\n\t\t\tE N J O Y   installer   script   will   start   soon..."
+sleep 3
+
+
 ####################################################
 ### VARS
 LOGENJ="$HOME/ENJOY.log"
