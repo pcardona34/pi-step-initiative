@@ -3,7 +3,7 @@
     geometry = "1058 175 450 500 0 0  1920 1080 ";
     "hligh_table_col" = <*I0>;
     lastselection = (
-	"/home/patrick/Books/PiSiN_Desktop.help"
+	"/home/patrick/SOURCES/pi-step-initiative/pisin/RESOURCES/HELP/PiSiN_UG.help"
     );
     "list_view_columns" = {
 	0 = {

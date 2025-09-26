@@ -236,7 +236,23 @@
 				<string>/Local/Applications/VolumeControl.app</string>
 			    </array>
 			</dict>
-		    </array>
+                        <dict>
+                            <key>index</key>
+                            <integer>9</integer>
+                            <key>paths</key>
+                            <array>
+                                <string>/Local/Applications/Rpi-imager.app</string>
+                            </array>
+  	               </dict> 
+                       <dict>
+                            <key>index</key>
+                            <integer>10</integer>
+                            <key>paths</key>
+                            <array>
+                                <string>/Local/Applications/Rpinters.app</string>
+			    </array>
+        	       </dict>
+		    </array>	
 		    <key>iconstype</key>
 		    <integer>0</integer>
 		</dict>

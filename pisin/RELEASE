@@ -1,8 +1,26 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.8.0
+- **Release**: 0.8.2
 - **Status**: Stable
+
+### Tests: Fri 26 Sep
+
+Passed: 13 / 13
+
+- Window manager / Theming: ok
+- Workspace / Dock / Wallpaper: ok
+- Home customized folder: ok
+- Applications Folder / TabbedShelf: ok
+- Autostart: ok
+- Sysinfo Panel: ok
+- Notify: ok
+- Open/save: ok
+- Web Browser: ok
+- Printing: ok
+- Scanning: ok
+- Screensaver: ok
+- Display Manager: ok
 
 ### The Desktop Components
 
@@ -21,7 +39,7 @@ All the apps below were built from sources and so are the latest.
 - Theme: PISIN mostly inspired by Papirus Icon theme and GNUstep Sleek Theme: finished.
 - Session: Display Manager (Lightdm) and DBus (but without DBUSKit).
 - Alsa compliant Audio Mixer: see VolumeControl below.
-
+- RPI tools: wrappers for rpi-imager, rpinters.
 ===========================================
 
 ### Applications and Tools for the End-User and The Developer

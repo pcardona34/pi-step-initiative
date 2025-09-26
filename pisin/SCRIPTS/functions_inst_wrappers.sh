@@ -17,7 +17,7 @@
 ### All the Wrappers
 #### Those are in RESOURCES/WRAPPERS
 ##############################################
-function install_wrappers()
+function install_wrappers
 {
 cd $_PWD/RESOURCES/WRAPPERS || exit 1
 
@@ -30,6 +30,25 @@ do
 
 	sudo cp -a ${APPNAME}.app $INSTALL_DIR/
 	check $APPNAME
+done
+
+cd $_PWD
+}
+
+#########################################################
+function install_rpi_tools
+{
+cd $_PWD/RESOURCES/RPI_TOOLS || exit 1
+
+for WRAP in *.app
+do
+        APPNAME=${WRAP%.app}
+
+        echo "$APPNAME" >> $LOG
+        title "Installing the wrapper for $APPNAME"
+
+        sudo cp -a ${APPNAME}.app $INSTALL_DIR/
+        check $APPNAME
 done
 
 cd $_PWD
