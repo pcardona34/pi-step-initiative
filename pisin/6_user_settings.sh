@@ -173,12 +173,13 @@ echo "$TITLE" >>$LOG
 title "$TITLE"
 
 WP=fond_pi_step_initiative.png
-WP_FOLDER=$HOME/GNUstep/Library/WindowMaker/Backgrounds
+#WP_FOLDER=$HOME/GNUstep/Library/WindowMaker/Backgrounds
+WP_FOLDER=/usr/share/wallpapers
 if [ ! -d $WP_FOLDER ];then
-	mkdir -p $WP_FOLDER
+	sudo mkdir -p $WP_FOLDER
 fi
 cd RESOURCES/WALLPAPERS || exit 1
-cp --remove-destination ${WP} ${WP_FOLDER}/${WP}
+sudo cp --remove-destination ${WP} ${WP_FOLDER}/${WP}
 cd $_PWD
 ok "Done"
 
@@ -230,12 +231,10 @@ title "$TITLE"
 printf "Window Maker Theme...\n"
 install_wm_theme
 cd $_PWD
-ok "Done"
 
 printf "GNUstep Theme..."
 install_gs_theme
 cd $_PWD
-ok "Done"
 
 ### Some Apps known to not comply with Theme: workaround
 ### We need to update Info-gnustep.plist for these apps
@@ -312,9 +311,14 @@ for PLIST in "Addresses" "NSGlobalDomain" "org.gap.InnerSpace" "org.gap.Terminal
 do
 	if [ -f ${PLIST}.plist ];then
 		printf "Setting Defaults for ${PLIST}\n"
-		cp --force ${PLIST}.plist $DEST/
-		if [ "$PLIST" == "org.gnustep.GWorkspace" ];then
-			rm -f ${PLIST}.plist
+		if [ -f $DEST/${PLIST}.plist ] && [ "${PLIST}" == "org.gnustep.GNUMail" ];then
+			info "We preserve GNUMail settings."
+			continue;
+		else
+			cp --force ${PLIST}.plist $DEST/
+			if [ "$PLIST" == "org.gnustep.GWorkspace" ];then
+				rm -f ${PLIST}.plist
+			fi
 		fi
 		ok "Done"
 	else
@@ -333,17 +337,20 @@ echo "$TITLE" >>$LOG
 title "$TITLE"
 
 cd RESOURCES/SCRIPTS || exit 1
-for TOOL in Setup_Printer.sh pisin
+#for TOOL in Setup_Printer.sh pisin
+for TOOL in pisin
 do
-	cp -u $TOOL $HOME/.local/bin/
+	#cp -u $TOOL $HOME/.local/bin/
+	sudo cp -u $TOOL /usr/local/bin/
 done
 cd $_PWD
 stop
 
 cd SCRIPTS || exit 1
-for TOOL in colors.sh spinner.sh
+#for TOOL in colors.sh spinner.sh
+for TOOL in colors.sh
 do
-	cp -u $TOOL $HOME/.local/bin/
+	sudo cp -u $TOOL /usr/local/bin/
 done
 cd $_PWD
 ok "Done"
@@ -423,7 +430,7 @@ do
 		mv $LOG Documents/
 	fi
 done
-info "All the logs were moved into the Documents Folder."
+info "All the logs were moved into the Documents Folder, apart from 'ENJOY.log'."
 
 stop
 

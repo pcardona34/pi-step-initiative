@@ -24,21 +24,9 @@ else
 fi
 
 ###############################################
-### Importe des fonctions
+### Functions
 ###############################################
-. $HOME/.local/bin/colors.sh
-. $HOME/.local/bin/spinner.sh
-
-###############################################
-### Clean: remove the lock file
-###############################################
-function clean()
-{
-if [ -f $HOME/.Updater ];then
-	rm $HOME/.Updater
-fi
-}
-### End of clean
+. /usr/local/bin/colors.sh
 
 ###################################################
 ### Update: check packages to update
@@ -53,10 +41,12 @@ DELAY=30 # seconds
 case $PREFIX in
 	"fr")
 	TITLE="Mise à jour du Système"
-	MSG="nouveaux paquets sont disponibles.";;
+	MSG="nouveaux paquets sont disponibles."
+	OK="Votre système est à jour.";;
 	"en" | *)
 	TITLE="Debian Updater"
-	MSG="new packages are available.";;
+	MSG="new packages are available."
+	OK="Your Operating System is up to date.";;
 esac
 
 ### Get info from Debian apt update
@@ -67,19 +57,17 @@ sudo apt update &>>$TMPFILE
 NB=$(grep -e "upgradable" $TMPFILE | awk '{print $1}') || NB=0
 if [ $NB ];then
 	dunstify -u critical "$TITLE" "$NB $MSG"
-#	echo "$NB $MSG" > $HOME/.Updater
 else
-	clean
+	dunstify "$TITLE" "$OK"
 fi
 }
 ### End of update
 
+#######################################
 function upgrade()
 {
 title "Upgrading the packages..."
-sudo apt full-upgrade -y &>/dev/null &
-PID=$!
-spinner
+sudo apt upgrade -y &>/dev/null &
 clean
 ok "\rDone"
 }

@@ -27,4 +27,4 @@ dunstify "PiSiN Desktop is loading..."
 pgrep conky || sleep 8 && conky -c ~/.config/pisin/conky.conf &
 
 ### Updater notification
-sleep 60 && ~/.local/bin/Updater.sh -d &
+sleep 60 && /usr/local/bin/Updater.sh -d &

@@ -70,7 +70,7 @@
 	<key>iconsize</key>
 	<integer>48</integer>
 	<key>imagepath</key>
-	<string>/home/patrick/GNUstep/Library/WindowMaker/Backgrounds/fond_pi_step_initiative.png</string>
+	<string>/usr/share/wallpapers/fond_pi_step_initiative.png</string>
 	<key>imagestyle</key>
 	<integer>1</integer>
 	<key>indexes</key>

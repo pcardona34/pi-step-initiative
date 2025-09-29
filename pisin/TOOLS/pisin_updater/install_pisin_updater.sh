@@ -16,13 +16,8 @@
 ### VARS
 
 AUTO=$HOME/GNUstep/Library/WindowMaker/autostart
-HOME_DIR_BIN=$HOME/.local/bin
 
-if ! [ -d $HOME_DIR_BIN ];then
-	mkdir -p "$HOME_DIR_BIN"
-fi
-
-cp -u Updater.sh $HOME_DIR_BIN/
+sudo cp -u Updater.sh /usr/local/bin/
 
 ###  Copy of dunstrc
 DUNSTRC=$HOME/.config/dunst
@@ -34,6 +29,8 @@ cp _dunstrc $DUNSTRC/dunstrc
 grep -e "Updater.sh" $AUTO &>/dev/null
 if [ $? -eq 0 ];then
 	printf "\nAlready set in $AUTO\n"
+else
+	echo "sleep 60 && /usr/local/bin/Updater.sh -d &" >>$AUTO
 fi
 
 printf "\nPiSiN_Updater has been set.\n"
