@@ -33,7 +33,6 @@
 </plain>
 
 <chapter src="Introduction.xlp" name="PiSiN Brief Tour"></chapter>
-<chapter src="StartAndStop.xlp" name="Start and Stop"></chapter>
 <chapter src="Sound.xlp" name="The Sound"></chapter>
 <chapter src="Devices.xlp" name="Removable Devices"></chapter>
 
