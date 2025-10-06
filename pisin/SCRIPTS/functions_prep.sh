@@ -28,7 +28,9 @@ ARCHI=`uname -a | awk '{print $10}'`
 MODEL=`cat /sys/firmware/devicetree/base/model | awk '{print $3}'`
 MSG="On $ID - $VERSION_ID - ${ARCHI} - Raspberry Pi ${MODEL}\nYou are welcome!\n\n"
 
-if [ "$ID" == "$REQUIRED_OS" ] && [ $VERSION_ID -eq $REQUIRED_RELEASE ] && [ "$ARCHI" == "$REQUIRED_ARCH" ];then
+
+
+if [ "$ID" == "$REQUIRED_OS" ] && [ $VERSION_ID -ge $REQUIRED_RELEASE ] && [ "$ARCHI" == "$REQUIRED_ARCH" ];then
 	TEST=0
 fi
 
@@ -47,7 +49,7 @@ RES=$(( $TEST + $MOD ))
 if [[ $RES -eq 0 ]];then
 	info "$MSG"
 else
-	alert "PiSiN Desktop should not be installed without $REQUIRED_OS ${REQUIRED_RELEASE}.\nNor without Arm64 processor.\nIt has been conceived on and for a Raspberry Pi SBC.\nAborting!\n"
+	alert "PiSiN Desktop should not be installed without $REQUIRED_OS >= ${REQUIRED_RELEASE}.\nNor without Arm64 processor.\nIt has been conceived on and for a Raspberry Pi SBC.\nAborting!\n"
 	exit 1
 fi
 }

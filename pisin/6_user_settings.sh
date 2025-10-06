@@ -174,7 +174,7 @@ title "$TITLE"
 
 WP=fond_pi_step_initiative.png
 #WP_FOLDER=$HOME/GNUstep/Library/WindowMaker/Backgrounds
-WP_FOLDER=/usr/share/wallpapers
+WP_FOLDER=/usr/local/share/wallpapers
 if [ ! -d $WP_FOLDER ];then
 	sudo mkdir -p $WP_FOLDER
 fi

@@ -1,10 +1,10 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.8.3
+- **Release**: 0.8.4
 - **Status**: Stable
 
-### Tests: Fri 26 Sep
+### Tests: Mon 06 Oct
 
 Passed: 13 / 13
 
@@ -24,9 +24,8 @@ Passed: 13 / 13
 
 ### The Desktop Components
 
-- Operating System: Raspberry Pi OS Lite release (it is now Debian Bookworm 12.12). Not yet tested on Trixie.
-- Window Manager: this is Window Maker 0.95.9 (debian default package version) with PISIN.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Window Maker.
-	 (MEMO: 0.96.0 was broken: "symbol lookup error: wuserdatapath": unresolved until now, so we reverted to previous stable version)
+- Operating System: Raspberry Pi OS Lite release (it is now Debian Trixie 13.1).
+- Window Manager: this is Window Maker 0.96.0 (debian default package version) with PISIN.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Window Maker.
 - Notifyer: dunst - SimpleAgenda won't use it because libDBUSKit is not installed.
 - Compositing: compton.
 - Sys Infos: conky. Weather data is fetched from Wttr.in. The system monitoring is upon: date, time, uptime, CPU, Memory, Storage and Networking.
@@ -45,7 +44,7 @@ All the apps below were built from sources and so are the latest.
 ### Applications and Tools for the End-User and The Developer
 
 - All-in-One install script is now available: './enjoy.sh'
-- Installation of a Display Manage is now available.
+- Installation of a Display Manager is now available.
 - See INSTALL to understand the steps.
 
 ===========================================

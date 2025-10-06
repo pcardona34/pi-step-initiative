@@ -1,4 +1,4 @@
--- Conky settings
+-- Conky settings French
 
 conky.config = {
 alignment = 'bottom_right',
@@ -56,7 +56,8 @@ ${font}${color}
 ${voffset -40}
 ${alignc}${color4}${font SansSerif:size=28}${exec date +"%H"}${color}:${color4}${exec date +"%M"}
 ${font}${color}
-${alignc}Durée: ${uptime}
+${alignc}${font ConkySymbols:size=24}S${voffset -10}${font}${font SansSerif:size=14}${color1}${distribution} ${execi 86400 lsb_release -r -s}${font}${color}
+${alignc}${voffset 12} Durée: ${uptime}
 ${hr}
 ${alignc}${font ConkySymbols:size=24}H${voffset -10}${font}${font SansSerif:size=14}${color1} Météo ${font}${color}
 ${voffset 2}
@@ -68,7 +69,7 @@ ${alignc}${font ConkySymbols:size=24}F${voffset -10}${font SansSerif:size=14}${c
 ${goto 40}CPU (${color4}${freq_g cpu1}${color} GHz)${alignr 39}${color8}${cpu}%${color}
 
 ${hr}
-${alignc}${font ConkySymbols:size=24}J${voffset -10}${font SansSerif:size=14}${color1} Mémoire vive ${font}${color}
+${alignc}${font ConkySymbols:size=24}J${voffset -10}${font SansSerif:size=14}${color1} Mémoire ${font}${color}
 
 ${color3}${membar 16}$color
 ${voffset -22}${goto 40}Mém: ${memperc}% ${alignr 39}${color 8686BF}$mem${color} / $memmax
@@ -81,13 +82,13 @@ ${hr}
 ${alignc}${font ConkySymbols:size=24}I${voffset -10}${font SansSerif:size=14}${color1} Réseau ${font}${color}
 ${if_existing /proc/net/route wlan0}
 ${goto 40}${upspeedgraph wlan0 26,80 00FFFF 00FFFF}${goto 150}${downspeedgraph wlan0 26,80 FFFFFF FFFFFF}
-${goto 40}${color5}Haut: ${color4}${upspeed wlan0}${color5}${goto 150}Desc.: ${color2}${downspeed wlan0}
-${goto 40}${color5}Env.: ${color4}${totalup wlan0}${color5}${goto 150}Recus: ${color2}${totaldown wlan0}
+${goto 40}${color5}Up: ${color4}${upspeed wlan0}${color5}${goto 150}Down: ${color2}${downspeed wlan0}
+${goto 40}${color5}Sent: ${color4}${totalup wlan0}${color5}${goto 150}Received: ${color2}${totaldown wlan0}
 ${endif}
 ${if_existing /proc/net/route eth0}
 ${alignc}IP: ${addr eth0}
 ${goto 40}${upspeedgraph eth0 26,80 FFB7C5 FFB7C5}${goto 150}${downspeedgraph eth0 26,80 3A3A56 D7D7FF}
-${goto 40}${color5}Montée: ${color7}${upspeed eth0}${color5}${goto 150}Descente: ${color2}${downspeed eth0}
+${goto 40}${color5}Montant: ${color7}${upspeed eth0}${color5}${goto 150}Descendant: ${color2}${downspeed eth0}
 ${goto 40}${color5}Envoyés: ${color7}${totalup eth0}${color5}${goto 150}Reçus: ${color2}${totaldown eth0}
 ${endif}${color}
 

@@ -4,15 +4,15 @@
 
 ### Base OS and Locale
 
-1) With the 'rpi-imager' tool, copy the '64-bit Raspberry Pi OS Lite' (without desktop) on an SD card (16 GB required): i.e.: Debian Bookworm (12) --- You should customize the keyboard layout, the user name and its password...   
+1) With the 'rpi-imager' tool, copy the '64-bit Raspberry Pi OS Lite' (without desktop) on an SD card (16 GB required): i.e.: Debian Trixie (13) --- You should customize the keyboard layout, the user name and his password...   
 
 2) Plug the SD card, remove any USB connected device and boot your Pi with this Operating System. 
 
-3) After the usual SSH key generation and first auto-reboot, log in and update the Debian OS:
+3) After the usual first auto-reboot, log in and update the Debian OS:
 
 	sudo apt update && sudo apt upgrade
 
-You should get the latest Bookworm release: 12.12 as shown by:
+You should get the latest release: 13.1 as shown by:
 	
 	cat /etc/debian_version
 

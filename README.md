@@ -4,8 +4,7 @@
 
 - Setting a GNUstep compliant Desktop on a Raspberry Pi.
 - **Release/Status**: see [RELEASE](pisin/RELEASE).
-- The Operating System is Raspberry Pi OS Lite, itself based on Debian Bookworm, i.e. 12
-- Roadmap: Trixie will be tested as soon as the RPI OS Lite will officially adopt the 13th Debian release.
+- The Operating System is Raspberry Pi OS Lite, itself based on Debian: successfully installed and tested on: Bookworm (12) and Trixie (13).
 - Short Name changed to 'PiSiN' to avoid misconfusion with an already existent GNU/Linux distro project.
 
 ## Detailed goals and targets
@@ -48,8 +47,8 @@ Until now, steps 1 to 3 are mostly done.
 
 ### Screenshot of the current release
 
-![screenshot](./Screenshots/screenshot_PiSiN_on_Pi_400_small.jpg).
-[Magnify](./Screenshots/screenshot_PiSiN_on_Pi_400.png)...
+![screenshot](Screenshots/screenshot_PiSiN_pi400_debian13.jpg).
+[More screenshots](Screenshots)
 
 ### PiSiN Components as Brief
 
@@ -62,7 +61,7 @@ Until now, steps 1 to 3 are mostly done.
 
 ### How to install
 
-- Read the [INSTALL](./pisin/INSTALL) guide to know how to fetch and build PiSiN.
+- Read the [INSTALL](pisin/INSTALL) guide to know how to fetch and build PiSiN.
 
 ## Thanks and Tributes
 
