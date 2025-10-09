@@ -1,7 +1,7 @@
 PiSiN / Pi-STEP initiative 
 ==========================
 
-- **Release**: 0.8.4
+- **Release**: 0.8.5
 - **Status**: Stable
 
 ### Tests: Mon 06 Oct
@@ -14,7 +14,7 @@ Passed: 13 / 13
 - Applications Folder / TabbedShelf: ok
 - Autostart: ok
 - Sysinfo Panel: ok
-- Notify: ok
+- Notify: Updater, BirthNotify: ok
 - Open/save: ok
 - Web Browser: ok
 - Printing: ok
@@ -25,8 +25,11 @@ Passed: 13 / 13
 ### The Desktop Components
 
 - Operating System: Raspberry Pi OS Lite release (it is now Debian Trixie 13.1).
-- Window Manager: this is Window Maker 0.96.0 (debian default package version) with PISIN.themed and options: --no-dock  --no-clip --static. Some apps and tools are launched with the 'autostart' script of Window Maker.
-- Notifyer: dunst - SimpleAgenda won't use it because libDBUSKit is not installed.
+- Window Manager: this is Window Maker 0.96.0 (debian default package version) with PISIN.themed and options: `--no-dock  --no-clip --static`. Some apps and tools are launched with the 'autostart' script of Window Maker.
+- Notifyer: uses 'dunst' - SimpleAgenda won't use it because libDBUSKit is not installed. But some Tools are used with dunst to provide the disered features: Debian `Updater` (arises when new packages are available); `BirthNotify` (arises when it finds a birthday or a feast today);  
+  - Some tools complete BirthNotify from the birthday data file: see `$HOME/Documents/Private/Birthdays` sample.
+    - `birth2vcf` extracts birthday events ('bd' tag) and creates a 'vcard' file to import in 'AddressManager'; so 'SimpleAgenda' is thenable to retrieve these birthdays; 
+    - `feast2ics` extracts feast events ('st' tag has been added to the original birthday format) and creates an 'ics' calendar to import in SimpleAgenda.
 - Compositing: compton.
 - Sys Infos: conky. Weather data is fetched from Wttr.in. The system monitoring is upon: date, time, uptime, CPU, Memory, Storage and Networking.
 	(Conky Panel is localized in French and in English)
@@ -66,7 +69,7 @@ Note-4: Devel GNUstep Applications have a "(D)" mention in the list below.
 
 ===========================================
 
-The complete list:
+The complete list of GNUstep apps:
 
 - AddressManager: contacts
 - Calculator (E)
@@ -124,3 +127,8 @@ Some apps or frameworks won't build with the GNU Runtime: so we needed to remove
 
 - Cenon (ER): Desktop Publishing
 - DBusKit (R): DBus framework (to be checked again)
+
+Tools (mostly Bash scripts)
+===========================
+- Updater
+- BirthNotify

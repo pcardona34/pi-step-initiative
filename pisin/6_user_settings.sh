@@ -220,6 +220,21 @@ cd TOOLS/pisin_compton || exit 1
 cd $_PWD
 ok "Done"
 
+### Loading
+sudo cp -u RESOURCES/SCRIPTS/loading.sh /usr/local/bin/
+
+stop
+
+### Installing Tools and confs... BirthNotify
+TITLE="BirthNotify tool"
+echo "$TITLE" >>$LOG
+title "$TITLE"
+
+cd TOOLS/pisin_birthday || exit 1
+. ./install_birthday.sh
+cd $_PWD
+ok "Done"
+
 stop
 
 ###########################################

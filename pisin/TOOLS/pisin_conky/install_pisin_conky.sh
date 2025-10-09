@@ -43,13 +43,16 @@ if ! [ -d $DEST ];then
 fi
 
 printf "Conky Symbols TTF...\n"
-cd $_PWD/RESOURCES/THEMES || exit 1
-cp ConkySymbols.ttf.tar.gz $DEST/
-cd $DEST
-gunzip --force ConkySymbols.ttf.tar.gz
-tar -xf ConkySymbols.ttf.tar
-rm ConkySymbols.ttf.tar
-fc-cache -f
+
+if [ ! -f $DEST/ConkySymbols.ttf ];then
+	cd $_PWD/RESOURCES/THEMES || exit 1
+	cp ConkySymbols.ttf.tar.gz $DEST/
+	cd $DEST
+	gunzip --force ConkySymbols.ttf.tar.gz
+	tar -xf ConkySymbols.ttf.tar
+	rm ConkySymbols.ttf.tar
+	fc-cache -f
+fi
 ok "Done"
 
 printf "\nConky has been set.\n"

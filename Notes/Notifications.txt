@@ -9,3 +9,8 @@ systemctl --user import-environment DISPLAY
 
 ## config in:
 $HOME/.config/dunst/dunstrc
+
+See also the TOOLS under 'pisin/TOOLS' folder, namely:
+
+- Updater
+- BirthNotify

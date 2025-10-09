@@ -37,15 +37,17 @@ function update()
 TMPFILE=$(mktemp /tmp/pisi-XXXXX)
 trap "rm -f $TMPFILE" EXIT
 PREFIX=$(echo ${LANG%.UTF-8} | awk -F'_' '{print $1}')
-DELAY=30 # seconds
+DELAY=10 # seconds
+BELL=/usr/local/share/icons/bell.tif
+
 case $PREFIX in
 	"fr")
-	TITLE="Mise à jour du Système"
-	MSG="nouveaux paquets sont disponibles."
+	TITLE="Mise à jour du Système Debian"
+	MSG="nouveaux paquets disponibles."
 	OK="Votre système est à jour.";;
 	"en" | *)
-	TITLE="Debian Updater"
-	MSG="new packages are available."
+	TITLE="Debian System Updater"
+	MSG="new packages available."
 	OK="Your Operating System is up to date.";;
 esac
 
@@ -56,7 +58,7 @@ sudo apt update &>>$TMPFILE
 ### Search if upgradable packages exists
 NB=$(grep -e "upgradable" $TMPFILE | awk '{print $1}') || NB=0
 if [ $NB ];then
-	dunstify -u critical "$TITLE" "$NB $MSG"
+	dunstify -u critical -i $BELL "$TITLE" "$NB $MSG"
 else
 	dunstify "$TITLE" "$OK"
 fi
@@ -68,11 +70,12 @@ function upgrade()
 {
 title "Upgrading the packages..."
 sudo apt upgrade -y &>/dev/null &
-clean
 ok "\rDone"
 }
+
 ### End of upgrade
 
+#######################################
 function myhelp()
 {
 #clear
@@ -86,6 +89,7 @@ printf "\t--help | -h\t\tPrint this help.\n\n"
 ### End of help
 
 ######################################
+### main script
 
 case "$ARG" in
 	"--update"|"-d")

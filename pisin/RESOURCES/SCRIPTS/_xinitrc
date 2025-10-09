@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# $HOME/.xinitrc
+# X session init script
 
 ### Xinit starts Xserver...
 PID_XSESSION=$$
@@ -22,7 +22,7 @@ sleep 1
 
 ### GWorkspace within a DBus session
 sleep 2
-exec dbus-launch --sh-syntax --exit-with-session /System/Tools/openapp GWorkspace
+exec dbus-launch --sh-syntax --exit-with-x11 /System/Tools/openapp GWorkspace
 
 ### This is a secure way in any case Dbus fails to kill the session:
 kill $PID_XSESSION

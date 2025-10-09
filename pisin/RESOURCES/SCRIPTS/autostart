@@ -21,10 +21,8 @@ pgrep compton || compton -b
 ### Notifications
 systemctl --user import-environment DISPLAY
 pgrep dunst || dunst &
-dunstify "PiSiN Desktop is loading..."
+sleep 2 && /usr/local/bin/loading.sh &
 
 ### conky
-pgrep conky || sleep 8 && conky -c ~/.config/pisin/conky.conf &
-
-### Updater notification
-sleep 60 && /usr/local/bin/Updater.sh -d &
+pgrep conky || sleep 6 && conky -c ~/.config/pisin/conky.conf &
+PREFIX=$(echo ${LANG%.UTF-8} | awk -F'_' '{print $1}')
