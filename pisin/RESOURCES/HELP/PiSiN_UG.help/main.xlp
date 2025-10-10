@@ -35,5 +35,7 @@
 <chapter src="Introduction.xlp" name="PiSiN Brief Tour"></chapter>
 <chapter src="Sound.xlp" name="The Sound"></chapter>
 <chapter src="Devices.xlp" name="Removable Devices"></chapter>
+<chapter src="Updater.xlp" name="Updater"></chapter>
+<chapter src="Birth.xlp" name="Birthdays and Feasts"></chapter>
 
 </document>

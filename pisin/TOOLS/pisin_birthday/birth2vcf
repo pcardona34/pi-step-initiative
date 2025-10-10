@@ -10,8 +10,8 @@
 ####################################################
 
 ################################
-### birth2cvf
-### Export bd line to vcard
+### birth2vcf
+### Export bd lines to a vcard file
 ### Useful to import in AddressManager
 ### Then SimpleAgenda will retrieve them.
 ################################
@@ -19,7 +19,7 @@
 ################################
 ### VARS
 TODAY=$(date +"%Y%m%d")
-OUT=bd${TODAY}.cvf
+OUT=bd${TODAY}.vcf
 if [ -f $OUT ];then
 	rm -f $OUT
 fi

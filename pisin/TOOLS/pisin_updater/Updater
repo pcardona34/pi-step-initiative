@@ -69,7 +69,7 @@ fi
 function upgrade()
 {
 title "Upgrading the packages..."
-sudo apt upgrade -y &>/dev/null &
+sudo apt -y upgrade
 ok "\rDone"
 }
 

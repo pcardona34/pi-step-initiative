@@ -76,7 +76,7 @@ In the meanwhile, using 'BithNotify' set of tools.
 - [ ] Target: a GSPass (frontend to create) with Pass. In the meanwhile, using 'pass' in the Terminal.
 - [x] A way to import from a .csv (see export of the Password Manager of Chromium; and also from KeePassXC) passwords database. Already provided by pass.
 - [x] Target: AddressManager: import a .vcf directory from Abook. Test ok.
-- [ ] Documentation about each process.
+- [-] Documentation about each process: done for Birthdays and feasts.
 
 ### Tools a Pi average user should look for
 
@@ -95,13 +95,14 @@ In the meanwhile, using 'BithNotify' set of tools.
 ### Average User Documentation
 
 - [x] Help: should be within HelpViewer (.help/.xlp format)
-- [x] How to Login / start Workspace / halt pi400
+- [x] How to Login / start Workspace / halt pi400: not needed using LightDM now.
 - [ ] Customization: locales, timezone (launching and using SystemPreferences)
 - [x] How to use GWorkspace (basic operations on Files); mount/unmount a removable device...
 - [-] Setting CUPS (printing): see Rpinters wrapper on PiSiN and Setup_Printer on AGNoStep.
 - [x] Setting/Fixing AlsaMixer
 - [ ] setting/Using Librarian
 - [ ] An Application Quick Tour
+- [x] About Notifications: Updater, BirthNotify. See PiSiN UG.
 
 ### Developer Documentation
 
@@ -134,7 +135,7 @@ In the meanwhile, using 'BithNotify' set of tools.
 - [x] Inform Raspberry Pi community.
 - [x] Test PiSiN on Debian Trixie (13) / RPI OS Lite Flavour: done since 0.8.4 release.
 
-## New candidates to Extra apps
+## New candidates to Extra apps?
 
 ### Login app
 
