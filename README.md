@@ -1,5 +1,11 @@
 # A Pi-Step iNitiative (PiSiN)
 
+## Caution!
+
+- The release 0.8.6 was the latest of the PiSiN Desktop as a specific project tied to Raspbarry Pi's.
+- If you want an up-to-date PiSiN like desktop, consider from now on henceforth using [AGNoStep](https://github.com/pcardona34/agnostep), the unified and agnostic project, which supports now the Pi's too.
+- See also issue #11 to migrate to AGNoStep from the latest PiSiN.
+
 ## Abstract
 
 - Setting a GNUstep compliant Desktop on a Raspberry Pi.
@@ -16,7 +22,7 @@ to change the operating system and to test another one by changing the SD card a
 
 Model 3b has been also successfully tested (Sat 6 Sep 2025). 
 
-**Roadmap**: Pi 500 will be tested on Jan. 2026.
+**Roadmap**: Pi 500 will be tested on Jan. 2026: see [AGNoStep](https://github.com/pcardona34/agnostep).
 
 ### Audience
 

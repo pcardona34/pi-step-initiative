@@ -33,6 +33,7 @@ LOCAL_INSTALL_DIR=$(gnustep-config --variable=GNUSTEP_LOCAL_APPS)
 
 . SCRIPTS/colors.sh
 . SCRIPTS/spinner.sh
+. SCRIPTS/functions_prep.sh
 . SCRIPTS/functions_misc_folders.sh
 . SCRIPTS/functions_inst_themes.sh
 . SCRIPTS/functions_misc_themes.sh

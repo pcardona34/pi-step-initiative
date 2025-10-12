@@ -25,4 +25,4 @@ sleep 2 && /usr/local/bin/loading.sh &
 
 ### conky
 pgrep conky || sleep 6 && conky -c ~/.config/pisin/conky.conf &
-PREFIX=$(echo ${LANG%.UTF-8} | awk -F'_' '{print $1}')
+#PREFIX=$(echo ${LANG%.UTF-8} | awk -F'_' '{print $1}')
