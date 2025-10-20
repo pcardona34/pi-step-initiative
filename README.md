@@ -4,7 +4,7 @@
 
 - The release 0.8.6 was the latest of the PiSiN Desktop as a specific project tied to Raspberry Pi's.
 - If you want an up-to-date PiSiN like desktop, consider from now on henceforth using [AGNoStep](https://github.com/pcardona34/agnostep), the unified and agnostic project, which supports now the Pi's too.
-- See also issue #11 to migrate to AGNoStep from the latest PiSiN.
+- See the Wiki to know how to migrate from the latest PiSiN to AGNoStep.
 
 ## Abstract
 
